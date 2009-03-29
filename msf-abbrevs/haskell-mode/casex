@@ -1,0 +1,2 @@
+case <field "NAME"> of
+    <field "COND"> -> <endpoint> ;

@@ -1,0 +1,4 @@
+receive
+    <field "pattern"> ->
+        <endpoint>
+end

@@ -1,0 +1,1 @@
+<input <choose><choice "type=text name=name"><choice "type=submit"><choice "type=file name=myFile"><choice "type=submit value=Submit"><choice "type=hidden name=foo value=bar"></choose>>

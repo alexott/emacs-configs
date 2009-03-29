@@ -1,0 +1,6 @@
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[angle=270,width=.90\textwidth]{<field "image name">}
+  \caption{<field "Caption name">}
+  \label{fig:<field "Figure label">}
+\end{figure}

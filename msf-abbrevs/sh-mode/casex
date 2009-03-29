@@ -1,0 +1,7 @@
+case <field "dispatch name"> in
+     <field "condition">)
+        <endpoint>
+        ;;
+     *)
+        ;;
+esac

@@ -1,0 +1,7 @@
+<QUERY "type: "> & operator=(const <QUERY "type: "> & t) {
+    if (&t != this) {
+        // fill in here
+        <cursor>
+    }
+    return *this;
+}

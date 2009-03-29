@@ -1,0 +1,74 @@
+;;; emacs-rc-haskell.el ---
+
+;; Copyright (C) 2008 Alex Ott
+;;
+;; Author: alexott@gmail.com
+;; Version: $Id: emacs-rc-haskell.el,v 0.0 2008/01/28 08:58:32 ott Exp $
+;; Keywords:
+;; Requirements:
+;; Status: not intended to be distributed yet
+
+
+(add-to-list 'load-path "~/emacs/haskell-mode")
+(load "~/emacs/haskell-mode/haskell-site-file")
+
+(custom-set-variables
+ '(haskell-program-name "ghci")
+ '(inferior-haskell-wait-and-jump t)
+ '(hs-lint-replace-with-suggestions t)
+ )
+
+(require 'hs-lint)
+
+(defun my-haskell-mode-hook ()
+  (turn-on-haskell-doc-mode)
+  (turn-on-haskell-indent)
+;;  (turn-on-haskell-ghci)
+  (turn-on-eldoc-mode)
+  (local-set-key [return] 'newline-and-indent)
+  (local-set-key "\C-m" 'newline-and-indent)
+  (local-set-key "\C-c:" 'uncomment-region)
+  (local-set-key "\C-c;" 'comment-region)
+  (local-set-key "\C-c\C-c" 'comment-region)
+  (local-set-key "\C-cl" 'hs-lint)
+  (setq tab-width 4)
+  (setq haskell-font-lock-symbols t)
+;;  (turn-on-haskell-simple-indent)
+  )
+(add-hook 'haskell-mode-hook 'my-haskell-mode-hook)
+
+
+;; flymake settings
+
+;; (defvar flymake-ghc-options (list "-Wall"))
+;; (defvar flymake-ghc-packages (mapcar (lambda (p)
+;;                                       (concat "-package " p))
+;;                                     '("QuickCheck")))
+
+;; (defun flymake-get-Haskell-cmdline (source base-dir)
+;;   (list "ghc"
+;;        (append
+;;         (list "--make" (concat "-i" base-dir) source)
+;;         flymake-ghc-options
+;;         flymake-ghc-packages)))
+
+;; (defun flymake-Haskell-init ()
+;;   (flymake-simple-make-init-impl
+;;    'flymake-create-temp-inplace
+;;    nil nil
+;;    (file-name-nondirectory buffer-file-name)
+;;    'flymake-get-Haskell-cmdline))
+
+;; (defun flymake-Haskell-cleanup ()
+;;   (delete-file flymake-temp-source-file-name))
+
+;; (push '(".+\\.hs$" flymake-Haskell-init flymake-Haskell-cleanup)
+;;      flymake-allowed-file-name-masks)
+;; ;; fix to proper handling of warnings
+;; (push '("^\\(\.+\.hs\\|\.lhs\\):\\([0-9]+\\):\\([0-9]+\\):\\(.\+\\)" 1 2 3 4)
+;;      flymake-err-line-patterns)
+
+;;
+(add-to-list 'exec-path "~/.cabal/bin")
+
+;;; emacs-rc-haskell.el ends here

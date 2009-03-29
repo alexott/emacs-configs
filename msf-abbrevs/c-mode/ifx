@@ -1,0 +1,3 @@
+if (<field "condition">) {
+    <endpoint>
+}

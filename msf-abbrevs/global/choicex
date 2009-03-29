@@ -1,0 +1,6 @@
+<field "hi">
+<choose>
+<choice "x">
+<choice "y">
+<choice "z">
+</choose>

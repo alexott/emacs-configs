@@ -1,0 +1,14 @@
+PATH=$HOME/local/bin:$HOME/bin:/usr/local/bin:/usr/bin:/usr/sbin:/bin
+#
+# note:  don't have any cron jobs betw. 2-3 a.m. b/c of daylight savings issues
+#
+# min   hour    day     month   day-of-week,0=Sunday      command
+#(0-59) (0-23)  (1-31)  (1-12)  (0-6)
+#
+# crontab mark
+5 5 * * * touch $HOME/texts/crontab-mark
+# END OF CRONTABS
+#
+# Local Variables:
+# eval: (when (fboundp 'my-save-if-crontab) (add-hook 'after-save-hook 'my-save-if-crontab))
+# End:

@@ -1,0 +1,4 @@
+if ((argc-1) != <field "argcount">) {
+    appname = argv[0];
+    usage();
+}

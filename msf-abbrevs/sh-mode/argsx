@@ -1,0 +1,4 @@
+if [ $# -ne <field "<NUMARGS>"> ]; then
+    echo "usage: `basename $0` <field "...">"
+    exit 1
+fi

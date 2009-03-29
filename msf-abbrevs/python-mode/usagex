@@ -1,0 +1,4 @@
+def usage():
+    s = 'usage: ' + os.path.basename(sys.argv[0]) + ' <cursor>\n'
+    sys.stderr.write(s)
+    sys.exit(1)

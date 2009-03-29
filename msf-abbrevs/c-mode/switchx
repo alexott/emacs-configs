@@ -1,0 +1,5 @@
+switch (<field "int-or-char">) {
+    <endpoint>
+    default:
+        break;
+}

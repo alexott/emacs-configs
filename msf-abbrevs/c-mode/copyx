@@ -1,0 +1,2 @@
+std::copy(<QUERY "src container: ">.begin(), <QUERY "src container: ">.end(),
+          std::inserter(<QUERY "dest container: ">, <QUERY "dest container: ">.begin()));

@@ -1,0 +1,6 @@
+\begin{figure}[htbp]
+  \centering
+  \subfigure[<field "figure 1 title">]{\includegraphics[angle=270,width=.49\textwidth]{<field "image name">}\label{fig:<field "Figure label">}}
+  \subfigure[<field "figure 2 title">]{\includegraphics[angle=270,width=.49\textwidth]{<field "image name">}\label{fig:<field "Figure label">}}
+  \caption{<field "Caption name">}
+\end{figure}

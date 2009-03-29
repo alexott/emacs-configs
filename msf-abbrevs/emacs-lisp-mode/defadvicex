@@ -1,0 +1,4 @@
+(defadvice <field "function-to-advise"> (around <field "advice-function-name"> activate)
+  <field "pre">
+  ad-do-it
+  <field "post">)

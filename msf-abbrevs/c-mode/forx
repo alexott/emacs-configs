@@ -1,0 +1,3 @@
+for ( <field "start">; <field "end">; <field "post">) {
+    <endpoint>
+}

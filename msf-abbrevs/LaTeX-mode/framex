@@ -1,0 +1,28 @@
+<COMMENT "Simple example of a frame abbrev for the LaTeX beamer class.">
+<COMMENT "It is hopefully a bit more convenient than using AUCTeX for this">
+<COMMENT "(C-c C-e f r a m e)">
+<COMMENT "This msf-abbrev do:">
+<COMMENT "1. insert the environment">
+<COMMENT "2. put the cursor on the frametitle">
+<COMMENT "3. put a bit of LaTeX comments: separators (to improve readability)">
+<COMMENT "4. put a bit of space before and after the slide environment">
+<COMMENT "  (to improve readability)">
+<COMMENT "5. reserve some rooms for out-of-frame comments">
+<COMMENT "   (optional, comments are probably better inside the frame environment.">
+<COMMENT "RATIONALE: Frame is one of the most used environment when using beamer class,">
+<COMMENT "  hence deserve taking a bit of time for defining an abbrev.">
+<COMMENT "  With msf-abbrev, one can easily customize this environment without lisp,">
+<COMMENT "  so it may be easier to do this in msf-abbrev than AUCTeX.">
+<COMMENT "NOTES: There are probably possibilities for extensions,">
+<COMMENT "  one would have then to choose for tradeoffs between simplificity,">
+<COMMENT "  (few keystrokes), and features:">
+<COMMENT ". Adding labels to frames (would require either more typing from the user">
+<COMMENT "  or automatic labelling from frame title with easy to remember label).">
+
+%______________________________________________________________________________
+\begin{frame}
+\frametitle{<cursor>}
+\end{frame}
+%------------------------------------------------------------------------------
+%NOTES:
+%..............................................................................

@@ -1,0 +1,4 @@
+<SELECT NAME="foo">
+<option selected>xxx</option>
+<option>yyy</option>
+</SELECT>

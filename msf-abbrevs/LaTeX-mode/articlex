@@ -1,0 +1,17 @@
+\documentclass{article}
+
+%%\setcounter{secnumdepth}{-1} %gets rid of section numbers
+
+%% use larger page layout
+%% \usepackage{fullpage}
+\usepackage{graphicx}
+
+\begin{document}
+
+%% \title{}
+%% \author{<VARLOOKUP "user-full-name">}
+%% \maketitle
+
+<cursor>
+
+\end{document}

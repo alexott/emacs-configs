@@ -1,0 +1,5 @@
+for (it = <QUERY "container name: ">.begin();
+     it != <QUERY "container name: ">.end();
+     ++it) {
+    <cursor>
+}

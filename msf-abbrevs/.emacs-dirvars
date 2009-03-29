@@ -1,0 +1,9 @@
+;; -*- emacs-lisp -*-
+;;
+;; This file is processed by the dirvars emacs package.  Each variable
+;; setting below is performed when this dirvars file is loaded.
+;;
+indent-tabs-mode: nil
+tab-width: 4
+show-trailing-whitespace: t
+require-final-newline: nil

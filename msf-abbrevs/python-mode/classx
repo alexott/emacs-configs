@@ -1,0 +1,3 @@
+class <QUERY "Class name: ">:
+    def __init__(self):
+        
