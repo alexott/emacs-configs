@@ -7,24 +7,22 @@
 ;; Requirements:
 ;; Status: not intended to be distributed yet
 
-(add-to-list 'auto-mode-alist '("\\.el" . emacs-lisp-mode))
-(add-to-list 'auto-mode-alist '("\\.gnus$" . emacs-lisp-mode))
-(add-to-list 'auto-mode-alist '("\\.emacs$" . emacs-lisp-mode))
+(defun alexott/lisp-mode-hook ()
+  ;;       (setq tab-width 4)
+  (setq indent-tabs-mode t)
+  (abbrev-mode 1)
+  (auto-fill-mode 1)
+  (turn-on-eldoc-mode)
+  (local-set-key [return] 'newline-and-indent)
+  (local-set-key "\C-m" 'newline-and-indent)
+  (local-set-key "\C-c:" 'uncomment-region)
+  (local-set-key "\C-c;" 'comment-region)
+  (local-set-key "\C-c\C-c" 'comment-region)
+  )
+(add-hook 'lisp-mode-hook 'alexott/lisp-mode-hook)
+(add-hook 'lisp-mode-hook 'alexott/show-prog-keywords)
 
-(defun my-lisp-mode-hook ()
-;;       (setq tab-width 4)
-       (setq indent-tabs-mode t)
-       (abbrev-mode 1)
-       (auto-fill-mode 1)
-       (turn-on-eldoc-mode)
-       (local-set-key [return] 'newline-and-indent)
-       (local-set-key "\C-m" 'newline-and-indent)
-       (local-set-key "\C-c:" 'uncomment-region)
-       (local-set-key "\C-c;" 'comment-region)
-       (local-set-key "\C-c\C-c" 'comment-region)
-       )
-(add-hook 'lisp-mode-hook 'my-lisp-mode-hook)
-
+;; lookup information in hyperspec
 (require 'info-look)
 (info-lookup-add-help
  :mode 'lisp-mode
@@ -35,16 +33,17 @@
 ;;; SLIME
 (require 'inf-lisp)
 (setq inferior-lisp-program "sbcl")
+(setq slime-net-coding-system 'utf-8-unix)
 (push "~/emacs/slime/" load-path)
 (require 'slime)
 (slime-setup)
 (add-hook 'lisp-mode-hook
-    (lambda ()
-      (slime-mode t)))
+          (lambda ()
+            (slime-mode t)))
 
 (add-hook 'inferior-lisp-mode-hook
-    (lambda ()
-      (inferior-slime-mode t)))
+          (lambda ()
+            (inferior-slime-mode t)))
 
 (add-hook 'slime-mode-hook (lambda () (slime-autodoc-mode t)))
 (add-hook 'slime-connected-hook 'slime-ensure-typeout-frame)
@@ -55,6 +54,6 @@
      (slime-setup '(slime-fancy slime-asdf slime-banner slime-fuzzy slime-autodoc slime-repl))
      (setq slime-complete-symbol*-fancy t)
      (setq slime-complete-symbol-function 'slime-fuzzy-complete-symbol)
-    ))
+     ))
 
 ;;; emacs-rc-slime.el ends here

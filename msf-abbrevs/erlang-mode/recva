@@ -1,6 +1,0 @@
-receive
-    <field "pattern"> ->
-        <endpoint>
-after <field "timeout"> ->
-        ok
-end

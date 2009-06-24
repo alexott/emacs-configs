@@ -1,5 +1,0 @@
--module(<elisp "(insert (file-name-sans-extension (file-name-nondirectory buffer-file-name)))">).
-%% -export([]).
-%% -import(,[])
-
-<endpoint>

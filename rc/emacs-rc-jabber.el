@@ -11,14 +11,14 @@
 (require 'jabber)
 (require 'jabber-bookmarks)
 
-(defun my-jabber-connect-hook (jc)
+(defun alexott/jabber-connect-hook (jc)
   (jabber-send-presence "" "I'm online" 10)
   (let* ((state-data (fsm-get-state-data jc))
          (server (plist-get state-data :server)))
     (message "%s" server)
     (if (string-equal server "gmail.com")
         (progn
-          (jabber-groupchat-join jc "devil@conference.jabber.ru" "alexott")
+;;          (jabber-groupchat-join jc "devil@conference.jabber.ru" "alexott")
 ;;          (jabber-groupchat-join jc "haskell@conference.jabber.ru" "alexott")
 ;;          (jabber-groupchat-join jc "lisp@conference.jabber.ru" "alexott")
 ;;          (jabber-groupchat-join jc "emacs@conference.jabber.ru" "alexott")
@@ -26,11 +26,11 @@
 ;;          (jabber-groupchat-join jc "wax@conference.jabber.ru" "alexott")
 ;;          (jabber-groupchat-join jc "erlang@conference.jabber.ru" "alexott")
           ))))
-(add-hook 'jabber-post-connect-hooks 'my-jabber-connect-hook)
+(add-hook 'jabber-post-connect-hooks 'alexott/jabber-connect-hook)
 
-(defun my-jabber-chat-hook ()
+(defun alexott/jabber-chat-hook ()
   (auto-fill-mode -1))
-(add-hook 'jabber-chat-mode-hook 'my-jabber-chat-hook)
+(add-hook 'jabber-chat-mode-hook 'alexott/jabber-chat-hook)
 
 (setq jabber-history-enabled t)
 (setq jabber-use-global-history nil)

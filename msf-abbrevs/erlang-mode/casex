@@ -1,4 +1,0 @@
-case <field "expression"> of
-    <field "pattern"> ->
-        <endpoint>
-end

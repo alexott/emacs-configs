@@ -1,10 +1,10 @@
-;;; emacs-rc-ecb.el --- 
+;;; emacs-rc-ecb.el ---
 
 ;; Copyright (C) 2003 Alex Ott
 ;;
 ;; Author: alexott@gmail.com
-;; Keywords: 
-;; Requirements: 
+;; Keywords:
+;; Requirements:
 ;; Status: not intended to be distributed yet
 
 ;; Emacs code browser
@@ -12,7 +12,6 @@
 (require 'cl)
 (require 'ecb)
 
-(setq ecb-options-version "2.33beta1")
 (setq-default ecb-tip-of-the-day nil)
 
 

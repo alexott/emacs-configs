@@ -20,7 +20,7 @@
 
 (require 'hs-lint)
 
-(defun my-haskell-mode-hook ()
+(defun alexott/haskell-mode-hook ()
   (turn-on-haskell-doc-mode)
   (turn-on-haskell-indent)
 ;;  (turn-on-haskell-ghci)
@@ -31,11 +31,13 @@
   (local-set-key "\C-c;" 'comment-region)
   (local-set-key "\C-c\C-c" 'comment-region)
   (local-set-key "\C-cl" 'hs-lint)
+  (local-set-key "\C-ch" 'haskell-hoogle)
+  (local-set-key "\C-c\C-h" 'haskell-hayoo)
   (setq tab-width 4)
-  (setq haskell-font-lock-symbols t)
 ;;  (turn-on-haskell-simple-indent)
-  )
-(add-hook 'haskell-mode-hook 'my-haskell-mode-hook)
+  (setq haskell-font-lock-symbols t))
+(add-hook 'haskell-mode-hook 'alexott/haskell-mode-hook)
+(add-hook 'haskell-mode-hook 'alexott/show-prog-keywords)
 
 
 ;; flymake settings

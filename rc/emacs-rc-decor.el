@@ -1,10 +1,10 @@
-;;; emacs-rc-decor.el --- 
+;;; emacs-rc-decor.el ---
 
 ;; Copyright (C) 2003 Alex Ott
 ;;
 ;; Author: alexott@gmail.com
-;; Keywords: 
-;; Requirements: 
+;; Keywords:
+;; Requirements:
 ;; Status: not intended to be distributed yet
 
 (require 'tree-widget)
@@ -17,13 +17,14 @@
 (display-time)
 (blink-cursor-mode t)
 
+;;
 (require 'mwheel)
 (mwheel-install)
 
+;; use y/n instead of yes/no
 (fset 'yes-or-no-p 'y-or-n-p)
 
-;;; emacs-rc-decor.el ends here
-
+;; set misc decoration variables
 (custom-set-variables
  '(global-font-lock-mode t)
  '(scalable-fonts-allowed t)
@@ -34,7 +35,6 @@
  '(show-paren-mode t)
  '(tool-bar-mode nil)
  '(initial-scratch-message nil)
- '(whitespace-global-mode nil)
- '(whitespace-modes (quote (awk-mode)))
- '(whitespace-silent t)
  '(transient-mark-mode t))
+
+;;; emacs-rc-decor.el ends here

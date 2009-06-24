@@ -7,6 +7,8 @@
 ;; Requirements:
 ;; Status: not intended to be distributed yet
 
+(add-to-list 'load-path "~/emacs/org-mode")
+
 (custom-set-variables
  '(org-startup-folded nil)
  '(org-log-done t)
@@ -21,6 +23,8 @@
  '(org-special-ctrl-k t)
  '(org-agenda-dim-blocked-tasks 'invisible)
  '(org-enforce-todo-checkbox-dependencies t)
+ '(diary-file "~/projects/OrgMode/diary")
+ '(mark-diary-entries-in-calendar t)
  '(org-todo-keywords '((sequence "TODO(t)" "WAITING(w)" "STARTED(s)" "|" "DONE(d)"
                                      "CANCELED(c)")))
  '(org-agenda-files (quote ("~/projects/OrgMode/writings.org"
@@ -35,9 +39,9 @@
                             "~/projects/OrgMode/openers.org"
                             ))))
 
-(add-to-list 'load-path "~/emacs/org-mode")
 (require 'org-install)
 (require 'org)
+
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 (add-to-list 'file-coding-system-alist (cons "\\.org$"  'utf-8))
 
@@ -45,39 +49,19 @@
 (define-key global-map "\C-ca" 'org-agenda)
 (define-key global-map "\C-cb" 'org-iswitchb)
 
-
-(defun my-org-mode-hook ()
+(defun alexott/org-mode-hook ()
   (local-set-key "\C-x\C-a" 'show-all)
   (imenu-add-to-menubar "Imenu")
   )
-(add-hook 'org-mode-hook 'my-org-mode-hook)
+(add-hook 'org-mode-hook 'alexott/org-mode-hook)
 (add-hook 'org-mode-hook 'turn-on-font-lock)
-(add-hook 'org-mode-hook 'turn-on-org-cdlatex)
 
 ;; blorg mode
 (require 'blorg)
 
-;; on screen display
-(load "~/emacs/rc/emacs-rc-osd.el")
-(defun org-osd-display (min-to-app new-time msg)
-  (osd-display msg msg -1 "center" "center" "Verdana 40")
-  )
-
-(setq appt-disp-window-function (function org-osd-display))
-;; Update appt each time agenda opened.
-(add-hook 'org-finalize-agenda-hook 'org-agenda-to-appt)
-(setq appt-display-format 'window)
-
 ;; diary setup
 (require 'diary-lib)
 (add-hook 'diary-display-hook 'fancy-diary-display)
-(custom-set-variables
- '(diary-file "~/projects/OrgMode/diary")
- '(mark-diary-entries-in-calendar t))
-
-;; Run once, activate and schedule refresh
-(run-at-time nil 3600 'org-agenda-to-appt)
-(appt-activate t)
 
 ;; link abbrevs
 (add-to-list 'org-link-abbrev-alist '("emacswiki" . "http://www.emacswiki.org/cgi-bin/wiki/"))
@@ -85,7 +69,6 @@
 (add-to-list 'org-link-abbrev-alist '("ms-spec" . "http://localhost/~ott/data-formats-doc/Microsoft%20Specs/[%s].pdf"))
 
 ;; remember mode
-
 (org-remember-insinuate)
 (setq org-directory "~/projects/OrgMode")
 (setq org-default-notes-file (concat org-directory "/notes.org"))
@@ -97,7 +80,34 @@
         ))
 
 ;; icalendar
-(autoload 'icalendar-import-buffer "icalendar"
-  "Import iCalendar data from current buffer" t)
+(autoload 'icalendar-import-buffer "icalendar" "Import iCalendar data from current buffer" t)
+
+;; org + appt
+;; Run once, activate and schedule refresh
+(defun alexott/org-agenda-to-appt ()
+  (interactive)
+  (setq appt-time-msg-list nil)
+  (org-agenda-to-appt))
+
+(add-hook 'org-finalize-agenda-hook 'alexott/org-agenda-to-appt)
+(alexott/org-agenda-to-appt)
+(run-at-time "24:01" nil 'alexott/org-agenda-to-appt)
+(run-at-time "00:59" 3600 'org-save-all-org-buffers)
+;; (run-at-time nil 3600 'org-agenda-to-appt)
+(appt-activate t)
+
+;; 5 minute warning
+(setq appt-message-warning-time '60)
+(setq appt-display-interval '15)
+
+;; on screen display
+(defun org-osd-display (min-to-app new-time msg)
+  (osd-display msg msg -1 "center" "center" "Verdana 40")
+  )
+
+(setq appt-disp-window-function (function org-osd-display))
+;; Update appt each time agenda opened.
+(setq appt-display-format 'window)
 
 ;;; emacs-rc-org-mode.el ends here
+

@@ -1,5 +1,0 @@
-;;;
-
-(setq mail-sources
-			'((file)))
-

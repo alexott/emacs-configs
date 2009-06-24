@@ -1,3 +1,0 @@
-if [ <field "expression"> ]; then
-    <endpoint>
-fi

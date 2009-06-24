@@ -1,3 +1,0 @@
-elif [ <field "expression"> ]; then
-    <endpoint>
-fi

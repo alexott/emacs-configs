@@ -1,3 +1,0 @@
-std::cerr << "WARNING: <cursor>"
-          << " at " << __FILE__ << ":" << __LINE__
-          << std::endl << std::flush;

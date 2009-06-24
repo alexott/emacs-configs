@@ -1,1 +1,0 @@
-(insert (buffer-file-name))

@@ -25,7 +25,7 @@
 (add-to-list 'flymake-allowed-file-name-masks
              '("\\.erl\\'" flymake-erlang-init))
 
-(defun my-erlang-mode-hook ()
+(defun alexott/erlang-mode-hook ()
   ;; when starting an Erlang shell in Emacs, default in the node name
   (setq inferior-erlang-machine-options '("-sname" "emacs"))
   ;; add Erlang functions to an imenu menu
@@ -36,8 +36,8 @@
   ;; keys
   (local-set-key [return] 'newline-and-indent)
   )
-;; Some Erlang customizations
-(add-hook 'erlang-mode-hook 'my-erlang-mode-hook)
+(add-hook 'erlang-mode-hook 'alexott/erlang-mode-hook)
+(add-hook 'erlang-mode-hook 'alexott/show-prog-keywords)
 
 ;; A number of the erlang-extended-mode key bindings are useful in the shell too
 (defconst distel-shell-keys

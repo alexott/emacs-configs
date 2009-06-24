@@ -1,3 +1,0 @@
-if <field "COND">
-   then <field "true-expr">
-   else <endpoint>

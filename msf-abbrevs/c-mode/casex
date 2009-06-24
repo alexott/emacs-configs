@@ -1,4 +1,0 @@
-case <field "NAME">: {
-    <endpoint>
-    break;
-}

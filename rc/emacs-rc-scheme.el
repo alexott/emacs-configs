@@ -42,7 +42,7 @@ comment progressively moves outward over enclosing expressions."
     (when (search-backward "#|" nil t)
       (delete-char 2)
       (while (and (< (point) (point-max)) (not (looking-at " *|#")))
-	(forward-sexp))
+        (forward-sexp))
       (replace-match ""))))
 
 (add-hook 'inferior-scheme-mode-hook
@@ -57,9 +57,9 @@ comment progressively moves outward over enclosing expressions."
       (info "(r5rs)")
       (Info-index symbol))))
 
-(defun my-scheme-mode-hook ()
+(defun alexott/scheme-mode-hook ()
   "My customization of Scheme Mode"
-	(turn-on-eldoc-mode)
+        (turn-on-eldoc-mode)
   (local-set-key [return] 'newline-and-indent)
   (local-set-key [(control c) (\;)] 'insert-balanced-comments)
   (local-set-key [(control c) (:)] 'remove-balanced-comments)
@@ -67,9 +67,9 @@ comment progressively moves outward over enclosing expressions."
   (local-set-key [f1] 'r5rs-call)
 )
 
-(add-hook 'scheme-mode-hook 'my-scheme-mode-hook)
+(add-hook 'scheme-mode-hook 'alexott/scheme-mode-hook)
+(add-hook 'scheme-mode-hook 'alexott/show-prog-keywords)
 
-(add-to-list 'auto-mode-alist '("\\.dsl$" . scheme-mode))
 (add-to-list 'auto-mode-alist '("\\.scm$" . scheme-mode))
 
 ;;; emacs-rc-scheme.el ends here

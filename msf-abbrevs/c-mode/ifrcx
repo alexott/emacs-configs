@@ -1,3 +1,0 @@
-if ((rc = <cursor>) != 0) {
-    <endpoint>
-}

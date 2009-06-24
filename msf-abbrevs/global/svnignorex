@@ -1,1 +1,0 @@
-svn propset svn:ignore "*.aux\n*.bbl" . # show: svn propget svn:ignore -R .

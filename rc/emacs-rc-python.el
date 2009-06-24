@@ -13,7 +13,7 @@
   (let (parens-require-spaces)
     (insert-pair)))
 
-(defun my-python-mode-hook ()
+(defun alexott/python-mode-hook ()
 ;;  (setq tab-width 2)
   (setq indent-tabs-mode t)
   (auto-fill-mode 1)
@@ -29,7 +29,7 @@
   (define-key python-mode-map "[" 'electric-pair)
   (define-key python-mode-map "{" 'electric-pair)
   )
-(add-hook 'python-mode-hook 'my-python-mode-hook)
+(add-hook 'python-mode-hook 'alexott/python-mode-hook)
 
 (add-hook 'python-mode-hook 'flyspell-prog-mode)
 

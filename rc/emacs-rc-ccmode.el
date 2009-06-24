@@ -8,10 +8,9 @@
 ;; Status: not intended to be distributed yet
 
 (require 'cc-mode)
-(require 'imenu)
 
 ;; customisation of cc-mode
-(defun my-c-mode-common-hook ()
+(defun alexott/c-mode-common-hook ()
         ;; style customization
         (c-set-offset 'member-init-intro '++)
         (setq tab-width 4)
@@ -31,15 +30,9 @@
         (local-set-key "\C-m" 'newline-and-indent)
         (local-set-key "\C-c:" 'uncomment-region)
         (local-set-key "\C-c;" 'comment-region)
-;;      (company-mode 1)
-        ;; highlight additional keywords
-        (font-lock-add-keywords nil '(("\\<\\(FIXME\\|TODO\\|BUG\\):" 1 font-lock-warning-face t)))
-        ;; highlight too long lines
-        (font-lock-add-keywords nil '(("^[^\n]\\{100\\}\\(.*\\)$" 1 font-lock-warning-face t)))
-        ;; show trailing whitespace
-        ;; (setq show-trailing-whitespace t)
         )
-(add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
+(add-hook 'c-mode-common-hook 'alexott/c-mode-common-hook)
+(add-hook 'c-mode-common-hook 'alexott/show-prog-keywords)
 
 (require 'info-look)
 (info-lookup-add-help
@@ -51,10 +44,6 @@
 (defun fp-c-mode-routine ()
   (local-set-key "\M-q" 'rebox-comment))
 (add-hook 'c-mode-hook 'fp-c-mode-routine)
-
-;;
-(autoload 'rebox-comment "rebox" nil t)
-(autoload 'rebox-region "rebox" nil t)
 
 (setq-default c-default-style (quote ((java-mode . "java") (other . "gnu"))))
 

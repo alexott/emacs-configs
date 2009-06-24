@@ -1,3 +1,0 @@
-for f in <field "range">; do
-    <field "action">
-done

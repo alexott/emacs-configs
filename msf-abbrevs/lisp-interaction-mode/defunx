@@ -1,3 +1,0 @@
-(defun <field "funcname"> (<field "args">)
-  (interactive)
-  <field "body">)

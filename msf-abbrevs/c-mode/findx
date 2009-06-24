@@ -1,3 +1,0 @@
-std::find(<QUERY "stl object: ">.begin(),
-          <QUERY "stl object: ">.end(),
-          <QUERY "find value: ">)

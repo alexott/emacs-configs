@@ -8,46 +8,37 @@
 ;; Requirements:
 ;; Status: not intended to be distributed yet
 
-(add-to-list 'load-path "~/emacs/programming")
-;;; find-func
-(load "find-func")
-(global-set-key [(control ?c) ?f] 'find-function)
-(global-set-key [(control ?c) ?4 ?f] 'find-function-other-window)
-(global-set-key [(control ?c) ?5 ?f] 'find-function-other-frame)
-(global-set-key [(control ?c) ?k] 'find-function-on-key)
+;; setup some variables explicitly
+(setenv "CVS_RSH" "ssh")
 
-;; VCS
-;; (require 'vc)
-(require 'psvn)
+;; gtags
+(autoload 'gtags-mode "gtags" "" t)
 
 ;; Working with RPM specs
 (autoload 'rpm-spec-mode "rpm-spec-mode" "RPM spec mode." t)
 (add-to-list 'auto-mode-alist '("\\.spec$" . rpm-spec-mode))
 
+;;
 (autoload 'smerge-mode "smerge-mode" nil t)
 
+;;
 (autoload 'po-mode "po-mode"  "Major mode for translators to edit PO files" t)
 (add-to-list 'auto-mode-alist '("\\.po$\\|\\.po\\." . po-mode))
 
-(add-to-list 'auto-mode-alist '("\\.log$" . auto-revert-mode))
+;;
+(require 'imenu)
 
-;; support for CMake
-(require 'cmake-mode)
-(add-to-list 'auto-mode-alist '("CMakeLists\\.txt\\'" . cmake-mode))
-(add-to-list 'auto-mode-alist '("\\.cmake\\'" . cmake-mode))
-(defun my-cmake-mode-hook ()
-  (local-set-key [return] 'newline-and-indent)
-  (local-set-key "\C-m" 'newline-and-indent)
-  (local-set-key "\C-c\C-c" 'comment-region)
-  (local-set-key "\C-u\C-c\C-c" 'uncomment-region)
-  )
-(add-hook 'cmake-mode-hook 'my-cmake-mode-hook)
+;; whitespace mode
+(autoload 'whitespace-mode "whitespace" "Toggle whitespace visualization."        t)
+(autoload 'whitespace-toggle-options "whitespace" "Toggle local `whitespace-mode' options." t)
+(custom-set-variables
+ '(whitespace-global-mode nil)
+ '(whitespace-modes (quote (awk-mode)))
+ '(whitespace-silent t))
 
-;; gdb/gud
-(setq gdb-many-windows t)
-(setq gdb-show-main t)
-(setq gud-chdir-before-run nil)
-(setq gud-tooltip-mode t)
+;;
+(autoload 'rebox-comment "rebox" nil t)
+(autoload 'rebox-region "rebox" nil t)
 
 ;; automatically indenting yanked text if in programming-modes
 ;; (defvar yank-indent-modes '(emacs-lisp-mode lisp-mode
@@ -81,46 +72,32 @@
 ;;      (let ((transient-mark-mode nil))
 ;;      (yank-advised-indent-function (region-beginning) (region-end)))))
 
-;; flymake
-(require 'flymake)
-;; todo - simply clear all default rules?
-(setq flymake-allowed-file-name-masks (delete '("\\.c\\'" flymake-simple-make-init) flymake-allowed-file-name-masks))
-(setq flymake-allowed-file-name-masks (delete '("\\.cpp\\'" flymake-simple-make-init) flymake-allowed-file-name-masks))
-(setq flymake-allowed-file-name-masks (delete '("\\.cs\\'" flymake-simple-make-init) flymake-allowed-file-name-masks))
-(setq flymake-allowed-file-name-masks (delete '("\\.h\\'" flymake-master-make-header-init flymake-master-cleanup) flymake-allowed-file-name-masks))
-(setq flymake-allowed-file-name-masks (delete '("\\.xml\\'" flymake-xml-init) flymake-allowed-file-name-masks))
-(setq flymake-allowed-file-name-masks (delete '("\\.html?\\'" flymake-xml-init) flymake-allowed-file-name-masks))
-(setq flymake-allowed-file-name-masks (delete '("\\.tex\\'" flymake-simple-tex-init) flymake-allowed-file-name-masks))
-(setq flymake-allowed-file-name-masks (delete '("[0-9]+\\.tex\\'" flymake-master-tex-init flymake-master-cleanup) flymake-allowed-file-name-masks))
-;; (delete ' flymake-allowed-file-name-masks)
-(add-hook 'find-file-hook 'flymake-find-file-hook)
 
 ;; company-mode
-(require 'company-mode)
-(require 'company-bundled-completions)
-(company-install-bundled-completions-rules)
-
-;; gtags
-(autoload 'gtags-mode "gtags" "" t)
+;; (require 'company-mode)
+;; (require 'company-bundled-completions)
+;; (company-install-bundled-completions-rules)
 
 ;; clean trailing whitespaces automatically
-(setq my-trailing-whitespace-modes '(c++-mode c-mode haskell-mode emacs-lisp-mode
-                                              lisp-mode scheme-mode))
-(defun my-trailing-whitespace-hook ()
-  (when (member major-mode my-trailing-whitespace-modes)
+(setq alexott/trailing-whitespace-modes '(c++-mode c-mode haskell-mode emacs-lisp-mode
+                                                   lisp-mode scheme-mode erlang-mode))
+(defun alexott/trailing-whitespace-hook ()
+  (when (member major-mode alexott/trailing-whitespace-modes)
     (delete-trailing-whitespace)))
-(add-hook 'before-save-hook 'my-trailing-whitespace-hook)
+(add-hook 'before-save-hook 'alexott/trailing-whitespace-hook)
 
 ;; untabify some modes
-(setq my-untabify-modes '(haskell-mode emacs-lisp-mode lisp-mode scheme-mode))
-(defun my-untabify-hook ()
-  (when (member major-mode my-untabify-modes)
+(setq alexott/untabify-modes '(haskell-mode emacs-lisp-mode lisp-mode scheme-mode erlang-mode))
+(defun alexott/untabify-hook ()
+  (when (member major-mode alexott/untabify-modes)
     (untabify (point-min) (point-max))))
-(add-hook 'before-save-hook 'my-untabify-hook)
+(add-hook 'before-save-hook 'alexott/untabify-hook)
 
-;; cleanup code
-
-(setenv "CVS_RSH" "ssh")
-
+;;
+(defun alexott/show-prog-keywords ()
+  ;; highlight additional keywords
+  (font-lock-add-keywords nil '(("\\<\\(FIXME\\|TODO\\|BUG\\):" 1 font-lock-warning-face t)))
+  ;; highlight too long lines
+  (font-lock-add-keywords nil '(("^[^\n]\\{100\\}\\(.*\\)$" 1 font-lock-warning-face t))))
 
 ;;; emacs-prog-misc.el ends here

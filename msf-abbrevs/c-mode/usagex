@@ -1,5 +1,0 @@
-char * appname = NULL;
-void usage() {
-    printf("usage: %s<cursor>\n", appname);
-    exit(EXIT_FAILURE);
-}

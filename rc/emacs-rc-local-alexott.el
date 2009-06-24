@@ -9,11 +9,6 @@
 ;;
 (require 'sigdb-mode)
 
-;; auto-inserts
-(add-to-list 'auto-insert-alist '(".*/work/.*\\.cpp$" . ["insert-work.cpp" auto-update-c-source-file]))
-(add-to-list 'auto-insert-alist '(".*/work/.*\\.h$"   . ["insert-work.h" auto-update-header-file]))
-(add-to-list 'auto-insert-alist '(".*/work/.*\\.c$" . ["insert-work.cpp" auto-update-c-source-file]))
-
 ;; gnus & mail
 (setq nnmail-spool-file '("/var/spool/mail/ott"))
 (setq gnus-posting-styles
@@ -36,13 +31,13 @@
 ;; decoration
 (add-to-list 'default-frame-alist '(font . "Consolas-13"))
 (add-to-list 'default-frame-alist '(height . 43))
-(add-to-list 'default-frame-alist '(width . 115))
+(add-to-list 'default-frame-alist '(width . 125))
 (add-to-list 'default-frame-alist '(background-color . "grey92"))
 (setq initial-frame-alist default-frame-alist)
 (setq special-display-frame-alist default-frame-alist)
 
 (custom-set-faces
- '(default ((t (:background "grey92" :foreground "black" :slant normal :weight normal :height 130 :width normal :foundry "microsoft" :family "Consolas"))))
+ '(default ((t (:background "grey90" :foreground "black" :slant normal :weight normal :height 130 :width normal :foundry "microsoft" :family "Consolas"))))
  '(font-latex-sectioning-2-face ((t (:inherit font-latex-sectioning-3-face :height 1.1))))
  '(font-latex-sectioning-5-face ((((class color) (background light)) (:foreground "blue4" :weight bold))))
  '(font-latex-verbatim-face ((((class color) (background light)) (:foreground "SaddleBrown"))))
@@ -54,7 +49,7 @@
  '(font-lock-type-face ((((class color) (min-colors 88) (background light)) (:foreground "blue"))))
  '(font-lock-variable-name-face ((((class color) (min-colors 88) (background light)) (:foreground "darkred"))))
  '(jabber-chat-prompt-system ((t (:foreground "darkgreen" :weight bold))))
- '(org-hide ((((background light)) (:foreground "grey92"))))
+ '(org-hide ((((background light)) (:foreground "grey90"))))
  '(planner-completed-task-face ((t (:strike-through t)))))
 
 ;;; emacs-rc-local-alexott.el ends here
