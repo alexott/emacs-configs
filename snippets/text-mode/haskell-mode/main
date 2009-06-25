@@ -1,0 +1,7 @@
+# contributor: Alex Ott <alexott@gmail.com>
+# name: main
+# --
+
+main :: IO ()
+main = do
+	$0

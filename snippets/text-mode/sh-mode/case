@@ -1,0 +1,9 @@
+#name : case ... ; ... esac
+# --
+case ${1:dispatch name} in
+  ${2:condition})
+    $0
+    ;;
+  *)
+    ;;
+esac

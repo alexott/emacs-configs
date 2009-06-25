@@ -1,0 +1,5 @@
+#name : elif [ .. ] ; then ... ; fi
+# --
+elif [ ${1:expression} ]; then
+$0$>
+fi$>

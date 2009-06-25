@@ -1,0 +1,5 @@
+#name : for .. in .... ; do ... ; done
+# --
+for f in ${1:range}; do
+$0$>
+done$>

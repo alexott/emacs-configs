@@ -1,0 +1,5 @@
+#name : catch (...) { ... }
+# --
+catch (${1:condition}) {
+	$0
+}

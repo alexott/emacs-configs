@@ -1,0 +1,5 @@
+# contributor: Alex Ott <alexott@gmail.com>
+# name: case ... of ...
+# --
+case ${1:var} of
+	${2:condition} -> $0 ;

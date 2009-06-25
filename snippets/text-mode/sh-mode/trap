@@ -1,0 +1,3 @@
+#name : trap
+# --
+trap "${1:handler}" 0 1 2 13 15

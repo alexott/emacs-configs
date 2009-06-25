@@ -1,0 +1,8 @@
+#name : signature
+# --
+${1:mimetype} => extensions {${2:extensions}}
+attributes {final}
+description {"${3:description}"}
+signatures {
+  $0
+}
