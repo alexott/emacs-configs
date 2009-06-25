@@ -12,12 +12,7 @@
 (add-to-list 'auto-mode-alist '("CMakeLists\\.txt\\'" . cmake-mode))
 (add-to-list 'auto-mode-alist '("\\.cmake\\'" . cmake-mode))
 
-(defun alexott/cmake-mode-hook ()
-  (local-set-key [return] 'newline-and-indent)
-  (local-set-key "\C-m" 'newline-and-indent)
-  (local-set-key "\C-c\C-c" 'comment-region)
-  (local-set-key "\C-u\C-c\C-c" 'uncomment-region)
-  )
-(add-hook 'cmake-mode-hook 'alexott/cmake-mode-hook)
+(add-hook 'cmake-mode-hook 'alexott/common-hook)
+(add-hook 'cmake-mode-hook 'alexott/show-prog-keywords)
 
 ;;; emacs-rc-cmake.el ends here

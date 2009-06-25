@@ -78,26 +78,4 @@
 ;; (require 'company-bundled-completions)
 ;; (company-install-bundled-completions-rules)
 
-;; clean trailing whitespaces automatically
-(setq alexott/trailing-whitespace-modes '(c++-mode c-mode haskell-mode emacs-lisp-mode
-                                                   lisp-mode scheme-mode erlang-mode))
-(defun alexott/trailing-whitespace-hook ()
-  (when (member major-mode alexott/trailing-whitespace-modes)
-    (delete-trailing-whitespace)))
-(add-hook 'before-save-hook 'alexott/trailing-whitespace-hook)
-
-;; untabify some modes
-(setq alexott/untabify-modes '(haskell-mode emacs-lisp-mode lisp-mode scheme-mode erlang-mode))
-(defun alexott/untabify-hook ()
-  (when (member major-mode alexott/untabify-modes)
-    (untabify (point-min) (point-max))))
-(add-hook 'before-save-hook 'alexott/untabify-hook)
-
-;;
-(defun alexott/show-prog-keywords ()
-  ;; highlight additional keywords
-  (font-lock-add-keywords nil '(("\\<\\(FIXME\\|TODO\\|BUG\\):" 1 font-lock-warning-face t)))
-  ;; highlight too long lines
-  (font-lock-add-keywords nil '(("^[^\n]\\{100\\}\\(.*\\)$" 1 font-lock-warning-face t))))
-
 ;;; emacs-prog-misc.el ends here

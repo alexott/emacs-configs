@@ -25,11 +25,6 @@
   (turn-on-haskell-indent)
 ;;  (turn-on-haskell-ghci)
   (turn-on-eldoc-mode)
-  (local-set-key [return] 'newline-and-indent)
-  (local-set-key "\C-m" 'newline-and-indent)
-  (local-set-key "\C-c:" 'uncomment-region)
-  (local-set-key "\C-c;" 'comment-region)
-  (local-set-key "\C-c\C-c" 'comment-region)
   (local-set-key "\C-cl" 'hs-lint)
   (local-set-key "\C-ch" 'haskell-hoogle)
   (local-set-key "\C-c\C-h" 'haskell-hayoo)
@@ -37,6 +32,7 @@
 ;;  (turn-on-haskell-simple-indent)
   (setq haskell-font-lock-symbols t))
 (add-hook 'haskell-mode-hook 'alexott/haskell-mode-hook)
+(add-hook 'haskell-mode-hook 'alexott/common-hook)
 (add-hook 'haskell-mode-hook 'alexott/show-prog-keywords)
 
 

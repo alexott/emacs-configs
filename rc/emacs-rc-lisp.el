@@ -13,13 +13,9 @@
   (abbrev-mode 1)
   (auto-fill-mode 1)
   (turn-on-eldoc-mode)
-  (local-set-key [return] 'newline-and-indent)
-  (local-set-key "\C-m" 'newline-and-indent)
-  (local-set-key "\C-c:" 'uncomment-region)
-  (local-set-key "\C-c;" 'comment-region)
-  (local-set-key "\C-c\C-c" 'comment-region)
   )
 (add-hook 'lisp-mode-hook 'alexott/lisp-mode-hook)
+(add-hook 'lisp-mode-hook 'alexott/common-hook)
 (add-hook 'lisp-mode-hook 'alexott/show-prog-keywords)
 
 ;; lookup information in hyperspec

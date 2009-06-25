@@ -59,15 +59,12 @@ comment progressively moves outward over enclosing expressions."
 
 (defun alexott/scheme-mode-hook ()
   "My customization of Scheme Mode"
-        (turn-on-eldoc-mode)
-  (local-set-key [return] 'newline-and-indent)
-  (local-set-key [(control c) (\;)] 'insert-balanced-comments)
-  (local-set-key [(control c) (:)] 'remove-balanced-comments)
-  (local-set-key "\C-c\C-c" 'comment-region)
+  (turn-on-eldoc-mode)
   (local-set-key [f1] 'r5rs-call)
 )
 
 (add-hook 'scheme-mode-hook 'alexott/scheme-mode-hook)
+(add-hook 'scheme-mode-hook 'alexott/common-hook)
 (add-hook 'scheme-mode-hook 'alexott/show-prog-keywords)
 
 (add-to-list 'auto-mode-alist '("\\.scm$" . scheme-mode))

@@ -8,17 +8,12 @@
 
 ;;
 (require 'sigdb-mode)
+(add-hook 'sigdb-mode-hook 'alexott/common-hook)
+(add-hook 'sigdb-mode-hook 'alexott/show-prog-keywords)
+;; (add-to-list 'hs-special-modes-alist '(sigdb-mode  "^[ \t]+" ";; "))
 
 ;; gnus & mail
 (setq nnmail-spool-file '("/var/spool/mail/ott"))
-(setq gnus-posting-styles
-      '(
-        (".*"
-;;         (Gcc "nnml:sent")
-         (Organization "Alex Ott's Consulting")
-         (signature-file "~/.signature")
-         )
-        ))
 
 (custom-set-variables
  '(transient-mark-mode t)
@@ -30,8 +25,8 @@
 
 ;; decoration
 (add-to-list 'default-frame-alist '(font . "Consolas-13"))
-(add-to-list 'default-frame-alist '(height . 43))
-(add-to-list 'default-frame-alist '(width . 125))
+(add-to-list 'default-frame-alist '(height . 48))
+(add-to-list 'default-frame-alist '(width . 145))
 (add-to-list 'default-frame-alist '(background-color . "grey92"))
 (setq initial-frame-alist default-frame-alist)
 (setq special-display-frame-alist default-frame-alist)

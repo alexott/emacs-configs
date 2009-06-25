@@ -18,10 +18,6 @@
   (setq indent-tabs-mode t)
   (auto-fill-mode 1)
   (turn-on-eldoc-mode)
-  (local-set-key [return] 'newline-and-indent)
-  (local-set-key "C-m" 'newline-and-indent)
-  (local-set-key "\C-c:" 'uncomment-region)
-  (local-set-key "\C-c;" 'comment-region)
 
   (define-key python-mode-map "\"" 'electric-pair)
   (define-key python-mode-map "\'" 'electric-pair)
@@ -30,6 +26,8 @@
   (define-key python-mode-map "{" 'electric-pair)
   )
 (add-hook 'python-mode-hook 'alexott/python-mode-hook)
+(add-hook 'python-mode-hook 'alexott/common-hook)
+(add-hook 'python-mode-hook 'alexott/show-prog-keywords)
 
 (add-hook 'python-mode-hook 'flyspell-prog-mode)
 

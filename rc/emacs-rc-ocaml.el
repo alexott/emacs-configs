@@ -11,7 +11,6 @@
 (add-to-list 'load-path "~/emacs/tuareg")
 (require 'tuareg)
 (defun alexott/tuareg-hook ()
-  (local-set-key [return] 'newline-and-indent)
   (turn-on-eldoc-mode)
   (setq tuareg-lazy-= t) ; indent `=' like a standard keyword
   ;; (setq tuareg-lazy-paren t) ; indent [({ like standard keywords
@@ -24,6 +23,7 @@
       (setq sym-lock-mouse-face-enabled nil)) ; turn off special face under mouse
   )
 (add-hook 'tuareg-mode-hook 'alexott/tuareg-hook)
+(add-hook 'tuareg-mode-hook 'alexott/common-hook)
 (add-hook 'tuareg-mode-hook 'alexott/show-prog-keywords)
 
 (if (featurep 'sym-lock)

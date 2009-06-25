@@ -95,11 +95,10 @@
 (defun alexott/muse-mode-hook ()
   (setq auto-fill-mode t)
   (footnote-mode 1)
-  (local-set-key "\C-c:" 'uncomment-region)
-  (local-set-key "\C-c;" 'comment-region)
-  (local-set-key "\C-c\C-c" 'comment-region)
   )
 (add-hook 'muse-mode-hook 'alexott/muse-mode-hook)
+(add-hook 'muse-mode-hook 'alexott/common-hook)
+(add-hook 'muse-mode-hook 'alexott/show-prog-keywords)
 (add-hook 'muse-mode-hook 'turn-on-flyspell)
 
 ;;;;; for my page

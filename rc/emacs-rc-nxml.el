@@ -16,7 +16,6 @@
 
 (defun alexott/nxml-mode-hook ()
   (local-set-key "\C-c/" 'nxml-finish-element)
-  (local-set-key [return] 'newline-and-indent)
   (auto-fill-mode)
   (rng-validate-mode)
   (unify-8859-on-decoding-mode)
@@ -24,6 +23,7 @@
   (hs-minor-mode 1)
   )
 (add-hook 'nxml-mode-hook 'alexott/nxml-mode-hook)
+(add-hook 'nxml-mode-hook 'alexott/common-hook)
 
 (add-to-list
  'auto-mode-alist

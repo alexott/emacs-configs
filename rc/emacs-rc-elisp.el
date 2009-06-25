@@ -12,11 +12,6 @@
   (abbrev-mode 1)
   (auto-fill-mode 1)
   (turn-on-eldoc-mode)
-  (local-set-key [return] 'newline-and-indent)
-  (local-set-key "\C-m" 'newline-and-indent)
-  (local-set-key "\C-c:" 'uncomment-region)
-  (local-set-key "\C-c;" 'comment-region)
-  (local-set-key "\C-c\C-c" 'comment-region)
   (local-set-key "\C-cf" 'find-function)
   (local-set-key "\C-c4f" 'find-function-other-window)
   (local-set-key "\C-c5f" 'find-function-other-frame)
@@ -24,6 +19,7 @@
   (local-set-key [(control c) /] 'semantic-ia-complete-symbol)
   )
 (add-hook 'emacs-lisp-mode-hook 'alexott/elisp-mode-hook)
+(add-hook 'emacs-lisp-mode-hook 'alexott/common-hook)
 (add-hook 'emacs-lisp-mode-hook 'alexott/show-prog-keywords)
 
 ;;
