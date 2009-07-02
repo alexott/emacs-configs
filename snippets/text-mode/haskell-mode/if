@@ -2,5 +2,5 @@
 # name: if ... then ... else ...
 # --
 if ${1:condition} 
-then $0 
-else 
+  then $0 
+  else 

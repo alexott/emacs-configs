@@ -12,6 +12,7 @@
 ;; (setq cperl-hairy t)
 (defun alexott/perl-mode-hook ()
   ;;       (setq tab-width 2)
+  (local-set-key [return] 'newline-and-indent)
   (setq indent-tabs-mode nil)
   (line-number-mode 1)
   (column-number-mode 1)

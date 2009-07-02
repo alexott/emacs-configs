@@ -60,6 +60,7 @@ comment progressively moves outward over enclosing expressions."
 (defun alexott/scheme-mode-hook ()
   "My customization of Scheme Mode"
   (turn-on-eldoc-mode)
+  (local-set-key [return] 'newline-and-indent)
   (local-set-key [f1] 'r5rs-call)
 )
 

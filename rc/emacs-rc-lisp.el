@@ -13,6 +13,7 @@
   (abbrev-mode 1)
   (auto-fill-mode 1)
   (turn-on-eldoc-mode)
+  (local-set-key [return] 'newline-and-indent)
   )
 (add-hook 'lisp-mode-hook 'alexott/lisp-mode-hook)
 (add-hook 'lisp-mode-hook 'alexott/common-hook)

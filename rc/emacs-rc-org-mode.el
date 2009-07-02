@@ -8,6 +8,7 @@
 ;; Status: not intended to be distributed yet
 
 (add-to-list 'load-path "~/emacs/org-mode")
+(add-to-list 'load-path "~/emacs/org-mode/contrib")
 
 (custom-set-variables
  '(org-startup-folded nil)
@@ -36,6 +37,8 @@
                             "~/projects/OrgMode/wwpro.org"
                             "~/projects/OrgMode/mcafee.org"
                             "~/projects/OrgMode/mimetype.org"
+                            "~/projects/OrgMode/notes.org"
+                            "~/projects/OrgMode/ir.org"
                             "~/projects/OrgMode/openers.org"
                             ))))
 

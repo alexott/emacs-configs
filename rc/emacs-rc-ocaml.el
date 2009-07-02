@@ -12,6 +12,7 @@
 (require 'tuareg)
 (defun alexott/tuareg-hook ()
   (turn-on-eldoc-mode)
+  (local-set-key [return] 'newline-and-indent)
   (setq tuareg-lazy-= t) ; indent `=' like a standard keyword
   ;; (setq tuareg-lazy-paren t) ; indent [({ like standard keywords
   (setq tuareg-in-indent 0) ; no indentation after `in' keywords

@@ -47,11 +47,11 @@
   (local-set-key "\C-cs" 'semantic-ia-show-summary)
   (local-set-key "\C-cp" 'semantic-analyze-proto-impl-toggle)
   )
-;;(add-hook 'semantic-init-hooks 'alexott/cedet-hook)
+;; (add-hook 'semantic-init-hooks 'alexott/cedet-hook)
 (add-hook 'c-mode-common-hook 'alexott/cedet-hook)
 (add-hook 'lisp-mode-hook 'alexott/cedet-hook)
 (add-hook 'emacs-lisp-mode-hook 'alexott/cedet-hook)
-;; (add-hook 'erlang-mode-hook 'alexott/cedet-hook)
+(add-hook 'erlang-mode-hook 'alexott/cedet-hook)
 
 (defun alexott/c-mode-cedet-hook ()
  ;; (local-set-key "." 'semantic-complete-self-insert)

@@ -1,6 +1,5 @@
 #name : struct ... { ... }
 # --
-struct ${1:name}
-{
-    $0
-};
+struct ${1:name} {
+$0$>
+};$>

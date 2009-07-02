@@ -10,7 +10,7 @@
 
 
 (add-to-list 'load-path "~/emacs/haskell-mode")
-(load "~/emacs/haskell-mode/haskell-site-file")
+(load "~/emacs/haskell-mode/haskell-site-file.el")
 
 (custom-set-variables
  '(haskell-program-name "ghci")
@@ -25,15 +25,16 @@
   (turn-on-haskell-indent)
 ;;  (turn-on-haskell-ghci)
   (turn-on-eldoc-mode)
+  (local-set-key [return] 'newline-and-indent)
   (local-set-key "\C-cl" 'hs-lint)
   (local-set-key "\C-ch" 'haskell-hoogle)
   (local-set-key "\C-c\C-h" 'haskell-hayoo)
   (setq tab-width 4)
 ;;  (turn-on-haskell-simple-indent)
   (setq haskell-font-lock-symbols t))
-(add-hook 'haskell-mode-hook 'alexott/haskell-mode-hook)
 (add-hook 'haskell-mode-hook 'alexott/common-hook)
 (add-hook 'haskell-mode-hook 'alexott/show-prog-keywords)
+(add-hook 'haskell-mode-hook 'alexott/haskell-mode-hook)
 
 
 ;; flymake settings
