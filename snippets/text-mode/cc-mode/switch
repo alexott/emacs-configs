@@ -1,0 +1,11 @@
+#name : switch (...) { ... }
+# --
+switch (${1:int-or-char}) {$>
+case ${2:value}: {$>
+$0$>
+break;$>
+}$>
+
+default:$>
+break;$>
+}$>
