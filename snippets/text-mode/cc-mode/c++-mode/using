@@ -1,4 +1,4 @@
 #name : using namespace ... 
 # --
-using namespace ${std};
+using namespace ${1:std};
 $0
