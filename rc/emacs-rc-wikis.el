@@ -10,10 +10,10 @@
 ;; moin-moin editing
 (require 'moinmoin-mode)
 (add-hook 'outline-mode-hook 'turn-on-flyspell)
-(defun alexott/outline-mode-hook ()
-  (longlines-mode +1)
-  )
-(add-hook 'outline-mode-hook 'alexott/outline-mode-hook)
+;;(defun alexott/outline-mode-hook ()
+;;   (longlines-mode +1)
+;;  )
+;;(add-hook 'outline-mode-hook 'alexott/outline-mode-hook)
 
 ;; dokuwiki
 (global-unset-key [(control v)])

@@ -34,6 +34,7 @@
  '(display-time-mode t)
  '(show-paren-mode t)
  '(tool-bar-mode nil)
+ '(custom-buffer-done-kill t)
  '(initial-scratch-message nil)
  '(transient-mark-mode t))
 

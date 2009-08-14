@@ -1,5 +1,5 @@
 #name : #+begin_...#+end_
 # --
-#+begin_${1:type}
+#+BEGIN_${1:TYPE} $2
 $0
-#+end_$1
+#+END_$1

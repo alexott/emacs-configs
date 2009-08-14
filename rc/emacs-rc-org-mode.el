@@ -19,9 +19,10 @@
  '(org-agenda-skip-deadline-if-done t)
  '(org-agenda-include-all-todo t)
  '(org-use-property-inheritance t)
- '(org-enforce-todo-dependencies t)
+; '(org-enforce-todo-dependencies t)
  '(org-special-ctrl-a/e t)
  '(org-special-ctrl-k t)
+ '(org-blank-before-new-entry (quote ((heading . auto) (plain-list-item))))
  '(org-agenda-dim-blocked-tasks 'invisible)
  '(org-enforce-todo-checkbox-dependencies t)
  '(diary-file "~/projects/OrgMode/diary")
@@ -45,8 +46,8 @@
 (require 'org-install)
 (require 'org)
 
-(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
-(add-to-list 'file-coding-system-alist (cons "\\.org$"  'utf-8))
+(add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\)$" . org-mode))
+(add-to-list 'file-coding-system-alist (cons "\\.\\(org\\|org_archive\\)$"  'utf-8))
 
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
@@ -55,6 +56,9 @@
 (defun alexott/org-mode-hook ()
   (local-set-key "\C-x\C-a" 'show-all)
   (imenu-add-to-menubar "Imenu")
+;;  (make-variable-buffer-local 'yas/trigger-key)
+;;  (setq yas/trigger-key [tab])
+;;  (local-set-key [tab] 'yas/expand)
   )
 (add-hook 'org-mode-hook 'alexott/org-mode-hook)
 (add-hook 'org-mode-hook 'turn-on-font-lock)
@@ -111,6 +115,11 @@
 (setq appt-disp-window-function (function org-osd-display))
 ;; Update appt each time agenda opened.
 (setq appt-display-format 'window)
+
+;; drawing diagrams with ditaa
+(setq org-ditaa-jar-path "~/bin/ditaa0_6b.jar")
+
+
 
 ;;; emacs-rc-org-mode.el ends here
 

@@ -12,6 +12,11 @@
 (add-hook 'sigdb-mode-hook 'alexott/show-prog-keywords)
 ;; (add-to-list 'hs-special-modes-alist '(sigdb-mode  "^[ \t]+" ";; "))
 
+;; auto-inserts
+(add-to-list 'auto-insert-alist '(".*/work/.*\\.cpp$" . ["insert-work.cpp" alexott/auto-update-c-source-file]))
+(add-to-list 'auto-insert-alist '(".*/work/.*\\.h$"   . ["insert-work.h" alexott/auto-update-header-file]))
+(add-to-list 'auto-insert-alist '(".*/work/.*\\.c$" . ["insert-work.cpp" alexott/auto-update-c-source-file]))
+
 ;; gnus & mail
 (setq nnmail-spool-file '("/var/spool/mail/ott"))
 

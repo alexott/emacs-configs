@@ -12,6 +12,8 @@
 (add-to-list 'load-path "~/emacs/haskell-mode")
 (load "~/emacs/haskell-mode/haskell-site-file.el")
 
+(add-to-list 'auto-mode-alist '("\\.hsc$" . haskell-mode))
+
 (custom-set-variables
  '(haskell-program-name "ghci")
  '(inferior-haskell-wait-and-jump t)
