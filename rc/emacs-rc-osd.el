@@ -31,19 +31,6 @@
     (shell-command (format "osascript %s" fname))
     (delete-file fname)))
 
-;; not working?
-;; (defun output-to-growl (msg)
-;;      (shell-command (format "osascript <<ENDSCRIPT
-;; tell application \"GrowlHelperApp\"
-;;       notify with name \"Emacs Notification\" title \"Emacs alert\" \
-;;         description «data utxt%s» as Unicode text \
-;;         application name \"Emacs\"
-;;     end tell
-;; ENDSCRIPT"  (osd-text-to-utf-16-hex msg))))
-
-;; (output-to-growl "тест")
-;; (output-to-growl "test")
-
 ;; osd notifications
 (defun osd-display (id msg &optional delay vattrib hattrib font)
   "Display a message with an id of ID for delay seconds with message msg"
@@ -70,15 +57,5 @@
       (output-to-growl msg)))
    (t
     nil)))
-
-;; (do-applescript
-;; (format "tell application \"GrowlHelperApp\"
-;;     notify with name \"Emacs Notification\" title \"Emacs alert\" description \"data utxt%s\" as Unicode text application name \"Aquamacs Emacs\"
-;; end tell"  (osd-text-to-utf-16-hex msg)))
-
-;(osd-display "i2" "and OSD..." 2000)
-;(osd-display "id" "Welcome to Emacs" 1000 "top" "center" "Verdana 20")
-;(osd-display "id" "русский текст" 1000 "top" "center" "Verdana 40")
-
 
 ;;; emacs-rc-osd.el ends here

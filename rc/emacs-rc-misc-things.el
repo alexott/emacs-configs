@@ -93,5 +93,14 @@
                  hash)
         (widen)))))
 
+(defun string-join (joiner strings)
+  (string-join-accum joiner strings ""))
+
+(defun string-join-accum (joiner strings accum)
+  (cond ((not strings) accum)
+        ((not (cdr strings)) (concat accum (car strings)))
+        (t (string-join-accum joiner (cdr strings)
+                              (concat accum (car strings) joiner)))))
+
 ;;; emacs-rc-misc-things.el ends here
 

@@ -27,30 +27,5 @@
  :ignore-case t
  :doc-spec '(("(ansicl)Symbol Index" nil nil nil)))
 
-;;; SLIME
-(require 'inf-lisp)
-(setq inferior-lisp-program "sbcl")
-(setq slime-net-coding-system 'utf-8-unix)
-(push "~/emacs/slime/" load-path)
-(require 'slime)
-(slime-setup)
-(add-hook 'lisp-mode-hook
-          (lambda ()
-            (slime-mode t)))
-
-(add-hook 'inferior-lisp-mode-hook
-          (lambda ()
-            (inferior-slime-mode t)))
-
-(add-hook 'slime-mode-hook (lambda () (slime-autodoc-mode t)))
-(add-hook 'slime-connected-hook 'slime-ensure-typeout-frame)
-
-(eval-after-load "slime"
-  '(progn
-     (push "~/emacs/slime/contrib" load-path)
-     (slime-setup '(slime-fancy slime-asdf slime-banner slime-fuzzy slime-autodoc slime-repl))
-     (setq slime-complete-symbol*-fancy t)
-     (setq slime-complete-symbol-function 'slime-fuzzy-complete-symbol)
-     ))
 
 ;;; emacs-rc-slime.el ends here

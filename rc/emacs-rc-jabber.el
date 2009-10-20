@@ -66,5 +66,6 @@
  '(jabber-chat-prompt-system ((t (:foreground "darkgreen" :weight bold))))
  )
 
+(setq fsm-debug nil)
 
 ;;; emacs-rc-jabber.el ends here

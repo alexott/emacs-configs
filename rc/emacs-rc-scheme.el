@@ -70,4 +70,9 @@ comment progressively moves outward over enclosing expressions."
 
 (add-to-list 'auto-mode-alist '("\\.scm$" . scheme-mode))
 
+;; (add-to-list 'load-path "~/emacs/geiser")
+;; (require 'geiser-install)
+;; (setq geiser-impl-installed-implementations '(plt guile))
+;; (setq geiser-impl-default-implementation 'plt)
+
 ;;; emacs-rc-scheme.el ends here

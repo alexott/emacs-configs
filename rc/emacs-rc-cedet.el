@@ -50,6 +50,7 @@
 ;; (add-hook 'semantic-init-hooks 'alexott/cedet-hook)
 (add-hook 'c-mode-common-hook 'alexott/cedet-hook)
 (add-hook 'lisp-mode-hook 'alexott/cedet-hook)
+(add-hook 'scheme-mode-hook 'alexott/cedet-hook)
 (add-hook 'emacs-lisp-mode-hook 'alexott/cedet-hook)
 (add-hook 'erlang-mode-hook 'alexott/cedet-hook)
 
@@ -89,8 +90,10 @@
 (semantic-add-system-include "~/exp/include" 'c++-mode)
 (semantic-add-system-include "~/exp/include" 'c-mode)
 
+(setq boost-base-directory "~/exp/include/boost-1_40/")
+
 (add-to-list 'semantic-lex-c-preprocessor-symbol-file
-             "~/exp/include/boost-1_39/boost/config.hpp")
+             (concat boost-base-directory "/boost/config.hpp"))
 
 ;;
 (global-semantic-idle-tag-highlight-mode 1)
@@ -104,7 +107,7 @@
       (ede-cpp-root-project "cpp-tests"
                             :file "~/projects/lang-exp/cpp/CMakeLists.txt"
                             :system-include-path '("/home/ott/exp/include"
-                                                   "/home/ott/exp/include/boost-1_39")
+                                                   boost-base-directory)
                             :local-variables (list
                                               (cons 'compile-command 'alexott/gen-cmake-debug-compile-string)
                                               )
@@ -114,9 +117,18 @@
       (ede-cpp-root-project "squid-gsb"
                             :file "~/projects/squid-gsb/README"
                             :system-include-path '("/home/ott/exp/include"
-                                                   "/home/ott/exp/include/boost-1_39")
+                                                   boost-base-directory)
                             :local-variables (list
                                               (cons 'compile-command 'alexott/gen-cmake-debug-compile-string)
+                                              )
+                            ))
+(setq arabica-project
+      (ede-cpp-root-project "arabica"
+                            :file "~/projects/arabica-devel/README"
+                            :system-include-path '("/home/ott/exp/include"
+                                                   boost-base-directory)
+                            :local-variables (list
+                                              (cons 'compile-command 'alexott/gen-std-compile-string)
                                               )
                             ))
 
@@ -153,6 +165,16 @@
 (global-set-key [f9] 'alexott/compile)
 
 ;;
+(defun alexott/gen-std-compile-string ()
+  "Generates compile string for compiling CMake project in debug mode"
+  (let* ((current-dir (file-name-directory
+                       (or (buffer-file-name (current-buffer)) default-directory)))
+         (prj (ede-current-project current-dir))
+         (root-dir (ede-project-root-directory prj))
+         )
+    (concat "cd " root-dir "; make -j2")))
+
+;;
 (defun alexott/gen-cmake-debug-compile-string ()
   "Generates compile string for compiling CMake project in debug mode"
   (let* ((current-dir (file-name-directory
@@ -163,7 +185,7 @@
          )
     (when (string-match root-dir current-dir)
       (setf subdir (substring current-dir (match-end 0))))
-    (concat "cd " root-dir "Debug/" "; make -j3")))
+    (concat "cd " root-dir "Debug/" "; make -j2")))
 ;;    (concat "cd " root-dir "Debug/" subdir "; make -j3")))
 
 ;; Example, Qt customization

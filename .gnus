@@ -27,7 +27,10 @@
                 (nnimap-address "imap.gmail.com")
                 (nnimap-server-port 993)
                 (nnimap-stream ssl)
-                (nnimap-expunge-on-close always))
+                (nnimap-expunge-on-close always)
+;;                (nnmail-expiry-target "nnimap+gmail:[Gmail]/Trash")
+;;                (nnmail-expiry-wait immediate)
+                )
         (nnml "")))
 
 ;; (setq gnus-parameters '(("^nntp.*"
@@ -62,6 +65,7 @@
   (font-lock-mode t)
   (abbrev-mode t)
   (setq fill-column 75)
+  (orgstruct++-mode 1)
   (flyspell-mode 1))
 (add-hook  'message-mode-hook 'alexott/message-mode-hook)
 
@@ -154,6 +158,7 @@
       gnus-ignored-newsgroups ""
       nnml-get-new-mail t
       gnus-add-to-list t
+      gnus-large-newsgroup nil
       gnus-inhibit-startup-message t
       gnus-read-active-file nil
       gnus-check-new-newsgroups 'ask-server

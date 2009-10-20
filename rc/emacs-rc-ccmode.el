@@ -9,6 +9,9 @@
 
 (require 'cc-mode)
 
+(load "c-eldoc")
+(setq c-eldoc-includes "-I~/exp/include -I./ -I../ ")
+
 ;; customisation of cc-mode
 (defun alexott/c-mode-common-hook ()
   ;; style customization
@@ -21,7 +24,7 @@
   (c-toggle-auto-hungry-state 0)
   ;; minor modes
   (auto-fill-mode 1)
-  (turn-on-eldoc-mode)
+  (c-turn-on-eldoc-mode)
   (gtags-mode 1)
   (hs-minor-mode 1)
   ;; local keys

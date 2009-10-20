@@ -1,0 +1,3 @@
+#name : (fprintf)
+# --
+(fprintf (current-output-port) "$1~n" $0)

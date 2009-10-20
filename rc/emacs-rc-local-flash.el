@@ -57,13 +57,17 @@
                            normal :weight normal :height 160 :width normal :family
                            "apple-monaco"))))))
 
+
 (when (string-match "23\\." (emacs-version))
   (setq ns-antialias-text t))
 (setq mac-allow-anti-aliasing t)
 
-(setq default-frame-alist '((background-color . "grey90") (left . 0) (width . 130) (height . 43)))
-(setq initial-frame-alist default-frame-alist)
-(setq special-display-frame-alist default-frame-alist)
+(setq default-frame-alist '((background-color . "grey90")
+                            (left . 0)
+                            (width . 130)
+                            (height . 43)))
+(setq initial-frame-alist (copy-alist default-frame-alist))
+(setq special-display-frame-alist (copy-alist default-frame-alist))
 
 ;; erlang
 (setq erlang-root-dir "/opt/local/lib/erlang")

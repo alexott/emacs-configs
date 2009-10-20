@@ -1,0 +1,7 @@
+#name : (defn fun ...)
+# --
+(defn ${1:func}
+"${2:description}"$>
+[${3:args}]$>
+$0$>
+)$>

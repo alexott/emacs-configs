@@ -47,7 +47,8 @@
                             perl-mode cperl-mode
                             java-mode jde-mode
                             lisp-interaction-mode
-                            LaTeX-mode TeX-mode)
+                            LaTeX-mode TeX-mode
+                            scheme-mode)
   "Modes in which to indent regions that are yanked (or yank-popped)")
 
 (defadvice yank (after indent-region activate)

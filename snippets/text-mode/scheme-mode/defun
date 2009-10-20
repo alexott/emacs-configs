@@ -1,0 +1,5 @@
+#name : (define (fun ...)
+# --
+(define (${1:func})
+$0$>
+)$>

@@ -1,10 +1,10 @@
-;;; emacs-rc-dvc.el --- 
+;;; emacs-rc-dvc.el ---
 
 ;; Copyright (C) 2007 Alex Ott
 ;;
 ;; Author: alexott@gmail.com
-;; Keywords: 
-;; Requirements: 
+;; Keywords:
+;; Requirements:
 ;; Status: not intended to be distributed yet
 
 (add-to-list 'load-path "~/emacs/dvc/")
