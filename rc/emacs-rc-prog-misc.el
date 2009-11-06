@@ -48,7 +48,7 @@
                             java-mode jde-mode
                             lisp-interaction-mode
                             LaTeX-mode TeX-mode
-                            scheme-mode)
+                            scheme-mode clojure-mode)
   "Modes in which to indent regions that are yanked (or yank-popped)")
 
 (defadvice yank (after indent-region activate)
@@ -67,5 +67,10 @@
 ;; (require 'company-mode)
 ;; (require 'company-bundled-completions)
 ;; (company-install-bundled-completions-rules)
+
+;;
+(autoload 'paredit-mode "paredit" "Minor mode for pseudo-structurally editing Lisp code." t)
+(require 'eldoc)
+(eldoc-add-command 'paredit-backward-delete 'paredit-close-round)
 
 ;;; emacs-prog-misc.el ends here

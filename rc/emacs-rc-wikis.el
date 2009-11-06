@@ -23,6 +23,9 @@
 (custom-set-faces
  '(simple-wiki-teletype-face ((((class color) (background light)) (:underline "darkgreen")))))
 
+(autoload 'markdown-mode "markdown-mode.el" "Major mode for editing Markdown files" t)
+;;(add-to-list 'auto-mode-alist '("\\.te?xt$" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.markdown?$" . markdown-mode))
 
 
 ;;; emacs-rc-wikis.el ends here

@@ -27,6 +27,7 @@
   (turn-on-haskell-indent)
 ;;  (turn-on-haskell-ghci)
   (turn-on-eldoc-mode)
+  (turn-on-haskell-indentation)
   (local-set-key [return] 'newline-and-indent)
   (local-set-key "\C-cl" 'hs-lint)
   (local-set-key "\C-ch" 'haskell-hoogle)
@@ -37,7 +38,6 @@
 (add-hook 'haskell-mode-hook 'alexott/common-hook)
 (add-hook 'haskell-mode-hook 'alexott/show-prog-keywords)
 (add-hook 'haskell-mode-hook 'alexott/haskell-mode-hook)
-
 
 ;; flymake settings
 

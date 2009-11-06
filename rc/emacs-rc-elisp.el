@@ -12,6 +12,7 @@
   (abbrev-mode 1)
   (auto-fill-mode 1)
   (turn-on-eldoc-mode)
+  (paredit-mode 1)
   (local-set-key [return] 'newline-and-indent)
   (local-set-key "\C-cf" 'find-function)
   (local-set-key "\C-c4f" 'find-function-other-window)

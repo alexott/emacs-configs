@@ -62,6 +62,7 @@ comment progressively moves outward over enclosing expressions."
   (turn-on-eldoc-mode)
   (local-set-key [return] 'newline-and-indent)
   (local-set-key [f1] 'r5rs-call)
+  (paredit-mode +1)
 )
 
 (add-hook 'scheme-mode-hook 'alexott/scheme-mode-hook)
