@@ -15,6 +15,8 @@
   (turn-on-eldoc-mode)
   (paredit-mode 1)
   (local-set-key [return] 'newline-and-indent)
+  (set (make-local-variable 'slime-lisp-implementations)
+       (list (assoc 'sbcl slime-lisp-implementations)))
   )
 (add-hook 'lisp-mode-hook 'alexott/lisp-mode-hook)
 (add-hook 'lisp-mode-hook 'alexott/common-hook)

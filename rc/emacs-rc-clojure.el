@@ -19,6 +19,8 @@
   (turn-on-eldoc-mode)
   (paredit-mode 1)
   (local-set-key [return] 'newline-and-indent)
+  (set (make-local-variable 'slime-lisp-implementations)
+       (list (assoc 'clojure slime-lisp-implementations)))
   )
 (add-hook 'clojure-mode-hook 'alexott/common-hook)
 (add-hook 'clojure-mode-hook 'alexott/show-prog-keywords)
@@ -34,9 +36,11 @@
                       "-Xmx512m -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8888 "
                       "-cp "
                       (string-join ":" (append
+                                        (list "/home/ott/projects/unapalabra/src/main/clojure/")
                                         (file-expand-wildcards (concat clojure-home "*.jar") t)
                                         (file-expand-wildcards "~/share/java/*.jar" t)
-                                        (file-expand-wildcards "~/projects/txt-decoding/lib/*.jar" t)))
+                                        (file-expand-wildcards "~/projects/unapalabra/lib/*.jar" t)
+                                        ))
                       " clojure.lang.Repl")))
 
 ;; swank-clojure
