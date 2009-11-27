@@ -59,6 +59,10 @@
 
 
 (when (string-match "23\\." (emacs-version))
+  (set-fontset-font "fontset-default" '(#x0000 . #xFFFFF) '("Apple Monaco" . "unicode-bmp"))
+  (setq ns-command-modifier   'meta
+        ns-alternate-modifier 'super)
+  (setq-default cursor-type 'box)
   (setq ns-antialias-text t))
 (setq mac-allow-anti-aliasing t)
 
