@@ -25,8 +25,8 @@
 
 ;; clean trailing whitespaces automatically
 (setq alexott/trailing-whitespace-modes '(c++-mode c-mode haskell-mode emacs-lisp-mode
-                                                   lisp-mode scheme-mode erlang-mode
-                                                   clojure-mode))
+                                                   lisp-mode scheme-mode erlang-mode))
+
 (defun alexott/trailing-whitespace-hook ()
   (when (member major-mode alexott/trailing-whitespace-modes)
     (delete-trailing-whitespace)))

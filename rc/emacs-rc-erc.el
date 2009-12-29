@@ -14,7 +14,7 @@
 (erc-autojoin-mode t)
 (setq erc-autojoin-channels-alist
       '(
-;;        ("freenode.net" "#couchdb")
+        ("freenode.net" "#clojure")
 ;;        ("freenode.net" "#couchdb" "#haskell")
         ("irc.int.ru" "#unix")
         ("irc.fu-berlin.de" "#unix.ru" "#fidorus")
@@ -57,7 +57,7 @@
   "Connect to IRC."
   (interactive)
   (progn
-    (erc-select :server "irc.int.ru" :port 6667 :nick "alexott")
+;;    (erc-select :server "irc.int.ru" :port 6667 :nick "alexott")
     (erc-select :server "irc.freenode.net" :port 6667 :nick "alexott")
 ;;    (erc-select :server "irc.fu-berlin.de" :port 6667 :nick "alexott")
   ))
