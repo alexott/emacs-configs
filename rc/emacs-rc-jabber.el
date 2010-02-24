@@ -18,8 +18,8 @@
     (message "%s" server)
     (if (string-equal server "gmail.com")
         (progn
-;;          (jabber-groupchat-join jc "devil@conference.jabber.ru" "alexott")
-;;          (jabber-groupchat-join jc "haskell@conference.jabber.ru" "alexott")
+          (jabber-groupchat-join jc "devil@conference.jabber.ru" "alexott")
+          (jabber-groupchat-join jc "haskell@conference.jabber.ru" "alexott")
 ;;          (jabber-groupchat-join jc "lisp@conference.jabber.ru" "alexott")
 ;;          (jabber-groupchat-join jc "emacs@conference.jabber.ru" "alexott")
 ;;          (jabber-groupchat-join jc "icfpc@conference.jabber.ru" "alexott")

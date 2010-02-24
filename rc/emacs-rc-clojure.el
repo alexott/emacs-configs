@@ -14,6 +14,9 @@
 (add-to-list 'auto-mode-alist '("\\.clj$" . clojure-mode))
 ;; TODO: add clojure-test-mode
 
+(autoload 'clojure-test-mode "clojure-test-mode" "Clojure test mode" t)
+(autoload 'clojure-test-maybe-enable "clojure-test-mode" "" t)
+
 (defun alexott/clojure-mode-hook ()
   "Hook for Clojure mode"
   (turn-on-eldoc-mode)
@@ -21,6 +24,8 @@
   (local-set-key [return] 'newline-and-indent)
   (set (make-local-variable 'slime-lisp-implementations)
        (list (assoc 'clojure slime-lisp-implementations)))
+  ;; clojure-test-mode
+  (clojure-test-maybe-enable)
   )
 (add-hook 'clojure-mode-hook 'alexott/common-hook)
 (add-hook 'clojure-mode-hook 'alexott/show-prog-keywords)
