@@ -36,10 +36,8 @@
                       "-Xmx512m -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8888 "
                       "-cp "
                       (string-join ":" (append
-                                        (list "/home/ott/projects/unapalabra/src/main/clojure/")
                                         (file-expand-wildcards (concat clojure-home "*.jar") t)
                                         (file-expand-wildcards "~/share/java/*.jar" t)
-                                        (file-expand-wildcards "~/projects/unapalabra/lib/*.jar" t)
                                         ))
                       " clojure.lang.Repl")))
 
