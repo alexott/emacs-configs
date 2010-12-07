@@ -36,6 +36,11 @@
                    :header "~/projects/Muse/FP-Journal/header.tex"
                    :footer "~/projects/Muse/FP-Journal/footer.tex")
 
+(muse-derive-style "my-presentations" "slides"
+                   :header "~/projects/Muse/Presentations/header.tex"
+                   :footer "~/projects/Muse/Presentations/footer.tex")
+
+
 (setq muse-project-alist
       `(("personal-notes"
          (,@(muse-project-alist-dirs "~/projects/Muse") :default "index")
@@ -48,6 +53,9 @@
          ;; (:base "fp-journal-pdf"
          ;;        :path "~/projects/Muse/FP-Journal"
          ;;        :include "/FP-Journal/[^/]*.muse$")
+         (:base "my-presentations"
+                :path "~/projects/Muse/Presentations"
+                :include "/Presentations/[^/]*.muse$")
          )
         ("my-page-project"
          (,@(muse-project-alist-dirs "~/projects/my-page-muse") :default "index")
@@ -108,31 +116,34 @@
                               ("index.html" . "Главная")
                               ("cf/" . "Информационная безопасность")
                               ("fp/" . "Функциональное программирование")
-                              ("scheme/" . "Scheme")
                               ("lisp/" . "Lisp")
+                              ("clojure/" . "Clojure")
+                              ("scheme/" . "Scheme")
                               ("erlang/" . "Erlang")
                               ("cpp/" . "C++")
                               ("oss/" . "Open Source Projects")
                               ("emacs/" . "Emacs")
                               ("writings/" . "Статьи")
-                              ("macosx/" . "Mac OS X")
-                              ("news/" . "Новости")
-;;; ("" . "")
+;                              ("macosx/" . "Mac OS X")
 ;;; ("" . "")
                               ))
                      ("en" . (
                               ("index.html" . "Main")
-                              ("cf/" . "Information Security")
                               ("fp/" . "Functional programming")
-;;;                                                                                                                      ("lisp/" . "Lisp")
+                              ("clojure/" . "Clojure")
+                              ("emacs/" . "Emacs")
+                              ("cf/" . "Information Security")
                               ("cpp/" . "C++")
                               ("oss/" . "Open Source Projects")
-                              ("emacs/" . "Emacs")
                               ("writings/" . "Articles")
-                              ("news/" . "Site news")
-;;;                                                                                                                      ("" . "")
                               ))
                      ))
+
+(defun generate-change-date (file)
+  (when (file-exists-p file)
+    (let* ((fa (file-attributes file))
+           (mod-time (nth 6 fa)))
+      (format-time-string "%d.%m.%Y %R" mod-time))))
 
 (defun muse-mp-detect-language ()
   (let ((lang "NN")
@@ -342,12 +353,12 @@ is less, equal or greater then second"
           (kill-buffer (current-buffer))
           (pop-to-buffer cb))))))
 
-(defun muse-mp-publish-hook (data)
-  (if (string-equal (car data) "my-page-project")
-      (progn
-        (alexott/blorg-publish-file "~/projects/my-page-muse/ru/news/news.org")
-        (alexott/blorg-publish-file "~/projects/my-page-muse/en/news/news.org"))))
-(add-hook 'muse-after-project-publish-hook 'muse-mp-publish-hook)
+;; (defun muse-mp-publish-hook (data)
+;;   (if (string-equal (car data) "my-page-project")
+;;       (progn
+;;         (alexott/blorg-publish-file "~/projects/my-page-muse/ru/news/news.org")
+;;         (alexott/blorg-publish-file "~/projects/my-page-muse/en/news/news.org"))))
+;; (add-hook 'muse-after-project-publish-hook 'muse-mp-publish-hook)
 
 ;; command to fix links in blorg-generated files
 ;; for i in *.html *.xml ; do sed -i -e 's|\[\[\([^]]*\)\]\[\([^]]*\)\]\]|<a href="\1">\2</a>|' -- $i ; done

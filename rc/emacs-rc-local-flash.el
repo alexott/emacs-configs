@@ -1,9 +1,10 @@
 ;; local settings for mac
 
-
 (semantic-add-system-include "/usr/include/c++/4.0.0/" 'c++-mode)
 (semantic-add-system-include "/opt/local/include/" 'c++-mode)
 (semantic-add-system-include "/opt/local/include/" 'c-mode)
+
+(c++-setup-boost "/opt/local/include/boost")
 
 ;; info
 (push "/opt/local/share/info" Info-directory-list)

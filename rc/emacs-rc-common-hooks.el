@@ -12,6 +12,7 @@
   (local-set-key "\C-c:" 'uncomment-region)
   (local-set-key "\C-c;" 'comment-region)
   (local-set-key "\C-c\C-c" 'comment-region)
+  (font-lock-mode 1)
   )
 
 ;; show FIXME/TODO/BUG keywords
@@ -20,8 +21,13 @@
   (font-lock-add-keywords nil '(("\\<\\(FIXME\\|TODO\\|BUG\\):" 1 font-lock-warning-face t)))
   (font-lock-add-keywords nil '(("\\<\\(DONE\\):" 1 font-lock-doc-face t)))
   ;; highlight too long lines
-  (font-lock-add-keywords nil '(("^[^\n]\\{120\\}\\(.*\\)$" 1 font-lock-warning-face t))))
+  ;;(font-lock-add-keywords nil '(("^[^\n]\\{120\\}\\(.*\\)$" 1 font-lock-warning-face t)))
+  )
 
+(defun alexott/common-prog-hook ()
+  (subword-mode 1)
+  (alexott/show-prog-keywords)
+  )
 
 ;; clean trailing whitespaces automatically
 (setq alexott/trailing-whitespace-modes '(c++-mode c-mode haskell-mode emacs-lisp-mode

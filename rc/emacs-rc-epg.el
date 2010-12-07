@@ -10,7 +10,7 @@
 
 (add-to-list 'load-path "~/emacs/epg")
 (require 'epa-setup)
-(setq epa-file-cache-passphrase-for-symmetric-encryption t)
+(setq epa-file-cache-passphrase-for-symmetric-encryption nil)
 
 ;;; emacs-rc-epg.el ends here
 

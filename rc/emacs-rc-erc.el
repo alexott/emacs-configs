@@ -14,7 +14,7 @@
 (erc-autojoin-mode t)
 (setq erc-autojoin-channels-alist
       '(
-        ("freenode.net" "#clojure")
+        ("freenode.net" "#clojure" "#clojure.de" "#muse")
 ;;        ("freenode.net" "#couchdb" "#haskell")
         ("irc.int.ru" "#unix")
         ("irc.fu-berlin.de" "#unix.ru" "#fidorus")
@@ -63,11 +63,12 @@
   ))
 
 (custom-set-variables
- '(erc-encoding-coding-alist (quote (("#debian-russian" . cyrillic-koi8) ("#altlinux" . cyrillic-koi8) ("#unix.ru" . cyrillic-koi8) ("#fidorus" . cyrillic-koi8))))
+ '(erc-encoding-coding-alist (quote (("#clojure-de" . utf-8) ("#debian-russian" . cyrillic-koi8) ("#altlinux" . cyrillic-koi8) ("#unix.ru" . cyrillic-koi8) ("#fidorus" . cyrillic-koi8))))
  '(erc-nick "alexott")
  '(erc-nick-uniquifier "_")
  '(erc-prompt-for-password nil)
  '(erc-kill-queries-on-quit t)
- '(erc-server-coding-system (quote (koi8-r . koi8-r))))
+ '(erc-server-coding-system (quote utf-8))
+ )
 
 ;;; emacs-rc-erc.el ends here

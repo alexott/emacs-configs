@@ -25,7 +25,7 @@
   )
 (add-hook 'tuareg-mode-hook 'alexott/tuareg-hook)
 (add-hook 'tuareg-mode-hook 'alexott/common-hook)
-(add-hook 'tuareg-mode-hook 'alexott/show-prog-keywords)
+(add-hook 'tuareg-mode-hook 'alexott/common-prog-hook)
 
 (if (featurep 'sym-lock)
     (setq tuareg-sym-lock-keywords

@@ -38,7 +38,7 @@
   )
 (add-hook 'sh-mode-hook 'alexott/sh-mode-hook)
 (add-hook 'sh-mode-hook 'alexott/common-hook)
-(add-hook 'sh-mode-hook 'alexott/show-prog-keywords)
+(add-hook 'sh-mode-hook 'alexott/common-prog-hook)
 
 (autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)

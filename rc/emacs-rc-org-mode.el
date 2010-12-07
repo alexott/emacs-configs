@@ -41,6 +41,8 @@
                             "~/projects/OrgMode/notes.org"
                             "~/projects/OrgMode/ir.org"
                             "~/projects/OrgMode/openers.org"
+                            "~/projects/OrgMode/una.org"
+                            "~/projects/OrgMode/idid.org"
                             ))))
 
 (require 'org-install)
@@ -56,6 +58,7 @@
 (defun alexott/org-mode-hook ()
   (local-set-key "\C-x\C-a" 'show-all)
   (imenu-add-to-menubar "Imenu")
+  (setq comment-start nil)
 ;;  (make-variable-buffer-local 'yas/trigger-key)
 ;;  (setq yas/trigger-key [tab])
 ;;  (local-set-key [tab] 'yas/expand)
@@ -80,6 +83,10 @@
 (setq org-directory "~/projects/OrgMode")
 (setq org-default-notes-file (concat org-directory "/notes.org"))
 (define-key global-map "\C-cr" 'org-remember)
+
+;; mobile org support
+(setq org-mobile-inbox-for-pull (concat org-directory "/mobile.org"))
+(setq org-mobile-directory "~/Dropbox/MobileOrg")
 
 (setq org-remember-templates
       '(

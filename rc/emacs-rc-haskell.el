@@ -36,7 +36,7 @@
 ;;  (turn-on-haskell-simple-indent)
   (setq haskell-font-lock-symbols t))
 (add-hook 'haskell-mode-hook 'alexott/common-hook)
-(add-hook 'haskell-mode-hook 'alexott/show-prog-keywords)
+(add-hook 'haskell-mode-hook 'alexott/common-prog-hook)
 (add-hook 'haskell-mode-hook 'alexott/haskell-mode-hook)
 
 ;; flymake settings

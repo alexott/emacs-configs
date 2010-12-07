@@ -28,7 +28,7 @@
   )
 (add-hook 'python-mode-hook 'alexott/python-mode-hook)
 (add-hook 'python-mode-hook 'alexott/common-hook)
-(add-hook 'python-mode-hook 'alexott/show-prog-keywords)
+(add-hook 'python-mode-hook 'alexott/common-prog-hook)
 
 (add-hook 'python-mode-hook 'flyspell-prog-mode)
 

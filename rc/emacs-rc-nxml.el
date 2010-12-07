@@ -37,10 +37,12 @@
 (require 'docbk-menu)
 (add-hook 'nxml-mode-hook 'docbook-menu-mode)
 
-(setq nxml-attribute-indent 2)
-(setq nxml-auto-insert-xml-declaration-flag t)
-(setq nxml-bind-meta-tab-to-complete-flag t)
-(setq nxml-slash-auto-complete-flag t)
+(custom-set-variables
+ '(nxml-auto-insert-xml-declaration-flag nil)
+ '(nxml-attribute-indent 2)
+ '(nxml-bind-meta-tab-to-complete-flag t)
+ '(nxml-slash-auto-complete-flag t)
+)
 
 (add-to-list 'hs-special-modes-alist
              '(nxml-mode

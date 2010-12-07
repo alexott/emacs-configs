@@ -13,7 +13,7 @@
 (setq prolog-system 'swi)
 
 (add-hook 'prolog-mode-hook 'alexott/common-hook)
-(add-hook 'prolog-mode-hook 'alexott/show-prog-keywords)
+(add-hook 'prolog-mode-hook 'alexott/common-prog-hook)
 
 (add-to-list 'auto-mode-alist '("\\.plg$" . prolog-mode))
 

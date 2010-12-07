@@ -29,11 +29,10 @@
   (hs-minor-mode 1)
   ;; local keys
   (local-set-key [return] 'newline-and-indent)
-  ;;        (local-set-key [delete]  'delete-char)
   )
 (add-hook 'c-mode-common-hook 'alexott/c-mode-common-hook)
 (add-hook 'c-mode-common-hook 'alexott/common-hook)
-(add-hook 'c-mode-common-hook 'alexott/show-prog-keywords)
+(add-hook 'c-mode-common-hook 'alexott/common-prog-hook)
 
 (require 'info-look)
 (info-lookup-add-help

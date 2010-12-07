@@ -18,13 +18,14 @@
     (message "%s" server)
     (if (string-equal server "gmail.com")
         (progn
-          (jabber-groupchat-join jc "devil@conference.jabber.ru" "alexott")
-          (jabber-groupchat-join jc "haskell@conference.jabber.ru" "alexott")
+;;          (jabber-groupchat-join jc "devil@conference.jabber.ru" "alexott")
+;;          (jabber-groupchat-join jc "haskell@conference.jabber.ru" "alexott")
 ;;          (jabber-groupchat-join jc "lisp@conference.jabber.ru" "alexott")
 ;;          (jabber-groupchat-join jc "emacs@conference.jabber.ru" "alexott")
 ;;          (jabber-groupchat-join jc "icfpc@conference.jabber.ru" "alexott")
 ;;          (jabber-groupchat-join jc "wax@conference.jabber.ru" "alexott")
 ;;          (jabber-groupchat-join jc "erlang@conference.jabber.ru" "alexott")
+          (jabber-groupchat-join jc "clojure@conference.jabber.ru" "alexott")
           ))))
 (add-hook 'jabber-post-connect-hooks 'alexott/jabber-connect-hook)
 
@@ -34,6 +35,7 @@
 
 (setq jabber-history-enabled t)
 (setq jabber-use-global-history nil)
+(setq jabber-roster-show-bindings nil)
 
 (require 'jabber-autoaway)
 (add-hook 'jabber-post-connect-hook 'jabber-autoaway-start)

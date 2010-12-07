@@ -58,6 +58,10 @@
 (add-to-list 'iswitchb-buffer-ignore "\\*GTAGS")
 (add-to-list 'iswitchb-buffer-ignore "\\*Symref")
 (add-to-list 'iswitchb-buffer-ignore "^\\.cabal$")
+(add-to-list 'iswitchb-buffer-ignore "-preprocessed\\*\\(<[0-9]*>\\)?$")
+(add-to-list 'iswitchb-buffer-ignore "\\*nnimap")
+(add-to-list 'iswitchb-buffer-ignore "\\*nntpd")
+;;(add-to-list 'iswitchb-buffer-ignore "")
 ;;(add-to-list 'iswitchb-buffer-ignore "")
 ;;(add-to-list 'iswitchb-buffer-ignore "")
 

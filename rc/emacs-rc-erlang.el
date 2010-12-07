@@ -37,7 +37,7 @@
   )
 (add-hook 'erlang-mode-hook 'alexott/erlang-mode-hook)
 (add-hook 'erlang-mode-hook 'alexott/common-hook)
-(add-hook 'erlang-mode-hook 'alexott/show-prog-keywords)
+(add-hook 'erlang-mode-hook 'alexott/common-prog-hook)
 
 ;; A number of the erlang-extended-mode key bindings are useful in the shell too
 (defconst distel-shell-keys

@@ -13,6 +13,6 @@
 (add-to-list 'auto-mode-alist '("\\.cmake\\'" . cmake-mode))
 
 (add-hook 'cmake-mode-hook 'alexott/common-hook)
-(add-hook 'cmake-mode-hook 'alexott/show-prog-keywords)
+(add-hook 'cmake-mode-hook 'alexott/common-prog-hook)
 
 ;;; emacs-rc-cmake.el ends here

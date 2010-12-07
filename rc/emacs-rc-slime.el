@@ -39,4 +39,17 @@
 (global-set-key [f5] 'slime)
 (global-set-key [(control f11)] 'slime-selector)
 
+;; ignore version mismatch
+(setq slime-protocol-version 'ignore)
+
+;;
+;;(require 'ac-slime)
+;;(add-hook 'slime-mode-hook 'set-up-slime-ac)
+;;(add-hook 'slime-connected-hook
+;;          (lambda ()
+;;            (define-key slime-mode-map (kbd "TAB") 'auto-complete)
+;;            (define-key slime-repl-mode-map (kbd "TAB") 'auto-complete)))
+;;(add-hook 'slime-mode-hook (lambda () (auto-complete-mode t)))
+;;(add-hook 'slime-repl-mode-hook (lambda () (auto-complete-mode t)))
+
 ;;; emacs-rc-slime.el ends here

@@ -15,14 +15,17 @@
 (add-hook 'gnus-startup-hook 'bbdb-insinuate-gnus)
 (add-hook 'message-setup-hook 'bbdb-define-all-aliases)
 
-(setq bbdb-use-pop-up nil)
-(setq bbdb-sounds-directory nil)
-(setq news-reply-header-hook nil)
-(setq bbdb-offer-save (quote savenoprompt))
-(setq bbdb-north-american-phome-numbers-p nil)
-(setq bbdb-complete-name-allow-cycling t)
-(setq bbdb-quiet-about-name-mismatches t)
-(setq bbdb-use-alternate-names nil)
+(custom-set-variables
+ '(bbdb-use-pop-up nil)
+ '(bbdb-sounds-directory nil)
+ '(news-reply-header-hook nil)
+ '(bbdb-offer-save (quote savenoprompt))
+ '(bbdb-north-american-phome-numbers-p nil)
+ '(bbdb-complete-name-allow-cycling t)
+ '(bbdb-quiet-about-name-mismatches t)
+ '(bbdb-use-alternate-names nil)
+ '(bbdb-extract-address-component-ignore-regexp "noreply-comment@blogger\\.com\\|\\(\\(undisclosed\\|unlisted\\)[^,]*recipients\\)\\|no To-header on input"))
+
 
 ;; complete from bbdb
 (defun alexott/bbdb-tab-complete ()

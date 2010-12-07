@@ -31,9 +31,11 @@
 ;; whitespace mode
 (autoload 'whitespace-mode "whitespace" "Toggle whitespace visualization."        t)
 (autoload 'whitespace-toggle-options "whitespace" "Toggle local `whitespace-mode' options." t)
+(setq whitespace-style '(trailing lines space-before-tab indentation space-after-tab)
+      whitespace-line-column 400)
 (custom-set-variables
  '(whitespace-global-mode nil)
- '(whitespace-modes (quote (awk-mode)))
+ '(whitespace-modes (quote (awk-mode clojure-mode)))
  '(whitespace-silent t))
 
 ;;
@@ -73,4 +75,9 @@
 (require 'eldoc)
 (eldoc-add-command 'paredit-backward-delete 'paredit-close-round)
 
+;; Go Language
+(require 'go-mode-load)
+
+
 ;;; emacs-prog-misc.el ends here
+

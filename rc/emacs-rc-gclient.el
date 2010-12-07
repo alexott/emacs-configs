@@ -1,4 +1,4 @@
-;;; emacs-rc-gclient.el --- 
+;;; emacs-rc-gclient.el ---
 
 (add-to-list 'load-path "~/emacs/g-client")
 (load-library "g")
@@ -7,6 +7,7 @@
 ;;(load-library "gblogger")
 ;;(load-library "greader")
 ;;(load-library "gcal")
+(load-library "gcontacts")
 
 
 ;;; emacs-rc-gclient.el ends here

@@ -20,6 +20,7 @@
 (defun alexott/clojure-mode-hook ()
   "Hook for Clojure mode"
   (turn-on-eldoc-mode)
+  (whitespace-mode 1)
   (paredit-mode 1)
   (local-set-key [return] 'newline-and-indent)
   (set (make-local-variable 'slime-lisp-implementations)
@@ -28,23 +29,20 @@
   (clojure-test-maybe-enable)
   )
 (add-hook 'clojure-mode-hook 'alexott/common-hook)
+(add-hook 'clojure-mode-hook 'alexott/common-prog-hook)
 (add-hook 'clojure-mode-hook 'alexott/show-prog-keywords)
 (add-hook 'clojure-mode-hook 'alexott/clojure-mode-hook)
 
-(setq clojure-home "~/emacs/clojure/")
+(setq clojure-home (expand-file-name "~/emacs/clojure/"))
 
 (defvar clj-cmd)
 (setenv "CLJ_CMD"
         (setq clj-cmd
               (concat "java "
-                      "-server "
-                      "-Xmx512m -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8888 "
-                      "-cp "
-                      (string-join ":" (append
-                                        (file-expand-wildcards (concat clojure-home "*.jar") t)
-                                        (file-expand-wildcards "~/share/java/*.jar" t)
-                                        ))
-                      " clojure.lang.Repl")))
+                      "-Xmx1g -Xms1g -server -XX:+UseConcMarkSweepGC -XX:+UseCompressedOops "
+                      "-XX:+DoEscapeAnalysis -XX:+UseBiasedLocking -XX:PermSize=64M -XX:MaxPermSize=256M -XX:-UseGCOverheadLimit "
+                      "-Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8888 "
+                      "-cp " clojure-home  "*" " clojure.main")))
 
 ;; swank-clojure
 (require 'swank-clojure-autoload)

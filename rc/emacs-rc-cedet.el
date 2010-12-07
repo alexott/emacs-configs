@@ -90,17 +90,40 @@
 (semantic-add-system-include "~/exp/include" 'c++-mode)
 (semantic-add-system-include "~/exp/include" 'c-mode)
 
-(setq boost-base-directory "~/exp/include/boost-1_40/")
+(defun recur-list-files (dir re)
+  "Returns list of files in directory matching to given regex"
+  (when (file-accessible-directory-p dir)
+    (let ((files (directory-files dir t))
+          matched)
+      (dolist (file files matched)
+        (let ((fname (file-name-nondirectory file)))
+          (cond
+           ((or (string= fname ".")
+                (string= fname "..")) nil)
+           ((and (file-regular-p file)
+                 (string-match re fname))
+            (setq matched (cons file matched)))
+           ((file-directory-p file)
+            (let ((tfiles (recur-list-files file re)))
+              (when tfiles (setq matched (append matched tfiles)))))))))))
 
-(add-to-list 'semantic-lex-c-preprocessor-symbol-file
-             (concat boost-base-directory "/boost/config.hpp"))
+(defun c++-setup-boost (boost-root)
+  (when (file-accessible-directory-p boost-root)
+    (let ((cfiles (recur-list-files boost-root "\\(config\\|user\\)\\.hpp")))
+      (dolist (file cfiles)
+        (add-to-list 'semantic-lex-c-preprocessor-symbol-file file)))))
+
 
 ;;
-(global-semantic-idle-tag-highlight-mode 1)
+;;(global-semantic-idle-tag-highlight-mode 1)
 
 ;;; ede customization
 (require 'semantic-lex-spp)
 (global-ede-mode t)
+(ede-enable-generic-projects)
+
+;; maven-based projects
+;;(ede-maven2-project "clojure-hadoop" :file "~/projects/clojure-hadoop/pom.xml")
 
 ;; cpp-tests project definition
 (setq cpp-tests-project
@@ -113,24 +136,25 @@
                                               )
                             ))
 
-(setq squid-gsb-project
-      (ede-cpp-root-project "squid-gsb"
-                            :file "~/projects/squid-gsb/README"
-                            :system-include-path '("/home/ott/exp/include"
-                                                   boost-base-directory)
-                            :local-variables (list
-                                              (cons 'compile-command 'alexott/gen-cmake-debug-compile-string)
-                                              )
-                            ))
-(setq arabica-project
-      (ede-cpp-root-project "arabica"
-                            :file "~/projects/arabica-devel/README"
-                            :system-include-path '("/home/ott/exp/include"
-                                                   boost-base-directory)
-                            :local-variables (list
-                                              (cons 'compile-command 'alexott/gen-std-compile-string)
-                                              )
-                            ))
+;; (setq squid-gsb-project
+;;       (ede-cpp-root-project "squid-gsb"
+;;                             :file "~/projects/squid-gsb/README"
+;;                             :system-include-path '("/home/ott/exp/include"
+;;                                                    boost-base-directory)
+;;                             :local-variables (list
+;;                                               (cons 'compile-command 'alexott/gen-cmake-debug-compile-string)
+;;                                               )
+;;                             ))
+
+;; (setq arabica-project
+;;       (ede-cpp-root-project "arabica"
+;;                             :file "~/projects/arabica-devel/README"
+;;                             :system-include-path '("/home/ott/exp/include"
+;;                                                    boost-base-directory)
+;;                             :local-variables (list
+;;                                               (cons 'compile-command 'alexott/gen-std-compile-string)
+;;                                               )
+;;                             ))
 
 ;; my functions for EDE
 (defun alexott/ede-get-local-var (fname var)
@@ -185,18 +209,7 @@
          )
     (when (string-match root-dir current-dir)
       (setf subdir (substring current-dir (match-end 0))))
-    (concat "cd " root-dir "Debug/" "; make -j2")))
-;;    (concat "cd " root-dir "Debug/" subdir "; make -j3")))
-
-;; Example, Qt customization
-;; (setq qt4-base-dir "/usr/include/qt4")
-;; (setq qt4-gui-dir (concat qt4-base-dir "/QtGui"))
-;; (semantic-add-system-include qt4-base-dir 'c++-mode)
-;; (semantic-add-system-include qt4-gui-dir 'c++-mode)
-;; (add-to-list 'auto-mode-alist (cons qt4-base-dir 'c++-mode))
-;; (add-to-list 'semantic-lex-c-preprocessor-symbol-file (concat qt4-base-dir "/Qt/qconfig.h"))
-;; (add-to-list 'semantic-lex-c-preprocessor-symbol-file (concat qt4-base-dir "/Qt/qconfig-large.h"))
-;; (add-to-list 'semantic-lex-c-preprocessor-symbol-file (concat qt4-base-dir "/Qt/qglobal.h"))
+    (concat "cd " root-dir "Debug/" "; make -j3")))
 
 ;;; emacs-rc-cedet.el ends here
 

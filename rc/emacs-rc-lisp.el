@@ -20,7 +20,7 @@
   )
 (add-hook 'lisp-mode-hook 'alexott/lisp-mode-hook)
 (add-hook 'lisp-mode-hook 'alexott/common-hook)
-(add-hook 'lisp-mode-hook 'alexott/show-prog-keywords)
+(add-hook 'lisp-mode-hook 'alexott/common-prog-hook)
 
 (defun alexott/lisp-interact-mode-hook ()
   (paredit-mode 1)
@@ -34,5 +34,8 @@
  :regexp "[^][()'\" \t\n]+"
  :ignore-case t
  :doc-spec '(("(ansicl)Symbol Index" nil nil nil)))
+
+(add-to-list 'auto-mode-alist '("\\.stumpwmrc$" . lisp-mode))
+
 
 ;;; emacs-rc-slime.el ends here

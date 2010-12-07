@@ -12,6 +12,9 @@
 (setq text-mode-hook (quote (turn-on-auto-fill text-mode-hook-identify)))
 (setq user-full-name "Alex Ott")
 
+(defun make-local-hook (hook)
+  )
+
 (custom-set-variables
  '(delete-selection-mode t)
  '(fill-column 90)
@@ -64,6 +67,9 @@
 
 ;;
 (add-to-list 'auto-mode-alist '("\\.log$" . auto-revert-mode))
+
+;;
+;;(ffap-bindings)
 
 ;;
 (defun uniq ()

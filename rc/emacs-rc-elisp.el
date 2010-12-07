@@ -22,7 +22,7 @@
   )
 (add-hook 'emacs-lisp-mode-hook 'alexott/elisp-mode-hook)
 (add-hook 'emacs-lisp-mode-hook 'alexott/common-hook)
-(add-hook 'emacs-lisp-mode-hook 'alexott/show-prog-keywords)
+(add-hook 'emacs-lisp-mode-hook 'alexott/common-prog-hook)
 
 ;;
 ;; (add-to-list 'auto-mode-alist '("\\.el" . emacs-lisp-mode))
