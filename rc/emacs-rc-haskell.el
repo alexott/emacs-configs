@@ -9,8 +9,8 @@
 ;; Status: not intended to be distributed yet
 
 
-(add-to-list 'load-path "~/emacs/haskell-mode")
-(load "~/emacs/haskell-mode/haskell-site-file.el")
+;;(add-to-list 'load-path "~/emacs/haskell-mode")
+;;(load "~/emacs/haskell-mode/haskell-site-file.el")
 
 (add-to-list 'auto-mode-alist '("\\.hsc$" . haskell-mode))
 

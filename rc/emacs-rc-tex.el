@@ -7,15 +7,11 @@
 ;; Requirements:
 ;; Status: not intended to be distributed yet
 
-(add-to-list 'load-path "~/emacs/tex")
-(add-to-list 'load-path "~/emacs/auctex")
-(add-to-list 'load-path "~/emacs/reftex")
-
 (setenv "TEXINPUTS"
         (concat (getenv "TEXINPUTS")
                 ":/home/ott/tex/styles//:/home/ott/projects/fprog/journal-issues/class//"))
 
-(require 'tex-site)
+;(require 'tex-site)
 (setq-default TeX-master nil)
 (setq TeX-parse-self t)
 (setq TeX-auto-save t)
@@ -45,9 +41,10 @@
 (add-hook 'LaTeX-mode-hook 'TeX-PDF-mode)
 
 ;; CDLaTeX mode
-(autoload 'cdlatex-mode "cdlatex" "CDLaTeX Mode" t)
-(autoload 'turn-on-cdlatex "cdlatex" "CDLaTeX Mode" nil)
-(add-hook 'LaTeX-mode-hook 'turn-on-cdlatex) ; with AUCTeX LaTeX mode
-(add-hook 'latex-mode-hook 'turn-on-cdlatex) ; with Emacs latex mode
+;(autoload 'cdlatex-mode "cdlatex" "CDLaTeX Mode" t)
+;(autoload 'turn-on-cdlatex "cdlatex" "CDLaTeX Mode" nil)
+;(add-hook 'LaTeX-mode-hook 'turn-on-cdlatex) ; with AUCTeX LaTeX mode
+;(add-hook 'latex-mode-hook 'turn-on-cdlatex)
+                                        ; with Emacs latex mode
 
 ;;; emacs-rc-tex.el ends here

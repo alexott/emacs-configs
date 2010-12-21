@@ -2,7 +2,7 @@
 (setq custom-file "~/.emacs.d/custom.el")
 
 (when (equal system-type 'darwin)
-  (setenv "PATH" (concat "/opt/local/bin:/usr/local/bin:/usr/local/texlive/2008/bin/universal-darwin/:/Users/ott/bin:/Users/ott/exp/bin:" (getenv "PATH")))
+  (setenv "PATH" (concat "/Users/ott/.cabal/bin:/opt/local/bin:/usr/local/bin:/usr/local/texlive/2008/bin/universal-darwin/:/Users/ott/bin:/Users/ott/exp/bin:" (getenv "PATH")))
   (setenv "DYLD_FALLBACK_LIBRARY_PATH" "/usr/lib:/opt/local/lib:/usr/X11R6/lib:~/exp/lib")
   (push "/opt/local/bin" exec-path)
   (push "/usr/local/bin" exec-path)
@@ -14,6 +14,24 @@
   (push "/home/ott.cabal/bin" exec-path)
   (push "/home/ott/exp/bin" exec-path)
   )
+
+;; el-get
+
+(add-to-list 'load-path "~/projects/el-get/")
+(require 'el-get)
+(setq el-get-recipe-path  '("~/projects/el-get/recipes/"))
+(setq el-get-sources '(magit psvn org-mode haskell-mode auctex erlware-mode
+                             distel slime bbdb clojure-mode cedet ess g-client
+                             emacs-jabber ahg doxymacs dvc emacs-w3m geiser
+                             (:name muse
+                                    :type git
+                                    :url "git@github.com:alexott/muse.git"
+                                    :load-path ("./lisp")
+                                    :build ("make")
+                                    :features muse-autoloads
+                                    )
+                             planner remember))
+(el-get 'sync)
 
 ;; add commonly used paths
 (push "~/emacs/misc" load-path)
@@ -29,6 +47,7 @@
 (load "~/emacs/rc/emacs-rc-info.el")
 (load "~/emacs/rc/emacs-rc-osd.el")
 (load "~/emacs/rc/emacs-rc-yasnippet.el")
+;;(load "~/emacs/rc/emacs-rc-autocomplete.el")
 ;; TODOs, etc.
 (load "~/emacs/rc/emacs-rc-remember.el")
 (load "~/emacs/rc/emacs-rc-org-mode.el")
@@ -41,19 +60,18 @@
 (load "~/emacs/rc/emacs-rc-wikis.el")
 ;; programming tools & languages
 (load "~/emacs/rc/emacs-rc-prog-misc.el")
-(load "~/emacs/rc/emacs-rc-company-mode.el")
 (load "~/emacs/rc/emacs-rc-flymake.el")
 (load "~/emacs/rc/emacs-rc-gdb.el")
 (load "~/emacs/rc/emacs-rc-ccmode.el")
 (load "~/emacs/rc/emacs-rc-python.el")
+;(load "~/emacs/rc/emacs-rc-doxygen.el")
 (load "~/emacs/rc/emacs-rc-cedet.el")
 (load "~/emacs/rc/emacs-rc-elisp.el")
 (load "~/emacs/rc/emacs-rc-ecb.el")
 (load "~/emacs/rc/emacs-rc-prolog.el")
 (load "~/emacs/rc/emacs-rc-javascript.el")
 (load "~/emacs/rc/emacs-rc-scheme.el")
-(load "~/emacs/rc/emacs-rc-ocaml.el")
-(load "~/emacs/rc/emacs-rc-doxygen.el")
+;;(load "~/emacs/rc/emacs-rc-ocaml.el")
 (load "~/emacs/rc/emacs-rc-lisp.el")
 (load "~/emacs/rc/emacs-rc-clojure.el")
 (load "~/emacs/rc/emacs-rc-slime.el")
@@ -70,7 +88,7 @@
 (load "~/emacs/rc/emacs-rc-vcs-misc.el")
 ;;
 ;; WWW, IM, social networking & blogging
-(load "~/emacs/rc/emacs-rc-twitter.el")
+;;(load "~/emacs/rc/emacs-rc-twitter.el")
 (load "~/emacs/rc/emacs-rc-jabber.el")
 (load "~/emacs/rc/emacs-rc-w3.el")
 (load "~/emacs/rc/emacs-rc-erc.el")
@@ -87,7 +105,7 @@
 
 ;;(load "~/emacs/rc/emacs-rc-timeclock.el")
 ;;(load "~/emacs/rc/emacs-rc-autocomplete.el")
-;; (load "~/emacs/rc/emacs-rc-.el")
+(load "~/emacs/rc/emacs-rc-gclient.el")
 ;; (load "~/emacs/rc/emacs-rc-.el")
 ;; (load "~/emacs/rc/emacs-rc-.el")
 
@@ -107,3 +125,9 @@
 (load "~/emacs/passwords.el.gpg")
 
 (load custom-file 'noerror)
+
+;; for org-mode
+(setq comment-start nil)
+
+;; for emacs-jabber
+(define-key ctl-x-map "\C-j" jabber-global-keymap)

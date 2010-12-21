@@ -7,8 +7,8 @@
 ;; Requirements:
 ;; Status: not intended to be distributed yet
 
-(add-to-list 'load-path "~/emacs/org-mode")
-(add-to-list 'load-path "~/emacs/org-mode/contrib")
+;;(add-to-list 'load-path "~/emacs/org-mode")
+;;(add-to-list 'load-path "~/emacs/org-mode/contrib")
 
 (custom-set-variables
  '(org-startup-folded nil)
@@ -29,21 +29,7 @@
  '(mark-diary-entries-in-calendar t)
  '(org-todo-keywords '((sequence "TODO(t)" "WAITING(w)" "STARTED(s)" "|" "DONE(d)"
                                      "CANCELED(c)")))
- '(org-agenda-files (quote ("~/projects/OrgMode/writings.org"
-                            "~/projects/OrgMode/emacs.org"
-                            "~/projects/OrgMode/cf.org"
-                            "~/projects/OrgMode/programming.org"
-                            "~/projects/OrgMode/personal.org"
-                            "~/projects/OrgMode/pinacolada.org"
-                            "~/projects/OrgMode/wwpro.org"
-                            "~/projects/OrgMode/mcafee.org"
-                            "~/projects/OrgMode/mimetype.org"
-                            "~/projects/OrgMode/notes.org"
-                            "~/projects/OrgMode/ir.org"
-                            "~/projects/OrgMode/openers.org"
-                            "~/projects/OrgMode/una.org"
-                            "~/projects/OrgMode/idid.org"
-                            ))))
+ '(org-agenda-files (directory-files "~/projects/OrgMode/" t ".*\.org$")))
 
 (require 'org-install)
 (require 'org)

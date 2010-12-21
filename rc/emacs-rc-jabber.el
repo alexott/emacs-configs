@@ -7,8 +7,8 @@
 ;; Requirements:
 ;; Status: not intended to be distributed yet
 
-(add-to-list 'load-path "~/emacs/emacs-jabber")
-(require 'jabber)
+;;(add-to-list 'load-path "~/emacs/emacs-jabber")
+;;(require 'jabber)
 (require 'jabber-bookmarks)
 
 (defun alexott/jabber-connect-hook (jc)

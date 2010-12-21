@@ -11,7 +11,7 @@
 (require 'inf-lisp)
 (setq inferior-lisp-program "sbcl")
 (setq slime-net-coding-system 'utf-8-unix)
-(push "~/emacs/slime/" load-path)
+;;(push "~/emacs/slime/" load-path)
 (require 'slime)
 (slime-setup)
 (add-hook 'lisp-mode-hook
@@ -30,7 +30,6 @@
 (setq slime-use-autodoc-mode nil)
 (eval-after-load "slime"
   '(progn
-     (push "~/emacs/slime/contrib" load-path)
      (slime-setup '(slime-fancy slime-asdf slime-banner slime-fuzzy slime-repl))
      (setq slime-complete-symbol*-fancy t)
      (setq slime-complete-symbol-function 'slime-fuzzy-complete-symbol)

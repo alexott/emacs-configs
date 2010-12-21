@@ -7,7 +7,7 @@
 ;; Requirements:
 ;; Status: not intended to be distributed yet
 
-(add-to-list 'load-path "~/emacs/erc")
+;;(add-to-list 'load-path "~/emacs/erc")
 (require 'erc)
 
 (require 'erc-join)

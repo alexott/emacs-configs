@@ -4,15 +4,15 @@
 ;;
 ;; Author: alexott@gmail.com
 
-(add-to-list 'load-path "~/emacs/erlware-mode")
-(require 'erlang-start)
+;;(add-to-list 'load-path "~/emacs/erlware-mode")
+;(require 'erlang-start)
 
-(add-to-list 'auto-mode-alist '("\\.erl?$" . erlang-mode))
-(add-to-list 'auto-mode-alist '("\\.hrl?$" . erlang-mode))
+;;(add-to-list 'auto-mode-alist '("\\.erl?$" . erlang-mode))
+;;(add-to-list 'auto-mode-alist '("\\.hrl?$" . erlang-mode))
 
-(add-to-list 'load-path "~/emacs/distel/elisp")
-(require 'distel)
-(distel-setup)
+;(add-to-list 'load-path "~/emacs/distel/elisp")
+;(require 'distel)
+;(distel-setup)
 
 ;; flymake for erlang
 (defun flymake-erlang-init ()
@@ -55,8 +55,9 @@
             (dolist (spec distel-shell-keys)
               (define-key erlang-shell-mode-map (car spec) (cadr spec)))))
 
-(add-to-list 'load-path "~/emacs/esense")
-(require 'esense-start)
-(setq esense-indexer-program "~/emacs/esense/esense.sh")
+;;(add-to-list 'load-path "~/emacs/esense")
+;;(require 'esense-start)
+;;(setq esense-indexer-program "~/emacs/esense/esense.sh")
+
 
 ;;; emacs-rc-erlang.el ends here

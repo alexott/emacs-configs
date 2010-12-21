@@ -7,8 +7,8 @@
 ;; Requirements:
 ;; Status: not intended to be distributed yet
 
-(add-to-list 'load-path "~/emacs/dvc/")
-(require 'dvc-autoloads)
+;;(add-to-list 'load-path "~/emacs/dvc/")
+;;(require 'dvc-autoloads)
 
 (custom-set-variables
  '(dvc-prompt-active-dvc nil)

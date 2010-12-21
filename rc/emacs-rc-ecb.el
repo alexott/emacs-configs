@@ -8,9 +8,9 @@
 ;; Status: not intended to be distributed yet
 
 ;; Emacs code browser
-(add-to-list 'load-path "~/emacs/ecb")
-(require 'cl)
-(require 'ecb)
+;;(add-to-list 'load-path "~/emacs/ecb")
+;;(require 'cl)
+;;(require 'ecb)
 
 (setq-default ecb-tip-of-the-day nil)
 

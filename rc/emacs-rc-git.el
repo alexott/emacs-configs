@@ -7,7 +7,7 @@
 ;; (require 'git-emacs)
 
 ;; magit
-(add-to-list 'load-path "~/projects/magit")
+;(add-to-list 'load-path "~/projects/magit")
 (require 'magit)
 (require 'magit-svn)
 (global-set-key "\C-cm" 'magit-status)
@@ -15,9 +15,5 @@
  '(magit-save-some-buffers (quote dontask)))
 
 (setq magit-process-connection-type nil)
-
-;; additional package
-(require 'egit)
-(require 'gitsum)
 
 ;;; emacs-rc-git.el ends here

@@ -7,7 +7,7 @@
 ;; Requirements:
 ;; Status: not intended to be distributed yet
 
-(add-to-list 'load-path "~/emacs/muse")
+;(add-to-list 'load-path "~/projects/muse.el/lisp")
 ;;(add-to-list 'load-path "~/emacs/planner")
 ;;(add-to-list 'load-path "~/emacs/remember")
 

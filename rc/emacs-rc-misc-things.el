@@ -48,28 +48,14 @@
   )
 (add-hook 'htmlize-after-hook 'alexott/add-google-analytics)
 
-;; untabify
-;; (defun untabify-file ()
-;;   (save-excursion
-;;     (delete-trailing-whitespace)
-;;     (untabify (point-min) (point-max))))
-
 ;; footnote mode
 (autoload 'footnote-mode "footnote" nil t)
-;; (require 'footnote-init)
-;; (defun my-fn-hook ()
-;;  (footnote-init)
-;;  )
-;; (add-hook 'footnote-mode-hook 'my-fn-hook)
 
 ;; chm viewer
 (require 'chm-view)
 
 ;;
 (add-to-list 'auto-mode-alist '("\\.log$" . auto-revert-mode))
-
-;;
-;;(ffap-bindings)
 
 ;;
 (defun uniq ()
@@ -108,5 +94,7 @@
         (t (string-join-accum joiner (cdr strings)
                               (concat accum (car strings) joiner)))))
 
-;;; emacs-rc-misc-things.el ends here
+;; fix for broken hex-mode hook
+
+(setq revert-buffer-function nil)
 

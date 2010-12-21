@@ -8,8 +8,8 @@
 ;; Status: not intended to be distributed yet
 
 ;; Using BBDB
-(add-to-list 'load-path "~/emacs/bbdb")
-(require 'bbdb)
+;;(add-to-list 'load-path "~/emacs/bbdb")
+;;(require 'bbdb)
 (bbdb-initialize 'gnus 'message)
 
 (add-hook 'gnus-startup-hook 'bbdb-insinuate-gnus)

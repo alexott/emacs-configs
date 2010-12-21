@@ -8,11 +8,6 @@
 ;; Status: not intended to be distributed yet
 
 ;; NXML mode
-(when (string-match "22\\." (emacs-version))
-  (add-to-list 'load-path "~/emacs/nxml-mode")
-  (load "~/emacs/nxml-mode/rng-auto.el"))
-
-;;(require 'nxml-menu)
 
 (defun alexott/nxml-mode-hook ()
   (local-set-key "\C-c/" 'nxml-finish-element)
@@ -33,9 +28,9 @@
        'nxml-mode))
 (push '("<\\?xml" . nxml-mode) magic-mode-alist)
 
-(add-to-list 'load-path "~/emacs/docbook-menu")
-(require 'docbk-menu)
-(add-hook 'nxml-mode-hook 'docbook-menu-mode)
+;; (add-to-list 'load-path "~/emacs/docbook-menu")
+;; (require 'docbk-menu)
+;; (add-hook 'nxml-mode-hook 'docbook-menu-mode)
 
 (custom-set-variables
  '(nxml-auto-insert-xml-declaration-flag nil)
