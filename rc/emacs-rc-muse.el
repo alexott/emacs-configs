@@ -81,6 +81,14 @@
    (file-name-directory (muse-wiki-resolve-project-page (muse-project)))
    name))
 
+(defun muse-get-current-project-root (fname)
+  (let ((dname (file-truename (file-name-directory fname)))
+        (rname (file-name-directory (muse-wiki-resolve-project-page (muse-project)))))
+    (file-truename (concat dname rname))))
+
+(defun muse-get-file-relative-name (fname)
+  (substring (file-truename fname) (length (muse-get-current-project-root fname))))
+
 (custom-set-variables
  '(muse-html-encoding-default (quote utf-8))
  '(muse-html-meta-content-encoding (quote utf-8))

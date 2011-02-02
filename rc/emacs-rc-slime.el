@@ -9,7 +9,7 @@
 
 ;;; SLIME
 (require 'inf-lisp)
-(setq inferior-lisp-program "sbcl")
+;(setq inferior-lisp-program "sbcl")
 (setq slime-net-coding-system 'utf-8-unix)
 ;;(push "~/emacs/slime/" load-path)
 (require 'slime)
@@ -25,7 +25,7 @@
 ;;(add-hook 'slime-mode-hook (lambda () (slime-autodoc-mode t)))
 
 (setq slime-lisp-implementations '((clojure ("clj-cmd") :init swank-clojure-init)))
-(add-to-list 'slime-lisp-implementations '(sbcl ("sbcl")  :coding-system utf-8-unix))
+;(add-to-list 'slime-lisp-implementations '(sbcl ("sbcl")  :coding-system utf-8-unix))
 
 (setq slime-use-autodoc-mode nil)
 (eval-after-load "slime"
@@ -35,7 +35,6 @@
      (setq slime-complete-symbol-function 'slime-fuzzy-complete-symbol)
      ))
 
-(global-set-key [f5] 'slime)
 (global-set-key [(control f11)] 'slime-selector)
 
 ;; ignore version mismatch

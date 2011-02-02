@@ -30,8 +30,7 @@
   )
 
 ;; clean trailing whitespaces automatically
-(setq alexott/trailing-whitespace-modes '(c++-mode c-mode haskell-mode emacs-lisp-mode
-                                                   lisp-mode scheme-mode erlang-mode))
+(setq alexott/trailing-whitespace-modes '(c++-mode c-mode haskell-mode lisp-mode scheme-mode erlang-mode))
 
 (defun alexott/trailing-whitespace-hook ()
   (when (member major-mode alexott/trailing-whitespace-modes)
@@ -39,8 +38,7 @@
 (add-hook 'before-save-hook 'alexott/trailing-whitespace-hook)
 
 ;; untabify some modes
-(setq alexott/untabify-modes '(haskell-mode emacs-lisp-mode lisp-mode scheme-mode
-                                            erlang-mode clojure-mode))
+(setq alexott/untabify-modes '(haskell-mode lisp-mode scheme-mode erlang-mode clojure-mode))
 (defun alexott/untabify-hook ()
   (when (member major-mode alexott/untabify-modes)
     (untabify (point-min) (point-max))))

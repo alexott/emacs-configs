@@ -82,19 +82,20 @@
     (other-window 1)))
 
 
-(defun alexott/clojure-slime-conn-hook ()
-  ;; (require 'clojure-mode)
-  ;; (slime-redirect-inferior-output)
-  (def-slime-selector-method ?j "most recently visited clojure-mode buffer."
-    (slime-recently-visited-buffer 'clojure-mode))
-  (define-key slime-mode-map (kbd "<return>") 'newline-and-indent)
-  (define-key slime-mode-map (kbd "C-j") 'newline)
-  (define-key slime-mode-map (kbd "C-c d") 'slime-java-describe)
-  (define-key slime-repl-mode-map (kbd "C-c d") 'slime-java-describe)
-  (define-key slime-mode-map (kbd "C-c D") 'slime-javadoc)
-  (define-key slime-repl-mode-map (kbd "C-c D") 'slime-javadoc)
-  )
-(add-hook 'slime-connected-hook 'alexott/clojure-slime-conn-hook)
+;; (defun alexott/clojure-slime-conn-hook ()
+;;   ;; (require 'clojure-mode)
+;;   ;; (slime-redirect-inferior-output)
+;;   (def-slime-selector-method ?j "most recently visited clojure-mode buffer."
+;;     (slime-recently-visited-buffer 'clojure-mode))
+;;   (define-key slime-mode-map (kbd "<return>") 'newline-and-indent)
+;;   (define-key slime-mode-map (kbd "C-j") 'newline)
+;;   (define-key slime-mode-map (kbd "C-c d") 'slime-java-describe)
+;;   (define-key slime-repl-mode-map (kbd "C-c d") 'slime-java-describe)
+;;   (define-key slime-mode-map (kbd "C-c D") 'slime-javadoc)
+;;   (define-key slime-repl-mode-map (kbd "C-c D") 'slime-javadoc)
+;;   )
+;; (add-hook 'slime-connected-hook 'alexott/clojure-slime-conn-hook)
+;; (remove-hook 'slime-connected-hook 'alexott/clojure-slime-conn-hook)
 
 
 ;;; emacs-rc-clojure.el ends here

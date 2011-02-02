@@ -17,10 +17,10 @@
 (custom-set-variables
  '(haskell-program-name "ghci")
  '(inferior-haskell-wait-and-jump t)
- '(hs-lint-replace-with-suggestions t)
+; '(hs-lint-replace-with-suggestions t)
  )
 
-(require 'hs-lint)
+;(require 'hs-lint)
 
 (defun alexott/haskell-mode-hook ()
   (turn-on-haskell-doc-mode)
@@ -29,7 +29,7 @@
   (turn-on-eldoc-mode)
   (turn-on-haskell-indentation)
   (local-set-key [return] 'newline-and-indent)
-  (local-set-key "\C-cl" 'hs-lint)
+;  (local-set-key "\C-cl" 'hs-lint)
   (local-set-key "\C-ch" 'haskell-hoogle)
   (local-set-key "\C-c\C-h" 'haskell-hayoo)
   (setq tab-width 4)

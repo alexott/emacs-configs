@@ -20,9 +20,10 @@
 (add-to-list 'load-path "~/projects/el-get/")
 (require 'el-get)
 (setq el-get-recipe-path  '("~/projects/el-get/recipes/"))
-(setq el-get-sources '(magit psvn org-mode haskell-mode auctex erlware-mode
+(setq el-get-sources '(magit psvn org-mode haskell-mode haskell-mode-exts shime
+			     auctex erlware-mode scala-mode ; sbt ensime
                              distel slime bbdb clojure-mode cedet ess g-client
-                             emacs-jabber ahg doxymacs dvc emacs-w3m geiser
+                             emacs-jabber ahg doxymacs emacs-w3m geiser dvc
                              (:name muse
                                     :type git
                                     :url "git@github.com:alexott/muse.git"
@@ -30,8 +31,11 @@
                                     :build ("make")
                                     :features muse-autoloads
                                     )
-                             planner remember))
+                             planner remember
+			     xml-rpc-el n3-mode))
 (el-get 'sync)
+
+;;(el-get-update-all)
 
 ;; add commonly used paths
 (push "~/emacs/misc" load-path)
@@ -77,6 +81,7 @@
 (load "~/emacs/rc/emacs-rc-slime.el")
 (load "~/emacs/rc/emacs-rc-erlang.el")
 (load "~/emacs/rc/emacs-rc-haskell.el")
+(load "~/emacs/rc/emacs-rc-scala.el")
 (load "~/emacs/rc/emacs-rc-sh-mode.el")
 (load "~/emacs/rc/emacs-rc-auto-insert.el")
 (load "~/emacs/rc/emacs-rc-cmake.el")
