@@ -1,0 +1,5 @@
+#name : block (#+BEGIN_N...#+END_N)
+# --
+#+BEGIN_${1:TYPE} $2
+$0
+#+END_$1

@@ -1,0 +1,4 @@
+#name : prcopy (make private copy operator & constructor)
+# --
+${1:CLASSNAME}(const $1&);
+$1& operator=(const $1&);

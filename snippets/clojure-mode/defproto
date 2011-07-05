@@ -1,0 +1,6 @@
+#name : (defproto name ...)
+# --
+(defprotocol ${1:name}
+"${2:proto-doc}"$>
+(${3:func-name} [${4:args}] "${5:func-doc}")$0$>
+)$>

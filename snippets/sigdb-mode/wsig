@@ -1,0 +1,3 @@
+#name : only description
+# --
+${1:mimetype} => extensions {${2:extensions}} description {"$0"}
