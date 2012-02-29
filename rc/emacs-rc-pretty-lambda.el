@@ -13,6 +13,8 @@
   "Translate a symbolic name for a Unicode character -- e.g., LEFT-ARROW
  or GREATER-THAN into an actual Unicode character code. "
   (decode-char 'ucs (case name
+                      ('right-triangle #X22b3)
+                      ('left-triangle #X22b2)
                       ('left-arrow 8592)
                       ('up-arrow 8593)
                       ('right-arrow 8594)
@@ -24,6 +26,8 @@
                       ('not-equal #X2260)
                       ('identical #X2261)
                       ('not-identical #X2262)
+                      ('much-less-than #X226a)
+                      ('much-greater-than #X226b)
                       ('less-than #X003c)
                       ('greater-than #X003e)
                       ('less-than-or-equal-to #X2264)
@@ -75,5 +79,40 @@ Unicode symbol SYMBOL looked up with UNICODE-SYMBOL."
     ;; (cons "\\(>>\\)" 'left-arrow)
     (cons "\\s \\(->\\)\\(\\s \\|$\\)" 'right-arrow))))
 (add-hook 'erlang-mode-hook 'erlang-unicode)
+
+(defun fsharp-unicode ()
+  (interactive)
+  (substitute-patterns-with-unicode
+   (list (cons "\\(<-\\)" 'left-arrow)
+         (cons "\\(->\\)" 'right-arrow)
+         (cons "\\[^=\\]\\(=\\)\\[^=\\]" 'equal)
+         (cons "\\(==\\)" 'identical)
+         (cons "\\(\\!=\\)" 'not-identical)
+         (cons "\\(<>\\)" 'not-equal)
+         (cons "\\(()\\)" 'nil)
+         (cons "\\<\\(sqrt\\)\\>" 'square-root)
+         (cons "\\(&&\\)" 'logical-and)
+         (cons "\\(||\\)" 'logical-or)
+         (cons "\\<\\(not\\)\\>" 'logical-neg)
+         (cons "\\(>\\)\\[^=\\]" 'greater-than)
+         (cons "\\(<\\)\\[^=\\]" 'less-than)
+         (cons "\\(>=\\)" 'greater-than-or-equal-to)
+         (cons "\\(<=\\)" 'less-than-or-equal-to)
+         (cons "\\<\\(alpha\\)\\>" 'alpha)
+         (cons "\\<\\(beta\\)\\>" 'beta)
+         (cons "\\<\\(gamma\\)\\>" 'gamma)
+         (cons "\\<\\(delta\\)\\>" 'delta)
+         (cons "\\(''\\)" 'double-prime)
+         (cons "\\('\\)" 'prime)
+         (cons "\\<\\(List.forall\\)\\>" 'for-all)
+         (cons "\\<\\(List.exists\\)\\>" 'there-exists)
+         (cons "\\(>>\\)" 'much-greater-than)
+         (cons "\\(<<\\)" 'much-less-than)
+         ;;(cons "\\(|>\\)" 'right-triangle)
+         ;;(cons "\\(<|\\)" 'left-triangle)
+         ;;(cons "\\<\\(List.mem\\)\\>" 'element-of)
+         (cons "^ +\\(|\\)" 'double-vertical-bar))))
+(add-hook 'fsharp-mode-hook 'fsharp-unicode)
+
 
 ;;; emacs-rc-pretty-lambda.el ends here
