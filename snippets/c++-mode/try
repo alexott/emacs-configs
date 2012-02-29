@@ -1,4 +1,5 @@
-#name : try {} catch (...) { ... }
+# key: try
+# name: try {} catch (...) { ... }
 # --
 try {
 	$0

@@ -51,7 +51,6 @@
 ;;(add-to-list 'iswitchb-buffer-ignore "\\*inferior-")
 (add-to-list 'iswitchb-buffer-ignore "\\*Apropos\\*")
 (add-to-list 'iswitchb-buffer-ignore "\\*BBDB\\*")
-(add-to-list 'iswitchb-buffer-ignore "\\*gitsum")
 (add-to-list 'iswitchb-buffer-ignore "\\*magit")
 (add-to-list 'iswitchb-buffer-ignore "\\*cvs\\*")
 (add-to-list 'iswitchb-buffer-ignore "\\*CEDET")

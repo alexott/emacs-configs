@@ -1,3 +1,4 @@
-#name : std::cout << ... << std::endl;
+# key: print
+# name: std::cout << ... << std::endl;
 # --
 std::cout << $0 << std::endl;

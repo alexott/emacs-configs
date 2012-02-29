@@ -11,7 +11,7 @@
 
 (defun alexott/nxml-mode-hook ()
   (local-set-key "\C-c/" 'nxml-finish-element)
-  (auto-fill-mode)
+  (auto-fill-mode -1)
   (rng-validate-mode)
   (unify-8859-on-decoding-mode)
   (setq ispell-skip-html t)

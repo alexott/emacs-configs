@@ -1,4 +1,5 @@
-#name : (defproto name ...)
+# key: defproto
+# name: (defproto name ...)
 # --
 (defprotocol ${1:name}
 "${2:proto-doc}"$>

@@ -28,7 +28,7 @@
 ;; (global-set-key [f6] 'bury-buffer)
 (global-set-key [f7] 'replace-string)
 (global-set-key [f8] 'next-error)
-(global-set-key [f10] 'delete-frame)
+;;(global-set-key [f10] 'delete-frame)
 ;; (global-set-key "\M-0" 'buffer-menu)
 ;; (global-set-key [(control menu)] 'popup-mode-menu)
 (global-set-key [(shift insert)] 'clipboard-yank)

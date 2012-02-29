@@ -1,4 +1,5 @@
 # contributor: Alex Ott <alexott@gmail.com>
+# key: case
 # name: case ... of ...
 # --
 case ${1:var} of

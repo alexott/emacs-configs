@@ -8,7 +8,7 @@
 ;; Requirements:
 ;; Status: not intended to be distributed yet
 
-(add-to-list 'load-path "~/emacs/tuareg")
+;;(add-to-list 'load-path "~/emacs/tuareg")
 (require 'tuareg)
 (defun alexott/tuareg-hook ()
   (turn-on-eldoc-mode)

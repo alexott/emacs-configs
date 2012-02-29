@@ -1,4 +1,5 @@
-#name : (if cond true-cond else-cond)
+# key: if
+# name: (if cond true-cond else-cond)
 # --
 (if ${1:condition} 
 ${2:value}$>

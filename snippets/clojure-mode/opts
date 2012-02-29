@@ -1,3 +1,4 @@
-#name : (:keys [] :or {})
+# key: keys
+# name: (:keys [] :or {})
 # --
 {:keys [${1:options}] :or {${2:defvalues}}}$0$>

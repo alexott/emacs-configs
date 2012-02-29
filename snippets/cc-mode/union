@@ -1,4 +1,5 @@
-#name : union ... { ... }
+# key: union
+# name: union ... { ... }
 # --
 union ${1:name} {
 $0$>

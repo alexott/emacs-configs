@@ -25,13 +25,21 @@
 ;;          (jabber-groupchat-join jc "icfpc@conference.jabber.ru" "alexott")
 ;;          (jabber-groupchat-join jc "wax@conference.jabber.ru" "alexott")
 ;;          (jabber-groupchat-join jc "erlang@conference.jabber.ru" "alexott")
-          (jabber-groupchat-join jc "clojure@conference.jabber.ru" "alexott")
+;;          (jabber-groupchat-join jc "clojure@conference.jabber.ru" "alexott")
           ))))
 (add-hook 'jabber-post-connect-hooks 'alexott/jabber-connect-hook)
 
 (defun alexott/jabber-chat-hook ()
   (auto-fill-mode -1))
 (add-hook 'jabber-chat-mode-hook 'alexott/jabber-chat-hook)
+
+(require 'jabber-chatbuffer)
+(eval-after-load "jabber-chatbuffer"
+  (progn
+    (define-key jabber-chat-mode-map "\r" 'newline)
+    (define-key jabber-chat-mode-map [return] 'newline)
+    (define-key jabber-chat-mode-map [C-return] 'jabber-chat-buffer-send)
+    t))
 
 (setq jabber-history-enabled t)
 (setq jabber-use-global-history nil)

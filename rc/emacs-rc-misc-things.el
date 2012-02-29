@@ -12,8 +12,7 @@
 (setq text-mode-hook (quote (turn-on-auto-fill text-mode-hook-identify)))
 (setq user-full-name "Alex Ott")
 
-(defun make-local-hook (hook)
-  )
+(setq longlines-show-hard-newlines t) ;; FIX for crash
 
 (custom-set-variables
  '(delete-selection-mode t)
@@ -50,9 +49,6 @@
 
 ;; footnote mode
 (autoload 'footnote-mode "footnote" nil t)
-
-;; chm viewer
-(require 'chm-view)
 
 ;;
 (add-to-list 'auto-mode-alist '("\\.log$" . auto-revert-mode))

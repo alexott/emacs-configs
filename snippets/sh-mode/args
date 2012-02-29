@@ -1,4 +1,5 @@
-#name : args
+# key: args
+# name: args
 # --
 if [ $# -ne ${1:numargs} ]; then
     echo "usage: \`basename \$0\` ${2:args_description}"

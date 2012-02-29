@@ -11,4 +11,7 @@
 (add-to-list  'Info-directory-list "~/emacs/info")
 (add-to-list  'Info-directory-list "/usr/share/info")
 
+(when (equal system-type 'darwin)
+  (add-to-list  'Info-directory-list "/opt/local/share/info"))
+
 ;;; emacs-rc-info.el ends here

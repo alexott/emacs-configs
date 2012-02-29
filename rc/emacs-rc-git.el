@@ -1,11 +1,5 @@
 ;;; emacs-rc-git.el ---
 
-;; standard git module
-(require 'git)
-
-;; git-emacs
-;; (require 'git-emacs)
-
 ;; magit
 ;(add-to-list 'load-path "~/projects/magit")
 (require 'magit)
@@ -15,5 +9,10 @@
  '(magit-save-some-buffers (quote dontask)))
 
 (setq magit-process-connection-type nil)
+
+(define-key magit-mode-map "q" 'bury-buffer)
+
+;;(require 'magithub)
+
 
 ;;; emacs-rc-git.el ends here

@@ -40,3 +40,7 @@ GTAGS
 /rc/emacs-rc-local-Alex-Otts-iMac.el
 /rc/emacs-rc-local-aott.el
 /rc/emacs-rc-local-flash2.el
+/snippets/c++-mode/wwdbg.always
+/snippets/c++-mode/wwdbg.detail
+/snippets/c++-mode/wwdbg.max_detail
+/snippets/c++-mode/wwdbg.normal

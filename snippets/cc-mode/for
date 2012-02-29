@@ -1,4 +1,5 @@
-#name : for (...; ...; ...) { ... }
+# key: for
+# name : for (...; ...; ...) { ... }
 # --
 for (${1:init}; ${2:condition}; ${3:post}) {
 	$0

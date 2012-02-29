@@ -1,4 +1,5 @@
-#name : (let (..))
+# key: let
+# name: (let (..))
 # --
 (let ((${1:var} ${2:value}))
 $0$>

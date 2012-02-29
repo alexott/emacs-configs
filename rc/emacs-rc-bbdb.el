@@ -13,7 +13,7 @@
 (bbdb-initialize 'gnus 'message)
 
 (add-hook 'gnus-startup-hook 'bbdb-insinuate-gnus)
-(add-hook 'message-setup-hook 'bbdb-define-all-aliases)
+;(add-hook 'message-setup-hook 'bbdb-define-all-aliases)
 
 (custom-set-variables
  '(bbdb-use-pop-up nil)

@@ -1,3 +1,4 @@
-#name : only description
+# key: wsig
+# name: only description
 # --
 ${1:mimetype} => extensions {${2:extensions}} description {"$0"}

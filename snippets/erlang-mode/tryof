@@ -1,0 +1,7 @@
+# key: try
+# name: try ... of ... catch end
+# --
+try $1 of$>
+    $0$>
+catch$>
+end.$>

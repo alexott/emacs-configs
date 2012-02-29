@@ -1,4 +1,5 @@
-#name : elif [ .. ] ; then ... ; fi
+# key: elif
+# name: elif [ .. ] ; then ... ; fi
 # --
 elif [ ${1:expression} ]; then
 $0$>

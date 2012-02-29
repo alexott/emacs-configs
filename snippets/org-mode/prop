@@ -1,4 +1,5 @@
-#name : prop (:PROPERTIES:....:END:)
+# key: prop
+# name: prop (:PROPERTIES:....:END:)
 # --
 :PROPERTIES:$>
 $0$>

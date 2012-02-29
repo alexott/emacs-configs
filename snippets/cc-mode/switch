@@ -1,4 +1,5 @@
-#name : switch (...) { ... }
+# key: switch
+# name : switch (...) { ... }
 # --
 switch (${1:int-or-char}) {$>
 case ${2:value}: {$>

@@ -1,4 +1,5 @@
-#name : <src lang=".."> ...
+# key: src
+# name: <src lang=".."> ...
 # --
 <src lang="${1:language}">
 $0

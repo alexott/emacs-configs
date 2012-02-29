@@ -1,3 +1,4 @@
-#name : return
+# key: ret
+# name: return
 # --
 return $0;

@@ -1,4 +1,5 @@
-#name : example (#+BEGIN_EXAMPLE...)
+# key: ex
+# name: example (#+BEGIN_EXAMPLE...)
 # --
 #+BEGIN_EXAMPLE
 $0

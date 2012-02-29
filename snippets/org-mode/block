@@ -1,4 +1,5 @@
-#name : block (#+BEGIN_N...#+END_N)
+# key: block
+# name: block (#+BEGIN_N...#+END_N)
 # --
 #+BEGIN_${1:TYPE} $2
 $0

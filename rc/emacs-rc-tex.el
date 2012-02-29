@@ -19,7 +19,7 @@
 (setq TeX-open-quote "``")
 (setq TeX-close-quote "''")
 
-(autoload 'turn-on-bib-cite "bib-cite")
+;(autoload 'turn-on-bib-cite "bib-cite")
 
 (defun alexott/TeX-keymap ()
   (local-set-key [(meta i)]
@@ -34,9 +34,10 @@
 
 (defun alexott/tex-mode-hook ()
   (local-set-key "\\" 'TeX-electric-macro)
-  (turn-on-bib-cite)
+;  (turn-on-bib-cite)
   (alexott/TeX-keymap)
-  (setq bib-cite-use-reftex-view-crossref t))
+;  (setq bib-cite-use-reftex-view-crossref t)
+  )
 (add-hook 'TeX-mode-hook 'alexott/tex-mode-hook)
 (add-hook 'LaTeX-mode-hook 'TeX-PDF-mode)
 

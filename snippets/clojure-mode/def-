@@ -1,3 +1,4 @@
-#name : (def- var ...)
+# key: def-
+# name: (def- var ...)
 # --
 (def ^{:private true} ${1:name} $0)$>

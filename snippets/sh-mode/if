@@ -1,4 +1,5 @@
-#name : if ... ; then ... ; fi
+# key: if
+# name: if ... ; then ... ; fi
 # --
 if [ ${1:expression} ]; then
 $0$>

@@ -1,4 +1,5 @@
-#name : signature
+# key: sig
+# name: signature
 # --
 ${1:mimetype} => extensions {${2:extensions}}
 attributes {final}

@@ -7,7 +7,7 @@
 ;; Requirements:
 ;; Status: not intended to be distributed yet
 
-;(add-to-list 'load-path "~/projects/muse.el/lisp")
+(add-to-list 'load-path "~/projects/muse.el/lisp")
 ;;(add-to-list 'load-path "~/emacs/planner")
 ;;(add-to-list 'load-path "~/emacs/remember")
 
@@ -40,6 +40,9 @@
                    :header "~/projects/Muse/Presentations/header.tex"
                    :footer "~/projects/Muse/Presentations/footer.tex")
 
+(muse-derive-style "emacs-guide-html" "html"
+                   :header "~/projects/emacs-guide-ru/styles/header.tmpl"
+                   :footer "~/projects/emacs-guide-ru/styles/footer.tmpl")
 
 (setq muse-project-alist
       `(("personal-notes"
@@ -68,6 +71,11 @@
          (:base "my-page-pdf"
                 :path "~/projects/my-page-muse/ru"
                 :include "/alexott-cv-ru[^/]*$"))
+        ("emacs-guide-ru"
+         (,@(muse-project-alist-dirs "~/projects/emacs-guide-ru") :default "index")
+         ,@(muse-project-alist-styles "~/projects/emacs-guide-ru"
+                                      "~/projects/emacs-guide-ru"
+                                      "emacs-guide-html"))
         ))
 
 (add-to-list 'auto-mode-alist '("\\.muse$" . muse-mode))
@@ -109,7 +117,8 @@
  )
 
 (defun alexott/muse-mode-hook ()
-  (setq auto-fill-mode t)
+  (auto-fill-mode -1)
+  (longlines-mode -1)
   (footnote-mode 1)
   )
 (add-hook 'muse-mode-hook 'alexott/muse-mode-hook)
@@ -305,6 +314,32 @@
   (interactive)
   (mapcar (lambda (x) (alexott/muse-replace-text (car x) (cdr x)))
           my-muse-docbook-replacements))
+
+(setq my-dwiki-latex-replacements
+      '(
+	("^======\\s *\\(.*?\\)\\s *======$" . "\\\\chapter{\\1}")
+	("^=====\\s *\\(.*?\\)\\s *=====$" . "\\\\section{\\1}")
+	("^====\\s *\\(.*?\\)\\s *====$" . "\\\\subsection{\\1}")
+	("^===\\s *\\(.*?\\)\\s *===$" . "\\\\subsubsection{\\1}")
+	("^==\\s *\\(.*?\\)\\s *==$" . "\\\\paragraph{\\1}")
+;;	("((\\(\\(\\ca\\|\\Ca\\)*?\\)))" . "\\\\footnote{\\1}")
+	("\\[\\[\\(.*?\\)\\s ?|\\s ?\\(.*?\\)\\]\\]" . "\\\\href{\\1}{\\2}")
+	("\\[\\[\\(.*?\\)\\]\\]" . "\\\\url{\\1}")
+	("''\\(.*?\\)''" . "\\\\code{\\1}")
+	("\\*\\*\\(.*?\\)\\*\\*" . "\\\\textbf{\\1}")
+	("<code lisp>" . "\\\\begin{lstlisting}[lang=lisp]")
+	("<code=\"lisp\">" . "\\\\begin{lstlisting}[lang=lisp]")
+	("<code>" . "\\\\begin{lstlisting}")
+	("</code>" . "\\\\end{lstlisting}")
+	;; ("//\\([^]]*?\\)//" . "\\\\textit{\\1}")
+	;; ("" . "")
+	;; ("" . "")
+	))
+
+(defun alexott/dokuwiki-to-latex ()
+  (interactive)
+  (mapcar (lambda (x) (alexott/muse-replace-text (car x) (cdr x)))
+          my-dwiki-latex-replacements))
 
 ;; ------------------------------------------------------------------------------------------
 ;; implementation of additional tags

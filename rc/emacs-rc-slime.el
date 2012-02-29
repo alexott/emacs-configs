@@ -11,7 +11,6 @@
 (require 'inf-lisp)
 ;(setq inferior-lisp-program "sbcl")
 (setq slime-net-coding-system 'utf-8-unix)
-;;(push "~/emacs/slime/" load-path)
 (require 'slime)
 (slime-setup)
 (add-hook 'lisp-mode-hook
@@ -33,12 +32,26 @@
      (slime-setup '(slime-fancy slime-asdf slime-banner slime-fuzzy slime-repl))
      (setq slime-complete-symbol*-fancy t)
      (setq slime-complete-symbol-function 'slime-fuzzy-complete-symbol)
+     (setq slime-repl-history-remove-duplicates t)
+     (setq slime-repl-history-trim-whitespaces t)
+     (setq slime-protocol-version 'ignore) ;; ignore version mismatch
      ))
 
 (global-set-key [(control f11)] 'slime-selector)
 
-;; ignore version mismatch
-(setq slime-protocol-version 'ignore)
+(add-hook 'slime-repl-mode-hook
+	  (lambda ()
+	    (clojure-mode-font-lock-setup)
+	    (font-lock-mode 1)))
+
+(defun fix-paredit-repl ()
+  (interactive)
+  (local-set-key "{" 'paredit-open-curly)
+  (local-set-key "}" 'paredit-close-curly)
+  (modify-syntax-entry ?\{ "(}") 
+  (modify-syntax-entry ?\} "){")
+  (modify-syntax-entry ?\[ "(]")
+  (modify-syntax-entry ?\] ")["))
 
 ;;
 ;;(require 'ac-slime)

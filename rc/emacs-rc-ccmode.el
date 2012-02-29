@@ -47,6 +47,7 @@
 
 (setq-default c-default-style (quote ((java-mode . "java") (other . "gnu"))))
 
-(add-to-list 'auto-mode-alist '("\\.ipp?$" . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.ipp$" . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.h$" . c++-mode))
 
 ;;; emacs-rc-cmode.el ends here

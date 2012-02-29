@@ -1,6 +1,7 @@
 # contributor: Alex Ott <alexott@gmail.com>
+# key: if
 # name: if ... then ... else ...
 # --
-if ${1:condition} 
-  then $0 
-  else 
+if ${1:condition}
+  then $0
+  else

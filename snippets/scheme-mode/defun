@@ -1,4 +1,5 @@
-#name : (define (fun ...)
+# key: defun
+# name: (define (fun ...)
 # --
 (define (${1:func})
 $0$>

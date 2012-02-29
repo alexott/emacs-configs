@@ -75,9 +75,5 @@
 (require 'eldoc)
 (eldoc-add-command 'paredit-backward-delete 'paredit-close-round)
 
-;; Go Language
-(require 'go-mode-load)
-
-
 ;;; emacs-prog-misc.el ends here
 

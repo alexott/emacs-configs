@@ -1,3 +1,4 @@
-#name : std::cerr << ... << std::endl;
+# key: errprint
+# name: std::cerr << ... << std::endl;
 # --
 std::cerr << $0 << std::endl;

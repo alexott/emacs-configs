@@ -1,3 +1,4 @@
-#name : and
+# key: and
+# name: and
 # --
 (and (${1:first_expression}) ($0))

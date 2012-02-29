@@ -1,4 +1,5 @@
-#name : case ... ; ... esac
+# key: case
+# name: case ... ; ... esac
 # --
 case ${1:dispatch name} in
   ${2:condition})

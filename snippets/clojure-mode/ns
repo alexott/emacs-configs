@@ -1,4 +1,5 @@
-#name : (ns ns-name ...)
+# key: ns
+# name: (ns ns-name ...)
 # --
 (ns `(let* ((nsname '())
         (dirs (split-string (buffer-file-name) "/"))

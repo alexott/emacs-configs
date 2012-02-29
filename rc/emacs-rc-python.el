@@ -32,4 +32,9 @@
 
 (add-hook 'python-mode-hook 'flyspell-prog-mode)
 
+(custom-set-variables
+'(python-remove-cwd-from-path nil)
+)
+
+
 ;;; emacs-rc-python.el ends here
