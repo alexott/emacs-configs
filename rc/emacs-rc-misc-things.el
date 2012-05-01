@@ -21,10 +21,9 @@
  '(tab-always-indent t)
  '(indent-tabs-mode nil)
  '(tab-width 8)
- '(next-line-add-newlines t))
-
-;; unmark some function
-(put 'upcase-region 'disabled nil)
+ '(next-line-add-newlines t)
+ '(disabled-command-function nil)
+ )
 
 ;; set safe-local varaibles
 (custom-set-variables

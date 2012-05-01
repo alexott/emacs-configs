@@ -16,6 +16,8 @@
 
 (add-to-list 'auto-mode-alist '("\\.hsc$" . haskell-mode))
 
+(autoload 'ghc-init "ghc" nil t)
+
 (custom-set-variables
  '(haskell-program-name "ghci")
  '(inferior-haskell-wait-and-jump t)
@@ -23,6 +25,7 @@
  )
 
 (defun alexott/haskell-mode-hook ()
+  (ghc-init)
   (turn-on-haskell-doc-mode)
   (turn-on-haskell-indent)
   (turn-on-haskell-ghci)
@@ -34,10 +37,20 @@
   (local-set-key "\C-c\C-h" 'haskell-hayoo)
   (setq tab-width 4)
 ;;  (turn-on-haskell-simple-indent)
-  (setq haskell-font-lock-symbols t))
-(add-hook 'haskell-mode-hook 'alexott/common-hook)
-(add-hook 'haskell-mode-hook 'alexott/common-prog-hook)
+  (setq haskell-font-lock-symbols t)
+
+  (add-to-list 'ac-sources 'ac-source-ghc-mod)
+  )
 (add-hook 'haskell-mode-hook 'alexott/haskell-mode-hook)
+
+(require 'haskell-interactive-mode)
+(defun alexott/hs-interactive-hook ()
+  (local-set-key (kbd "C-<up>")
+		 '(lambda () (haskell-interactive-mode-history-toggle 1)))
+  (local-set-key (kbd "C-<down>")
+		 '(lambda () (haskell-interactive-mode-history-toggle -1)))
+  )
+(add-hook 'haskell-interactive-mode-hook 'alexott/hs-interactive-hook)
 
 ;;
 (add-to-list 'exec-path "~/.cabal/bin")

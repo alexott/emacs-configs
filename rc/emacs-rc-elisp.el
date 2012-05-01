@@ -19,10 +19,10 @@
   (local-set-key "\C-c5f" 'find-function-other-frame)
   (local-set-key "\C-ck" 'find-function-on-key)
   (local-set-key [(control c) /] 'semantic-ia-complete-symbol)
+
+  (add-to-list 'ac-sources 'ac-source-ac-source-emacs-lisp-features)
   )
 (add-hook 'emacs-lisp-mode-hook 'alexott/elisp-mode-hook)
-(add-hook 'emacs-lisp-mode-hook 'alexott/common-hook)
-(add-hook 'emacs-lisp-mode-hook 'alexott/common-prog-hook)
 
 ;;
 ;; (add-to-list 'auto-mode-alist '("\\.el" . emacs-lisp-mode))

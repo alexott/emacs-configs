@@ -11,8 +11,6 @@
 
 (defun alexott/octave-mode-hook ()
   )
-(add-hook 'octave-mode-hook 'alexott/common-hook)
-(add-hook 'octave-mode-hook 'alexott/common-prog-hook)
 (add-hook 'octave-mode-hook 'alexott/octave-mode-hook)
 
 ;;; emacs-rc-octave.el ends here

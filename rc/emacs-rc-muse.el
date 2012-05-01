@@ -21,12 +21,12 @@
 (require 'muse-project)
 
 (muse-derive-style "my-page-html" "html"
-                   :header "~/projects/my-page-muse/header.tmpl"
-                   :footer "~/projects/my-page-muse/footer.tmpl")
+                   :header "~/Dropbox/my-page-muse/header.tmpl"
+                   :footer "~/Dropbox/my-page-muse/footer.tmpl")
 
 (muse-derive-style "my-page-pdf" "pdf"
-                   :header "~/projects/my-page-muse/header.tex"
-                   :footer "~/projects/my-page-muse/footer.tex")
+                   :header "~/Dropbox/my-page-muse/header.tex"
+                   :footer "~/Dropbox/my-page-muse/footer.tex")
 
 (muse-derive-style "fp-journal-tex" "latex"
                    :header "~/projects/Muse/FP-Journal/header.tex"
@@ -61,15 +61,15 @@
                 :include "/Presentations/[^/]*.muse$")
          )
         ("my-page-project"
-         (,@(muse-project-alist-dirs "~/projects/my-page-muse") :default "index")
-         ,@(muse-project-alist-styles "~/projects/my-page-muse"
-                                      "~/projects/my-page-muse"
+         (,@(muse-project-alist-dirs "~/Dropbox/my-page-muse") :default "index")
+         ,@(muse-project-alist-styles "~/Dropbox/my-page-muse"
+                                      "~/Dropbox/my-page-muse"
                                       "my-page-html")
          (:base "my-page-pdf"
-                :path "~/projects/my-page-muse/en"
+                :path "~/Dropbox/my-page-muse/en"
                 :include "/alexott-cv-en[^/]*$")
          (:base "my-page-pdf"
-                :path "~/projects/my-page-muse/ru"
+                :path "~/Dropbox/my-page-muse/ru"
                 :include "/alexott-cv-ru[^/]*$"))
         ("emacs-guide-ru"
          (,@(muse-project-alist-dirs "~/projects/emacs-guide-ru") :default "index")
@@ -399,8 +399,8 @@ is less, equal or greater then second"
 ;; (defun muse-mp-publish-hook (data)
 ;;   (if (string-equal (car data) "my-page-project")
 ;;       (progn
-;;         (alexott/blorg-publish-file "~/projects/my-page-muse/ru/news/news.org")
-;;         (alexott/blorg-publish-file "~/projects/my-page-muse/en/news/news.org"))))
+;;         (alexott/blorg-publish-file "~/Dropbox/my-page-muse/ru/news/news.org")
+;;         (alexott/blorg-publish-file "~/Dropbox/my-page-muse/en/news/news.org"))))
 ;; (add-hook 'muse-after-project-publish-hook 'muse-mp-publish-hook)
 
 ;; command to fix links in blorg-generated files

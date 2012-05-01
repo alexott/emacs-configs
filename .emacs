@@ -10,29 +10,31 @@
   (push "/Users/ott/exp/bin" exec-path)
   )
 (when (string= (system-name) "alexott")
-  (setenv "PATH" (concat "/home/ott.cabal/bin:/home/ott/exp/bin:" (getenv "PATH")))
-  (push "/home/ott.cabal/bin" exec-path)
+  (setenv "PATH" (concat "/home/ott/.cabal/bin:/home/ott/exp/bin:" (getenv "PATH")))
+  (push "/home/ott/.cabal/bin" exec-path)
   (push "/home/ott/exp/bin" exec-path)
   )
 
-;; el-get
+(load "~/emacs/rc/emacs-rc-cedet.el")
+(load "~/emacs/rc/emacs-rc-erlang.el")
 
+;; el-get
 (add-to-list 'load-path "~/projects/el-get/")
 (require 'el-get)
+(setq el-get-byte-compile nil)
 (setq el-get-recipe-path  '("~/projects/el-get/recipes/"))
-(setq el-get-sources '(magit psvn org-mode haskell-mode haskell-mode-exts shime
-			     auctex erlware-mode scala-mode ; sbt ensime
-                             distel slime bbdb clojure-mode cedet ess g-client
-                             emacs-jabber ahg doxymacs emacs-w3m geiser dvc
-                             (:name muse
-                                    :type git
-                                    :url "git@github.com:alexott/muse.git"
-                                    :load-path ("./lisp")
-                                    :build ("make")
-                                    :features muse-autoloads
-                                    )
-                             planner remember
-			     xml-rpc-el n3-mode))
+(setq el-get-sources '(magit psvn org-mode auctex scala-mode
+                             distel slime bbdb clojure-mode 
+			     ess emacs-jabber ahg doxymacs 
+                             emacs-w3m geiser planner remember
+			     xml-rpc-el n3-mode yasnippet 
+                             android-mode elein json tuareg-mode
+			     htmlize cmake-mode paredit quack
+			     js2-mode oddmuse markdown-mode
+			     graphviz-dot-mode google-contacts
+			     ghc-mod auto-complete auto-complete-clang
+			     auto-complete-emacs-lisp auto-complete-etags
+			     auto-complete-latex auto-complete-yasnippet))
 (el-get 'sync)
 
 ;;(el-get-update-all)
@@ -51,7 +53,7 @@
 (load "~/emacs/rc/emacs-rc-info.el")
 (load "~/emacs/rc/emacs-rc-osd.el")
 (load "~/emacs/rc/emacs-rc-yasnippet.el")
-;;(load "~/emacs/rc/emacs-rc-autocomplete.el")
+(load "~/emacs/rc/emacs-rc-autocomplete.el")
 ;; TODOs, etc.
 (load "~/emacs/rc/emacs-rc-remember.el")
 (load "~/emacs/rc/emacs-rc-org-mode.el")
@@ -68,10 +70,9 @@
 (load "~/emacs/rc/emacs-rc-gdb.el")
 (load "~/emacs/rc/emacs-rc-ccmode.el")
 (load "~/emacs/rc/emacs-rc-python.el")
-;(load "~/emacs/rc/emacs-rc-doxygen.el")
-(load "~/emacs/rc/emacs-rc-cedet.el")
+(load "~/emacs/rc/emacs-rc-doxygen.el")
 (load "~/emacs/rc/emacs-rc-elisp.el")
-(load "~/emacs/rc/emacs-rc-ecb.el")
+;(load "~/emacs/rc/emacs-rc-ecb.el")
 (load "~/emacs/rc/emacs-rc-prolog.el")
 (load "~/emacs/rc/emacs-rc-javascript.el")
 (load "~/emacs/rc/emacs-rc-scheme.el")
@@ -79,16 +80,17 @@
 (load "~/emacs/rc/emacs-rc-lisp.el")
 (load "~/emacs/rc/emacs-rc-clojure.el")
 (load "~/emacs/rc/emacs-rc-slime.el")
-(load "~/emacs/rc/emacs-rc-erlang.el")
 (load "~/emacs/rc/emacs-rc-haskell.el")
 (load "~/emacs/rc/emacs-rc-scala.el")
 (load "~/emacs/rc/emacs-rc-sh-mode.el")
 (load "~/emacs/rc/emacs-rc-auto-insert.el")
 (load "~/emacs/rc/emacs-rc-cmake.el")
+(load "~/emacs/rc/emacs-rc-distel.el")
+(load "~/emacs/rc/emacs-rc-octave.el")
 ;;
 ;; VCS & DVCS
 (load "~/emacs/rc/emacs-rc-mercurial.el")
-(load "~/emacs/rc/emacs-rc-dvc.el")
+;;(load "~/emacs/rc/emacs-rc-dvc.el")
 (load "~/emacs/rc/emacs-rc-git.el")
 (load "~/emacs/rc/emacs-rc-vcs-misc.el")
 ;;
@@ -96,7 +98,7 @@
 ;;(load "~/emacs/rc/emacs-rc-twitter.el")
 (load "~/emacs/rc/emacs-rc-jabber.el")
 (load "~/emacs/rc/emacs-rc-w3.el")
-(load "~/emacs/rc/emacs-rc-erc.el")
+;(load "~/emacs/rc/emacs-rc-erc.el")
 (load "~/emacs/rc/emacs-rc-w3m.el")
 ;;(load "~/emacs/rc/emacs-rc-eblogger.el")
 ;;(load "~/emacs/rc/emacs-rc-lj.el")
@@ -110,7 +112,7 @@
 
 ;;(load "~/emacs/rc/emacs-rc-timeclock.el")
 ;;(load "~/emacs/rc/emacs-rc-autocomplete.el")
-(load "~/emacs/rc/emacs-rc-gclient.el")
+;;(load "~/emacs/rc/emacs-rc-gclient.el")
 ;; (load "~/emacs/rc/emacs-rc-.el")
 ;; (load "~/emacs/rc/emacs-rc-.el")
 

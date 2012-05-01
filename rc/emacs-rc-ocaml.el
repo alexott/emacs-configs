@@ -24,8 +24,6 @@
       (setq sym-lock-mouse-face-enabled nil)) ; turn off special face under mouse
   )
 (add-hook 'tuareg-mode-hook 'alexott/tuareg-hook)
-(add-hook 'tuareg-mode-hook 'alexott/common-hook)
-(add-hook 'tuareg-mode-hook 'alexott/common-prog-hook)
 
 (if (featurep 'sym-lock)
     (setq tuareg-sym-lock-keywords

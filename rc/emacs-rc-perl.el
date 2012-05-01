@@ -22,8 +22,6 @@
   (setq compile-command (concat "perl -cw " buffer-file-name))
   )
 (add-hook 'perl-mode-hook 'alexott/perl-mode-hook)
-(add-hook 'perl-mode-hook 'alexott/common-hook)
-(add-hook 'perl-mode-hook 'alexott/common-prog-hook)
 
 (setq cperl-auto-newline-after-colon t)
 (setq cperl-autoindent-on-semi t)

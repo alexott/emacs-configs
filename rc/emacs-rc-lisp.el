@@ -19,8 +19,6 @@
        (list (assoc 'sbcl slime-lisp-implementations)))
   )
 (add-hook 'lisp-mode-hook 'alexott/lisp-mode-hook)
-(add-hook 'lisp-mode-hook 'alexott/common-hook)
-(add-hook 'lisp-mode-hook 'alexott/common-prog-hook)
 
 (defun alexott/lisp-interact-mode-hook ()
   (paredit-mode 1)

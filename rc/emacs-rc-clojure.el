@@ -28,9 +28,6 @@
   ;; clojure-test-mode
   (clojure-test-maybe-enable)
   )
-(add-hook 'clojure-mode-hook 'alexott/common-hook)
-(add-hook 'clojure-mode-hook 'alexott/common-prog-hook)
-(add-hook 'clojure-mode-hook 'alexott/show-prog-keywords)
 (add-hook 'clojure-mode-hook 'alexott/clojure-mode-hook)
 
 (setq clojure-home (expand-file-name "~/emacs/clojure/"))

@@ -44,3 +44,5 @@ GTAGS
 /snippets/c++-mode/wwdbg.detail
 /snippets/c++-mode/wwdbg.max_detail
 /snippets/c++-mode/wwdbg.normal
+/rc/emacs-rc-local-colibri.el
+/rc/emacs-rc-local-mwg-e6500.el

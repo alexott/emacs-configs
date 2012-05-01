@@ -130,5 +130,9 @@
    (sh . t)
    ))
 
+;; Org-Drill - flash-cards, a-la Anki...
+(require 'org-drill)
+
+
 ;;; emacs-rc-org-mode.el ends here
 

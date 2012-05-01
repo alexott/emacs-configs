@@ -12,13 +12,13 @@
 (yas/initialize)
 (eval-after-load 'yasnippet
   '(progn
-    (add-to-list 'yas/snippet-dirs "~/emacs/yasnippet/snippets")
+    (add-to-list 'yas/snippet-dirs "~/emacs/snippets/")
     (yas/load-snippet-dirs)))
 
 
 ;; hook for automatic reloading of changed snippets
 (defun alexott/update-yasnippets-on-save ()
-  (when (string-match "/yasnippet/snippets" buffer-file-name)
+  (when (string-match "/snippets/" buffer-file-name)
     (yas/load-snippet-dirs)
 ;;    (yas/reload-all)
     ))

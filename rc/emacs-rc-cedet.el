@@ -8,7 +8,7 @@
 (add-to-list 'semantic-default-submodes 'global-semantic-mru-bookmark-mode)
 (add-to-list 'semantic-default-submodes 'global-semanticdb-minor-mode)
 (add-to-list 'semantic-default-submodes 'global-semantic-idle-scheduler-mode)
-(add-to-list 'semantic-default-submodes 'global-semantic-stickyfunc-mode)
+;(add-to-list 'semantic-default-submodes 'global-semantic-stickyfunc-mode)
 (add-to-list 'semantic-default-submodes 'global-cedet-m3-minor-mode)
 (add-to-list 'semantic-default-submodes 'global-semantic-highlight-func-mode)
 ;;(add-to-list 'semantic-default-submodes 'global-semantic-show-unmatched-syntax-mode)
@@ -29,7 +29,6 @@
 
 ;; customisation of modes
 (defun alexott/cedet-hook ()
-;;  (local-set-key [(control return)] 'semantic-ia-complete-symbol-menu)
   (local-set-key "\C-c?" 'semantic-ia-complete-symbol)
   ;;
   (local-set-key "\C-c>" 'semantic-complete-analyze-inline)
@@ -41,6 +40,8 @@
   (local-set-key "\C-cp" 'semantic-analyze-proto-impl-toggle)
   (local-set-key (kbd "C-c <left>") 'semantic-tag-folding-fold-block)
   (local-set-key (kbd "C-c <right>") 'semantic-tag-folding-show-block)
+
+  (add-to-list 'ac-sources 'ac-source-semantic)
   )
 ;; (add-hook 'semantic-init-hooks 'alexott/cedet-hook)
 (add-hook 'c-mode-common-hook 'alexott/cedet-hook)
@@ -56,21 +57,16 @@
   (local-set-key "\C-xt" 'eassist-switch-h-cpp)
   (local-set-key "\C-ce" 'eassist-list-methods)
   (local-set-key "\C-c\C-r" 'semantic-symref)
+
+  (add-to-list 'ac-sources 'ac-source-etags)
   )
 (add-hook 'c-mode-common-hook 'alexott/c-mode-cedet-hook)
 
-;; gnu global support
-;(when (cedet-gnu-global-version-check t)
-  (require 'semantic/db-global)
-  (semanticdb-enable-gnu-global-databases 'c-mode)
-  (semanticdb-enable-gnu-global-databases 'c++-mode)
-;)
+(semanticdb-enable-gnu-global-databases 'c-mode t)
+(semanticdb-enable-gnu-global-databases 'c++-mode t)
 
-;; ctags
-;(when (cedet-ectag-version-check t)
-  (require 'semantic/ectags/db)
-  (semantic-load-enable-primary-exuberent-ctags-support)
-;)
+(when (cedet-ectag-version-check t)
+  (semantic-load-enable-primary-ectags-support))
 
 ;; SRecode
 (global-srecode-minor-mode 1)
@@ -78,10 +74,6 @@
 ;; EDE
 (global-ede-mode 1)
 (ede-enable-generic-projects)
-
-;;
-;;(semantic-add-system-include "~/exp/include" 'c++-mode)
-;;(semantic-add-system-include "~/exp/include" 'c-mode)
 
 (defun recur-list-files (dir re)
   "Returns list of files in directory matching to given regex"

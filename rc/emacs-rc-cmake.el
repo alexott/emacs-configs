@@ -12,7 +12,5 @@
 (add-to-list 'auto-mode-alist '("CMakeLists\\.txt\\'" . cmake-mode))
 (add-to-list 'auto-mode-alist '("\\.cmake\\'" . cmake-mode))
 
-(add-hook 'cmake-mode-hook 'alexott/common-hook)
-(add-hook 'cmake-mode-hook 'alexott/common-prog-hook)
 
 ;;; emacs-rc-cmake.el ends here

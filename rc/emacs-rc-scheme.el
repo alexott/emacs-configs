@@ -66,8 +66,6 @@ comment progressively moves outward over enclosing expressions."
 )
 
 (add-hook 'scheme-mode-hook 'alexott/scheme-mode-hook)
-(add-hook 'scheme-mode-hook 'alexott/common-hook)
-(add-hook 'scheme-mode-hook 'alexott/common-prog-hook)
 
 (add-to-list 'auto-mode-alist '("\\.scm$" . scheme-mode))
 

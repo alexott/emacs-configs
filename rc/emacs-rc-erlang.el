@@ -22,8 +22,6 @@
   (local-set-key [return] 'newline-and-indent)
   )
 (add-hook 'erlang-mode-hook 'alexott/erlang-mode-hook)
-(add-hook 'erlang-mode-hook 'alexott/common-hook)
-(add-hook 'erlang-mode-hook 'alexott/common-prog-hook)
 
 (eval-after-load "erlang-skels"
   (progn
