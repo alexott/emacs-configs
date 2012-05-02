@@ -20,7 +20,7 @@
   (local-set-key "\C-ck" 'find-function-on-key)
   (local-set-key [(control c) /] 'semantic-ia-complete-symbol)
 
-  (add-to-list 'ac-sources 'ac-source-ac-source-emacs-lisp-features)
+  (add-to-list 'ac-sources 'ac-source-emacs-lisp-features)
   )
 (add-hook 'emacs-lisp-mode-hook 'alexott/elisp-mode-hook)
 
