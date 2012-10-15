@@ -1,8 +1,8 @@
 ;;; emacs-rc-cedet.el ---
 
-(load-file "~/projects/cedet-git/cedet-devel-load.el")
-(add-to-list 'load-path "~/projects/cedet-git/contrib/")
-(add-to-list  'Info-directory-list "~/projects/cedet-git/doc/info")
+(load-file "~/projects/cedet-bzr/cedet-devel-load.el")
+(add-to-list 'load-path "~/projects/cedet-bzr/contrib/")
+(add-to-list  'Info-directory-list "~/projects/cedet-bzr/doc/info")
 
 ;;(add-to-list 'semantic-default-submodes 'global-semantic-idle-summary-mode)
 (add-to-list 'semantic-default-submodes 'global-semantic-mru-bookmark-mode)
@@ -14,6 +14,8 @@
 ;;(add-to-list 'semantic-default-submodes 'global-semantic-show-unmatched-syntax-mode)
 ;;(add-to-list 'semantic-default-submodes 'global-semantic-highlight-edits-mode)
 ;;(add-to-list 'semantic-default-submodes 'global-semantic-show-parser-state-mode)
+(add-to-list 'semantic-default-submodes 'global-semanticdb-minor-mode)
+;;(add-to-list 'semantic-default-submodes ')
 ;;(add-to-list 'semantic-default-submodes ')
 
 ;; Activate semantic
@@ -29,6 +31,7 @@
 
 ;; customisation of modes
 (defun alexott/cedet-hook ()
+  (local-set-key [(control return)] 'semantic-ia-complete-symbol-menu)
   (local-set-key "\C-c?" 'semantic-ia-complete-symbol)
   ;;
   (local-set-key "\C-c>" 'semantic-complete-analyze-inline)
@@ -59,7 +62,8 @@
   (local-set-key "\C-c\C-r" 'semantic-symref)
 
 ;;  (add-to-list 'ac-sources 'ac-source-etags)
-  (add-to-list 'ac-sources 'ac-source-gtags)
+;;  (add-to-list 'ac-sources 'ac-source-gtags)
+  (setq ac-sources '(ac-source-semantic-raw))
   )
 (add-hook 'c-mode-common-hook 'alexott/c-mode-cedet-hook)
 
@@ -207,5 +211,9 @@
 ;;                             ))
 
 
-;;; emacs-rc-cedet.el ends here
+;; Setup JAVA....
+
+(require 'cedet-java)
+(require 'semantic/db-javap)
+(add-to-list 'semanticdb-javap-classpath (cedet-java-find-jdk))
 
