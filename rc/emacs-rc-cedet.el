@@ -215,5 +215,3 @@
 
 (require 'cedet-java)
 (require 'semantic/db-javap)
-(add-to-list 'semanticdb-javap-classpath (cedet-java-find-jdk))
-

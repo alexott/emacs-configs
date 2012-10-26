@@ -14,5 +14,6 @@
 
 ;;(setq vc-handled-backends nil)
 
+(setq vc-follow-symlinks t)
 
 ;;; emacs-rc-vcs-misc.el ends here

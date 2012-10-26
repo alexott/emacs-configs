@@ -60,7 +60,7 @@
 (add-hook 'org-mode-hook 'turn-on-font-lock)
 
 ;; blorg mode
-(require 'blorg)
+;;(require 'blorg)
 
 ;; diary setup
 (require 'diary-lib)

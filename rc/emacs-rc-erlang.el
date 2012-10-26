@@ -27,4 +27,14 @@
   (progn
     (setq erlang-skel-mail-address "alexott@gmail.com")))
 
+(when (locate-library "distel")
+  (require 'distel)
+  (distel-setup))
+
+(setq alexott/wrangler-path (file-name-as-directory (expand-file-name "~/projects/wrangler")))
+(when (file-exists-p alexott/wrangler-path)
+  (add-to-list 'load-path (concat alexott/wrangler-path "elisp"))
+  (require 'wrangler)
+  )
+
 ;;; emacs-rc-erlang.el ends here

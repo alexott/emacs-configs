@@ -4,7 +4,8 @@
 ;;
 ;; Author: Alex Ott <alexott@gmail.com>
 
-
+(require 'auto-complete-config)
+(ac-config-default)
 (setq ac-auto-start nil)
 (define-key ac-mode-map (kbd "C-TAB") 'auto-complete)
 

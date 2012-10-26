@@ -16,7 +16,9 @@
 (setq js2-basic-offset 2)
 (setq js2-use-font-lock-faces t)
 
-(add-to-list 'load-path "~/emacs/ejacs")
-(autoload 'js-console "js-console" nil t)
+(defun alexott/js2-mode-hook ()
+  (local-set-key [return] 'newline-and-indent)
+  )
+(add-hook 'js2-mode-hook 'alexott/js2-mode-hook)
 
 ;;; emacs-rc-javascript.el ends here

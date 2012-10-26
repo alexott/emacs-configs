@@ -30,7 +30,8 @@
 (add-hook 'jabber-post-connect-hooks 'alexott/jabber-connect-hook)
 
 (defun alexott/jabber-chat-hook ()
-  (auto-fill-mode -1))
+  (auto-fill-mode -1)
+  (flyspell-mode -1))
 (add-hook 'jabber-chat-mode-hook 'alexott/jabber-chat-hook)
 
 (require 'jabber-chatbuffer)
@@ -58,9 +59,6 @@
                                 "home")))
 
 (setq jabber-chat-buffer-show-avatar nil)
-;; (setq jabber-vcard-avatars-retrieve nil
-;;       jabber-vcard-avatars-publish nil
-;;       )
 
 (custom-set-variables
  '(jabber-auto-reconnect t)
