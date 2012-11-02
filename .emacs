@@ -2,11 +2,12 @@
 (setq custom-file "~/.emacs.d/custom.el")
 
 (when (equal system-type 'darwin)
-  (setenv "PATH" (concat "/Users/ott/.cabal/bin:/opt/local/bin:/usr/local/bin:/usr/local/texlive/2008/bin/universal-darwin/:/Users/ott/bin:/Users/ott/exp/bin:" (getenv "PATH")))
+  (setenv "PATH" (concat "/Users/ott/Library/Haskell/bin:/opt/local/bin:/usr/local/bin:/usr/local/texlive/2008/bin/universal-darwin/:/Users/ott/bin:/Users/ott/exp/bin:" (getenv "PATH")))
   (setenv "DYLD_FALLBACK_LIBRARY_PATH" "/usr/lib:/opt/local/lib:/usr/X11R6/lib:~/exp/lib")
   (push "/opt/local/bin" exec-path)
   (push "/usr/local/bin" exec-path)
   (push "/Users/ott/bin" exec-path)
+  (push "/Users/ott/Library/Haskell/bin" exec-path)
   (push "/Users/ott/exp/bin" exec-path)
   )
 (when (string= (system-name) "alexott")
@@ -21,6 +22,7 @@
 ;; el-get
 (add-to-list 'load-path "~/projects/el-get/")
 (require 'el-get)
+(require 'el-get-status)
 (setq el-get-byte-compile nil)
 (setq el-get-recipe-path  '("~/projects/el-get/recipes/"))
 (setq el-get-sources '(magit psvn org-mode auctex scala-mode
@@ -33,8 +35,10 @@
 			     js2-mode oddmuse markdown-mode
 			     graphviz-dot-mode google-contacts
 			     ghc-mod auto-complete auto-complete-clang
-			     auto-complete-emacs-lisp auto-complete-etags
-			     auto-complete-latex auto-complete-yasnippet))
+			     auto-complete-emacs-lisp auto-complete-latex
+			     auto-complete-css auto-complete-etags
+			     nrepl rainbow-mode
+			     ))
 (el-get 'sync)
 
 ;;(el-get-update-all)
@@ -75,6 +79,7 @@
 ;(load "~/emacs/rc/emacs-rc-ecb.el")
 (load "~/emacs/rc/emacs-rc-prolog.el")
 (load "~/emacs/rc/emacs-rc-javascript.el")
+(load "~/emacs/rc/emacs-rc-css.el")
 (load "~/emacs/rc/emacs-rc-scheme.el")
 ;;(load "~/emacs/rc/emacs-rc-ocaml.el")
 (load "~/emacs/rc/emacs-rc-lisp.el")

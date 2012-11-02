@@ -12,20 +12,23 @@
   (abbrev-mode 1)
   (auto-fill-mode 1)
   (turn-on-eldoc-mode)
+  
   (paredit-mode 1)
+
   (local-set-key [return] 'newline-and-indent)
+
   (local-set-key "\C-cf" 'find-function)
   (local-set-key "\C-c4f" 'find-function-other-window)
   (local-set-key "\C-c5f" 'find-function-other-frame)
   (local-set-key "\C-ck" 'find-function-on-key)
-  (local-set-key [(control c) /] 'semantic-ia-complete-symbol)
 
   (add-to-list 'ac-sources 'ac-source-emacs-lisp-features)
+  (set (make-local-variable 'ac-auto-start) 3)
+  (set (make-local-variable 'ac-auto-show-menu) 0.5)
   )
 (add-hook 'emacs-lisp-mode-hook 'alexott/elisp-mode-hook)
 
 ;;
-;; (add-to-list 'auto-mode-alist '("\\.el" . emacs-lisp-mode))
 (add-to-list 'auto-mode-alist '("\\.gnus$" . emacs-lisp-mode))
 (add-to-list 'auto-mode-alist '("\\.emacs$" . emacs-lisp-mode))
 

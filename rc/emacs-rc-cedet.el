@@ -4,7 +4,7 @@
 (add-to-list 'load-path "~/projects/cedet-bzr/contrib/")
 (add-to-list  'Info-directory-list "~/projects/cedet-bzr/doc/info")
 
-;;(add-to-list 'semantic-default-submodes 'global-semantic-idle-summary-mode)
+(add-to-list 'semantic-default-submodes 'global-semanticdb-minor-mode)
 (add-to-list 'semantic-default-submodes 'global-semantic-mru-bookmark-mode)
 (add-to-list 'semantic-default-submodes 'global-semanticdb-minor-mode)
 (add-to-list 'semantic-default-submodes 'global-semantic-idle-scheduler-mode)
@@ -14,19 +14,18 @@
 ;;(add-to-list 'semantic-default-submodes 'global-semantic-show-unmatched-syntax-mode)
 ;;(add-to-list 'semantic-default-submodes 'global-semantic-highlight-edits-mode)
 ;;(add-to-list 'semantic-default-submodes 'global-semantic-show-parser-state-mode)
-(add-to-list 'semantic-default-submodes 'global-semanticdb-minor-mode)
-;;(add-to-list 'semantic-default-submodes ')
-;;(add-to-list 'semantic-default-submodes ')
 
 ;; Activate semantic
 (semantic-mode 1)
 
 (require 'semantic/bovine/c)
-(require 'semantic/bovine/gcc)
 (require 'semantic/bovine/clang)
-(require 'semantic/ia)
-(require 'semantic/decorate/include)
-(require 'semantic/lex-spp)
+;; (require 'semantic/bovine/gcc)
+;; (require 'semantic/ia)
+;; (require 'semantic/decorate/include)
+;; (require 'semantic/lex-spp)
+
+;; loading contrib...
 (require 'eassist)
 
 ;; customisation of modes
@@ -34,15 +33,15 @@
   (local-set-key [(control return)] 'semantic-ia-complete-symbol-menu)
   (local-set-key "\C-c?" 'semantic-ia-complete-symbol)
   ;;
-  (local-set-key "\C-c>" 'semantic-complete-analyze-inline)
+  (local-set-key "\C-c>" 'semantic-comsemantic-ia-complete-symbolplete-analyze-inline)
   (local-set-key "\C-c=" 'semantic-decoration-include-visit)
 
   (local-set-key "\C-cj" 'semantic-ia-fast-jump)
   (local-set-key "\C-cq" 'semantic-ia-show-doc)
   (local-set-key "\C-cs" 'semantic-ia-show-summary)
   (local-set-key "\C-cp" 'semantic-analyze-proto-impl-toggle)
-  (local-set-key (kbd "C-c <left>") 'semantic-tag-folding-fold-block)
-  (local-set-key (kbd "C-c <right>") 'semantic-tag-folding-show-block)
+;;  (local-set-key (kbd "C-c <left>") 'semantic-tag-folding-fold-block)
+;;  (local-set-key (kbd "C-c <right>") 'semantic-tag-folding-show-block)
 
   (add-to-list 'ac-sources 'ac-source-semantic)
   )
@@ -61,14 +60,13 @@
   (local-set-key "\C-ce" 'eassist-list-methods)
   (local-set-key "\C-c\C-r" 'semantic-symref)
 
-;;  (add-to-list 'ac-sources 'ac-source-etags)
-;;  (add-to-list 'ac-sources 'ac-source-gtags)
-  (setq ac-sources '(ac-source-semantic-raw))
+  (add-to-list 'ac-sources 'ac-source-gtags)
   )
 (add-hook 'c-mode-common-hook 'alexott/c-mode-cedet-hook)
 
-(semanticdb-enable-gnu-global-databases 'c-mode t)
-(semanticdb-enable-gnu-global-databases 'c++-mode t)
+(when (cedet-gnu-global-version-check t)
+  (semanticdb-enable-gnu-global-databases 'c-mode t)
+  (semanticdb-enable-gnu-global-databases 'c++-mode t))
 
 (when (cedet-ectag-version-check t)
   (semantic-load-enable-primary-ectags-support))
@@ -80,6 +78,7 @@
 (global-ede-mode 1)
 (ede-enable-generic-projects)
 
+;; helper for boost setup...
 (defun recur-list-files (dir re)
   "Returns list of files in directory matching to given regex"
   (when (file-accessible-directory-p dir)
@@ -102,7 +101,6 @@
     (let ((cfiles (recur-list-files boost-root "\\(config\\|user\\)\\.hpp")))
       (dolist (file cfiles)
         (add-to-list 'semantic-lex-c-preprocessor-symbol-file file)))))
-
 
 
 ;; my functions for EDE
@@ -212,6 +210,14 @@
 
 
 ;; Setup JAVA....
-
-(require 'cedet-java)
+;;(require 'cedet-java)
 (require 'semantic/db-javap)
+
+;; example of java-root project
+
+;; (ede-java-root-project "Lucene" 
+;; 		       :file "~/work/lucene-solr/lucene-4.0.0/build.xml"
+;; 		       :srcroot '("core/src")
+;; 		       :localclasspath '("core/lucene-core-4.0.0.jar")
+;; ;;		       :classpath (recur-list-files "~/work/lucene-solr/lucene-4.0.0/" ".*\.jar$")
+;; 		       )

@@ -7,11 +7,7 @@
 (require 'auto-complete-config)
 (ac-config-default)
 (setq ac-auto-start nil)
-(define-key ac-mode-map (kbd "C-TAB") 'auto-complete)
+(define-key ac-mode-map [(meta return)] 'auto-complete)
 
-(defun alexott/ac-hook ()
-  (local-set-key [(control return)] 'auto-complete)
-  )
-(add-hook 'prog-mode-hook 'alexott/ac-hook)
-(add-hook 'LaTeX-mode-hook 'alexott/ac-hook)
+(add-to-list 'ac-dictionary-directories "~/emacs/ac-dicts")
 

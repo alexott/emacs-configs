@@ -1,6 +1,5 @@
 ;; local settings for mac
 
-(semantic-add-system-include "/usr/include/c++/4.0.0/" 'c++-mode)
 (semantic-add-system-include "/opt/local/include/" 'c++-mode)
 (semantic-add-system-include "/opt/local/include/" 'c-mode)
 
@@ -8,8 +7,7 @@
 
 ;; info
 (push "/opt/local/share/info" Info-directory-list)
-(push "/usr/local/texlive/2008/texmf/doc/info" Info-directory-list)
-(setenv "MANPATH" "/opt/local/man:/usr/share/man:/usr/local/man:/usr/local/texlive/2008/texmf/doc/man")
+(setenv "MANPATH" "/opt/local/man:/usr/share/man:/usr/local/man")
 
 ;;
 (set-file-name-coding-system 'utf-8)
@@ -24,7 +22,6 @@
 (custom-set-variables
 ;; '(custom-file "~/.emacs")
  '(default-frame-alist nil)
- '(pc-selection-mode nil nil (pc-select))
  ;; '(one-buffer-one-frame-mode nil nil (aquamacs-frame-setup))
  '(cua-mode nil)
  '(transient-mark-mode t)
@@ -51,20 +48,19 @@
                             (:foreground "gray50"))))
  '(org-hide ((((background light)) (:foreground "grey90")))))
 
-(when (string-match "22\\." (emacs-version))
-  (custom-set-faces
-   '(default ((t (:stipple nil :background "grey90" :foreground "Black" :inverse-video nil
-                           :box nil :strike-through nil :overline nil :underline nil :slant
-                           normal :weight normal :height 160 :width normal :family
-                           "apple-monaco"))))))
+;; (when (string-match "22\\." (emacs-version))
+;;   (custom-set-faces
+;;    '(default ((t (:stipple nil :background "grey90" :foreground "Black" :inverse-video nil
+;;                            :box nil :strike-through nil :overline nil :underline nil :slant
+;;                            normal :weight normal :height 160 :width normal :family
+;;                            "apple-monaco"))))))
 
-
-(when (string-match "23\\." (emacs-version))
-  (set-fontset-font "fontset-default" '(#x0000 . #xFFFFF) '("Apple Monaco" . "unicode-bmp"))
-  (setq ns-command-modifier   'meta
-        ns-alternate-modifier 'super)
-  (setq-default cursor-type 'box)
-  (setq ns-antialias-text t))
+;;(when (or (string-match "23\\." (emacs-version)) (string-match "24\\." (emacs-version))))
+(set-fontset-font "fontset-default" '(#x0000 . #xFFFFF) '("Apple Monaco" . "unicode-bmp"))
+(setq ns-command-modifier   'meta
+      ns-alternate-modifier 'super)
+(setq-default cursor-type 'box)
+(setq ns-antialias-text t)
 (setq mac-allow-anti-aliasing t)
 
 (setq default-frame-alist '((background-color . "grey90")

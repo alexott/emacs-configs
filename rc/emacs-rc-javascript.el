@@ -18,6 +18,8 @@
 
 (defun alexott/js2-mode-hook ()
   (local-set-key [return] 'newline-and-indent)
+  (set (make-local-variable 'ac-auto-start) 3)
+  (set (make-local-variable 'ac-auto-show-menu) t)
   )
 (add-hook 'js2-mode-hook 'alexott/js2-mode-hook)
 
