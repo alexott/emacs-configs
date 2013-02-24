@@ -37,7 +37,6 @@
  '(org-directory "~/Dropbox/OrgMode")
  '(org-agenda-files (directory-files org-directory t ".*\.org$")))
 
-(require 'org-install)
 (require 'org)
 
 (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\|/TODO\\)$" . org-mode))
@@ -58,6 +57,11 @@
   )
 (add-hook 'org-mode-hook 'alexott/org-mode-hook)
 (add-hook 'org-mode-hook 'turn-on-font-lock)
+
+;;
+(setq org-fontify-done-headline t)
+;;(set-face-attribute 'org-done nil :strike-through t)
+(set-face-attribute 'org-headline-done nil :strike-through t)
 
 ;; blorg mode
 ;;(require 'blorg)
@@ -131,7 +135,7 @@
    ))
 
 ;; Org-Drill - flash-cards, a-la Anki...
-(require 'org-drill)
+;;(require 'org-drill)
 
 
 ;;; emacs-rc-org-mode.el ends here

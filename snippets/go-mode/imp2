@@ -1,0 +1,10 @@
+# name: import with fmt, strings, io, log, ...
+# key: imp
+# --
+import (
+  "fmt"$>
+  "strings"$>
+  "io"$>
+  "log"$>
+  $0$>
+)$>

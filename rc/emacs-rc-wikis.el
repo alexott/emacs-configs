@@ -28,5 +28,9 @@
 (add-to-list 'auto-mode-alist '("\\.markdown?$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 
+;; media wiki
+(add-to-list 'auto-mode-alist '("\\.mwiki?$" . simple-mediawiki-mode))
+(add-hook 'simple-mediawiki-mode-hook 'turn-on-flyspell)
+(add-hook 'simple-mediawiki-mode-hook 'turn-off-auto-fill)
 
 ;;; emacs-rc-wikis.el ends here

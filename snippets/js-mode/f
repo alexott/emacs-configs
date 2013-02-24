@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# key: f
+#name : anonymous function
+# --
+function($1) {
+  $0
+}

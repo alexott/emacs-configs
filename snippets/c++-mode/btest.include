@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# key: tinc
+# name: includes for boost test
+# --
+#define BOOST_TEST_MODULE ${1:description}
+#include <boost/test/unit_test.hpp>
+
+$0

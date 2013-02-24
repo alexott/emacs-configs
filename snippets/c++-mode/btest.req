@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# key: eq
+# name: BOOST_REQUIRE_EQUAL
+# --
+BOOST_REQUIRE_EQUAL(${1:left}, $0);

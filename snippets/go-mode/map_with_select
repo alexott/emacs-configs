@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: var name = map[select] select{ ... }
+# key: map
+# contributor : Alexandr Lispython (alex@obout.ru)
+# expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil))
+# --
+var ${1:name} = map[${2:$$(yas/choose-value '("string" "int" "float"))}] ${3:$$(yas/choose-value '("string" "int" "bool" "float"))}{
+    $0
+}

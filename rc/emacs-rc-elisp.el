@@ -22,11 +22,13 @@
   (local-set-key "\C-c5f" 'find-function-other-frame)
   (local-set-key "\C-ck" 'find-function-on-key)
 
-  (add-to-list 'ac-sources 'ac-source-emacs-lisp-features)
+;;  (add-to-list 'ac-sources 'ac-source-emacs-lisp-features)
   (set (make-local-variable 'ac-auto-start) 3)
   (set (make-local-variable 'ac-auto-show-menu) 0.5)
   )
 (add-hook 'emacs-lisp-mode-hook 'alexott/elisp-mode-hook)
+(add-hook 'emacs-lisp-mode-hook 'alexott/common-prog-hook)
+(add-hook 'emacs-lisp-mode-hook 'alexott/common-hook)
 
 ;;
 (add-to-list 'auto-mode-alist '("\\.gnus$" . emacs-lisp-mode))

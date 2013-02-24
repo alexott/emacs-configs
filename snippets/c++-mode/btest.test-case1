@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# key: tcase
+# name: normal test case
+# --
+BOOST_AUTO_TEST_CASE(${1:name})
+{$>
+$0$>
+}$>

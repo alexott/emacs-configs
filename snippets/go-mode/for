@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: for { ... }
+# key: for
+# contributor: Alex Lispython (alex@obout.ru)
+# expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil))
+# --
+for {
+    $0
+}

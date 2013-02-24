@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: i := new(StructName)
+# key: new
+# contributor : Alexandr Lispython (alex@obout.ru)
+# expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil))
+# --
+${1:name} = new(${2:StructName})
+$0

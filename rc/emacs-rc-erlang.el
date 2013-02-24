@@ -37,4 +37,19 @@
   (require 'wrangler)
   )
 
+(defun alexott/get-erlang-app-dir ()
+  (let* ((src-path (file-name-directory (buffer-file-name)))
+	 (pos (string-match "/src/" src-path)))
+    (if pos
+	(substring src-path 0 (+ 1 pos))
+      src-path)))
+
+;; (setq erlang-flymake-get-code-path-dirs-function
+;;       (lambda ()
+;; 	(concat (alexott/get-erlang-app-dir) "ebin")))
+
+;; (setq erlang-flymake-get-code-include-dirs-function
+;;       (lambda ()
+;; 	(concat (alexott/get-erlang-app-dir) "include")))
+
 ;;; emacs-rc-erlang.el ends here

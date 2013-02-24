@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: range
+# key: range
+# contributor: Alex Lispython (alex@obout.ru)
+# --
+for ${1:pos}, ${2:value} := range ${3:} {
+    $0
+}

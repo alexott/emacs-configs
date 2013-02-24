@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# key: tcase
+# name: test case with fixture
+# --
+BOOST_FIXTURE_TEST_CASE(${1:name}, ${2:fixture})
+{$>
+$0$>
+}$>

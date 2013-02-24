@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: log.Fatal(...)
+# key: log
+# expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil))
+# --
+log.Fatal($0)

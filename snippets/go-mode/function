@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: func name(param_name Struct) (types) { ... }
+# key: func
+# contributor : Alexandr Lispython (alex@obout.ru)
+# expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil))
+# --
+func ${1:name}(${2:params}) ${3:return type} {
+    `yas/selected-text`$0
+}

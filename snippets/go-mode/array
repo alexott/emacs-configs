@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: array := [...]type{values}
+# key: arr
+# contributor : Alexandr Lispython (alex@obout.ru)
+# expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil))
+# --
+${1:name} := [...]${2:type}{${3:values}}
+$0

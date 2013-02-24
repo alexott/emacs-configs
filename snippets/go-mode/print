@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: fmt.Ptrintf
+# key: pr
+# expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil))
+# --
+fmt.Printf("$1\n", $0)

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# key: ne
+# name: BOOST_REQUIRE_NE
+# --
+BOOST_REQUIRE_NE(${1:left}, $0);

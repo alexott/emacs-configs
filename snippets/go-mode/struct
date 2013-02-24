@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: type Name struct { ... }
+# key: struct
+# contributor : Alexandr Lispython (alex@obout.ru)
+# expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil))
+# --
+type ${1:name} struct {
+	 $0
+}

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# key: lt
+# name: BOOST_CHECK_LT
+# --
+BOOST_CHECK_LT(${1:left}, $0);

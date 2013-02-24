@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: switch
+# key: switch
+# contributor: Alex Lispython (alex@obout.ru)
+# expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil))
+# --
+switch $1 {
+    case ${2:condition}:
+        $0
+}
+

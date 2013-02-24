@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# key: lt
+# name: BOOST_REQUIRE_LT
+# --
+BOOST_REQUIRE_LT(${1:left}, $0);

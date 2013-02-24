@@ -23,4 +23,8 @@
 (define-coding-system-alias 'koi8-ru 'koi8-u)
 (define-coding-system-alias 'koi8-r 'koi8-u)
 
+(define-coding-system-alias 'UTF-8 'utf-8)
+
+
+
 ;;; emacs-rc-mule.el ends here

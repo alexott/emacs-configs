@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# key: req
+# name: BOOST_REQUIRE
+# --
+BOOST_REQUIRE($0);

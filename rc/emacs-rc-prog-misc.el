@@ -50,6 +50,7 @@
                             java-mode jde-mode
                             lisp-interaction-mode
                             LaTeX-mode TeX-mode
+			    go-mode cuda-mode
                             scheme-mode clojure-mode)
   "Modes in which to indent regions that are yanked (or yank-popped)")
 

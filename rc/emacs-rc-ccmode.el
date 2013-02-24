@@ -32,6 +32,7 @@
   )
 (add-hook 'c-mode-common-hook 'alexott/c-mode-common-hook)
 (add-hook 'c-mode-common-hook 'alexott/common-hook)
+(add-hook 'c-mode-common-hook 'alexott/common-prog-hook)
 
 (require 'info-look)
 (info-lookup-add-help
@@ -48,5 +49,9 @@
 
 (add-to-list 'auto-mode-alist '("\\.ipp$" . c++-mode))
 (add-to-list 'auto-mode-alist '("\\.h$" . c++-mode))
+
+
+;;
+(require 'cuda-mode)
 
 ;;; emacs-rc-cmode.el ends here

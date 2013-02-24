@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# key: tsuite
+# name: test suite with fixture
+# --
+BOOST_FIXTURE_TEST_SUITE(${1:name}, ${2:fixture})
+
+$0
+
+BOOST_AUTO_TEST_SUITE_END()

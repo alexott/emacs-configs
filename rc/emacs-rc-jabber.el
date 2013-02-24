@@ -45,6 +45,7 @@
 (setq jabber-history-enabled t)
 (setq jabber-use-global-history nil)
 (setq jabber-roster-show-bindings nil)
+(setq jabber-vcard-avatars-retrieve nil)
 
 (require 'jabber-autoaway)
 (add-hook 'jabber-post-connect-hook 'jabber-autoaway-start)
