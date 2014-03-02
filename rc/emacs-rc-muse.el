@@ -118,7 +118,7 @@
 
 (defun alexott/muse-mode-hook ()
   (auto-fill-mode -1)
-  (longlines-mode -1)
+;;  (longlines-mode -1)
   (footnote-mode 1)
   )
 (add-hook 'muse-mode-hook 'alexott/muse-mode-hook)

@@ -84,3 +84,4 @@
 (setq special-display-regexps (remove "[ ]?\\*info.*\\*[ ]?" special-display-regexps))
 (setq special-display-regexps (remove "[ ]?\\*Messages\\*[ ]?" special-display-regexps))
 
+;;(setenv "LANG" "ru_RU.UTF-8")

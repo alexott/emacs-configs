@@ -51,6 +51,7 @@
 
 ;;
 (add-to-list 'auto-mode-alist '("\\.log$" . auto-revert-mode))
+(add-to-list 'auto-mode-alist '("/logs/[^/]*\\.out$" . auto-revert-mode))
 
 ;;
 (defun uniq ()

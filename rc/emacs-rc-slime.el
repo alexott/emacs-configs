@@ -44,14 +44,14 @@
 	    (clojure-mode-font-lock-setup)
 	    (font-lock-mode 1)))
 
-(defun fix-paredit-repl ()
-  (interactive)
-  (local-set-key "{" 'paredit-open-curly)
-  (local-set-key "}" 'paredit-close-curly)
-  (modify-syntax-entry ?\{ "(}") 
-  (modify-syntax-entry ?\} "){")
-  (modify-syntax-entry ?\[ "(]")
-  (modify-syntax-entry ?\] ")["))
+;; (defun fix-paredit-repl ()
+;;   (interactive)
+;;   (local-set-key "{" 'paredit-open-curly)
+;;   (local-set-key "}" 'paredit-close-curly)
+;;   (modify-syntax-entry ?\{ "(}") 
+;;   (modify-syntax-entry ?\} "){")
+;;   (modify-syntax-entry ?\[ "(]")
+;;   (modify-syntax-entry ?\] ")["))
 
 ;;
 ;;(require 'ac-slime)

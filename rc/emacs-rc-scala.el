@@ -10,7 +10,7 @@
 
 (defun alexott/scala-mode-hook ()
   (setq indent-tabs-mode nil)
-  
+  (local-set-key [return] 'newline-and-indent)
   )
 (add-hook 'scala-mode-hook 'alexott/scala-mode-hook)
 ;; (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)

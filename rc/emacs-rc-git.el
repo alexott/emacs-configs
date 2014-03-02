@@ -11,10 +11,17 @@
 (add-hook 'magit-mode-hook 'turn-on-magit-svn)
 
 (setq magit-process-connection-type nil)
+(setq magit-emacsclient-executable nil)
+(setq magit-stage-all-confirm nil)
+(setq magit-unstage-all-confirm nil)
+(setq magit-restore-window-configuration t)
 
 (define-key magit-mode-map "q" 'bury-buffer)
 
-;;(require 'magithub)
+(custom-set-faces
+ '(magit-item-highlight ((t (:background "CadetBlue1"))))
+ )
+
 
 
 ;;; emacs-rc-git.el ends here

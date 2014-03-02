@@ -72,9 +72,16 @@
 ;; (company-install-bundled-completions-rules)
 
 ;;
-(autoload 'paredit-mode "paredit" "Minor mode for pseudo-structurally editing Lisp code." t)
+;;(autoload 'paredit-mode "paredit" "Minor mode for pseudo-structurally editing Lisp code." t)
+
 (require 'eldoc)
-(eldoc-add-command 'paredit-backward-delete 'paredit-close-round)
+;;(eldoc-add-command 'paredit-backward-delete 'paredit-close-round)
+
+;; smartparens
+;;(require 'smartparens-config)
+;;(require 'smartparens-latex)
+;;(smartparens-global-mode +1)
+;;(show-smartparens-global-mode +1)
 
 ;;; emacs-prog-misc.el ends here
 

@@ -12,13 +12,13 @@
   (abbrev-mode 1)
   (auto-fill-mode 1)
   (turn-on-eldoc-mode)
-  (paredit-mode 1)
+;;  (paredit-mode 1)
   (local-set-key [return] 'newline-and-indent)
   )
 (add-hook 'lisp-mode-hook 'alexott/lisp-mode-hook)
 
 (defun alexott/lisp-interact-mode-hook ()
-  (paredit-mode 1)
+;;  (paredit-mode 1)
   )
 (add-hook 'lisp-interaction-mode-hook 'alexott/lisp-interact-mode-hook)
 

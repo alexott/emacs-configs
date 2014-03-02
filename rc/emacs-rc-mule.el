@@ -18,7 +18,6 @@
 )
 
 (set-input-method "russian-computer" nil)
-(setenv "LANG" "ru_RU.UTF-8")
 
 (define-coding-system-alias 'koi8-ru 'koi8-u)
 (define-coding-system-alias 'koi8-r 'koi8-u)

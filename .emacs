@@ -1,20 +1,12 @@
 ;; set init file for custom settings
 (setq custom-file "~/.emacs.d/custom.el")
 
-(when (equal system-type 'darwin)
-  (setenv "PATH" (concat "/Users/ott/Library/Haskell/bin:/opt/local/bin:/usr/local/bin:/usr/local/texlive/2008/bin/universal-darwin/:/Users/ott/bin:/Users/ott/exp/bin:" (getenv "PATH")))
-  (setenv "DYLD_FALLBACK_LIBRARY_PATH" "/usr/lib:/opt/local/lib:/usr/X11R6/lib:~/exp/lib")
-  (push "/opt/local/bin" exec-path)
-  (push "/usr/local/bin" exec-path)
-  (push "/Users/ott/bin" exec-path)
-  (push "/Users/ott/Library/Haskell/bin" exec-path)
-  (push "/Users/ott/exp/bin" exec-path)
-  )
-(when (string= (system-name) "alexott")
-  (setenv "PATH" (concat "/home/ott/.cabal/bin:/home/ott/exp/bin:" (getenv "PATH")))
-  (push "/home/ott/.cabal/bin" exec-path)
-  (push "/home/ott/exp/bin" exec-path)
-  )
+;; init PATH & exec-path from current shell
+(defun set-exec-path-from-shell-PATH ()
+  (let ((path-from-shell (shell-command-to-string "$SHELL -c 'echo $PATH'")))
+    (setenv "PATH" path-from-shell)
+    (setq exec-path (split-string path-from-shell path-separator))))
+(when window-system (set-exec-path-from-shell-PATH))
 
 (load "~/emacs/rc/emacs-rc-cedet.el")
 (load "~/emacs/rc/emacs-rc-erlang.el")
@@ -22,22 +14,21 @@
 ;; el-get
 (add-to-list 'load-path "~/projects/el-get/")
 (require 'el-get)
-(require 'el-get-status)
 (setq el-get-byte-compile nil)
 (setq el-get-recipe-path  '("~/projects/el-get/recipes/"))
 (setq el-get-sources '(magit psvn org-mode auctex scala-mode
-                             distel slime bbdb clojure-mode 
-			     ess emacs-jabber ahg doxymacs 
+                             distel bbdb ess emacs-jabber ahg doxymacs 
                              emacs-w3m geiser planner remember
 			     xml-rpc-el n3-mode yasnippet 
                              android-mode elein json tuareg-mode
-			     htmlize cmake-mode paredit quack
+			     htmlize cmake-mode quack
 			     js2-mode oddmuse markdown-mode
 			     graphviz-dot-mode google-contacts
 			     ghc-mod auto-complete auto-complete-clang
 			     auto-complete-emacs-lisp auto-complete-latex
 			     auto-complete-css auto-complete-etags
-			     nrepl rainbow-mode
+			     rainbow-mode go-mode rainbow-delimiters
+			     clojure-mode cider ac-nrepl smartparens paredit
 			     ))
 (el-get 'sync)
 
@@ -76,15 +67,16 @@
 (load "~/emacs/rc/emacs-rc-python.el")
 (load "~/emacs/rc/emacs-rc-doxygen.el")
 (load "~/emacs/rc/emacs-rc-elisp.el")
-;(load "~/emacs/rc/emacs-rc-ecb.el")
+(load "~/emacs/rc/emacs-rc-ecb.el")
 (load "~/emacs/rc/emacs-rc-prolog.el")
 (load "~/emacs/rc/emacs-rc-javascript.el")
 (load "~/emacs/rc/emacs-rc-css.el")
 (load "~/emacs/rc/emacs-rc-scheme.el")
+(load "~/emacs/rc/emacs-rc-go.el")
 ;;(load "~/emacs/rc/emacs-rc-ocaml.el")
 (load "~/emacs/rc/emacs-rc-lisp.el")
 (load "~/emacs/rc/emacs-rc-clojure.el")
-(load "~/emacs/rc/emacs-rc-slime.el")
+;;(load "~/emacs/rc/emacs-rc-slime.el")
 (load "~/emacs/rc/emacs-rc-haskell.el")
 (load "~/emacs/rc/emacs-rc-scala.el")
 (load "~/emacs/rc/emacs-rc-sh-mode.el")

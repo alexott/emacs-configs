@@ -12,16 +12,29 @@
 (load "c-eldoc")
 (setq c-eldoc-includes "-I~/exp/include -I./ -I../ ")
 
+;; taken from http://stackoverflow.com/questions/14715689/emacs-different-indentation-for-class-and-struct
+(defun my-c-lineup-inclass (langelem)
+  (let ((inclass (assoc 'inclass c-syntactic-context)))
+    (save-excursion
+      (goto-char (c-langelem-pos inclass))
+      (if (or (looking-at "struct")
+              (looking-at "typedef struct"))
+          '+
+        '++))))
+
 ;; customisation of cc-mode
 (defun alexott/c-mode-common-hook ()
   ;; style customization
-  (c-set-offset 'member-init-intro '++)
+  (c-set-style "bsd")
   (setq tab-width 4)
   (setq   indent-tabs-mode t)
-  (c-set-offset 'substatement-open 0)
-  (c-set-style "bsd")
-  (setq c-basic-offset 4)
+;;  (c-set-offset 'substatement-open 0)
+  (c-set-offset 'access-label '-)
+  (c-set-offset 'topmost-intro 0)
+  (c-set-offset 'inclass 'my-c-lineup-inclass)
+;;  (c-set-offset 'member-init-intro '++)
   (c-toggle-auto-hungry-state 0)
+  (setq c-basic-offset 4)
   ;; minor modes
   (auto-fill-mode 1)
   (c-turn-on-eldoc-mode)
@@ -50,8 +63,12 @@
 (add-to-list 'auto-mode-alist '("\\.ipp$" . c++-mode))
 (add-to-list 'auto-mode-alist '("\\.h$" . c++-mode))
 
-
 ;;
 (require 'cuda-mode)
+
+;; function args...
+(require 'function-args)
+(fa-config-default)
+
 
 ;;; emacs-rc-cmode.el ends here

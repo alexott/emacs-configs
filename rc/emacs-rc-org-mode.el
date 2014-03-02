@@ -77,9 +77,9 @@
 (add-to-list 'org-link-abbrev-alist '("BZ" . "https://bugzilla.corp.nai.org/bugzilla/show_bug.cgi?id="))
 
 ;; remember mode
-(org-remember-insinuate)
-(setq org-default-notes-file (concat org-directory "/notes.org"))
-(define-key global-map "\C-cr" 'org-remember)
+;;(org-remember-insinuate)
+;;(setq org-default-notes-file (concat org-directory "/notes.org"))
+;;(define-key global-map "\C-cr" 'org-remember)
 
 ;; mobile org support
 (setq org-mobile-inbox-for-pull (concat org-directory "/mobile.org"))
