@@ -32,7 +32,7 @@
   (local-set-key [(control return)] 'semantic-ia-complete-symbol-menu)
   (local-set-key "\C-c?" 'semantic-ia-complete-symbol)
   ;;
-  (local-set-key "\C-c>" 'semantic-comsemantic-ia-complete-symbolplete-analyze-inline)
+  (local-set-key "\C-c>" 'semantic-complete-analyze-inline)
   (local-set-key "\C-c=" 'semantic-decoration-include-visit)
 
   (local-set-key "\C-cj" 'semantic-ia-fast-jump)
